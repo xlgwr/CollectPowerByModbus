@@ -23,6 +23,7 @@ namespace EPMCS.Service.Job
     public class CollectJob : IJob
     {
         private static readonly ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        public static Dictionary<string, List<UploadData>> _dataErrCollect { get; set; }
 
         #region "Execute"
 
@@ -73,6 +74,12 @@ namespace EPMCS.Service.Job
                     logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! 线程池是否成功? [{0}]", success);
                     if (success)
                     {
+                        //add xlg remove bak
+                        if (_dataErrCollect[taskgroup.Ticks.ToString()] != null)
+                        {
+                            _dataErrCollect.Remove(taskgroup.Ticks.ToString());
+                        };
+                        //end xlg
                         foreach (var wir in wirs)
                         {
                             alldata.AddRange(wir.Result);
@@ -161,9 +168,16 @@ namespace EPMCS.Service.Job
                     {   //add by xlg 2015-08-05 
                         //同一组中，如果一表维修或已坏，不会保存已采集的数据。
                         //线程池为false，保存已采集到的数据。
-                        foreach (var wir in wirs)
-                        {
-                            alldata.AddRange(wir.Result);
+                        if (_dataErrCollect.ContainsKey(taskgroup.Ticks.ToString()))
+                        {                            
+                            alldata.AddRange(_dataErrCollect[taskgroup.Ticks.ToString()]);
+                            var tmpAllcount = 0;
+                            foreach (var m in  metersgroup.RMeters)
+                            {
+                                tmpAllcount += m.Value.Count();
+                            }
+
+                            logger.ErrorFormat("执行采集任务!!!!!!总共:[{0}], [{1}] 已采集, [{2}] 有异常无法采集到.", tmpAllcount, alldata.Count, (tmpAllcount - alldata.Count));
                         }
                     }
 
@@ -345,7 +359,18 @@ namespace EPMCS.Service.Job
                             }
                             data.PowerDate = state.Group;// new DateTime(year, month, day, hour, minute, second);
                             data.Uploaded = 0;
+                            //add by xlg 2015-07-05
+                            if (_dataErrCollect==null)
+                            {
+                                _dataErrCollect = new Dictionary<string, List<UploadData>>();
+                            }
 
+                            if (!_dataErrCollect.ContainsKey(data.Groupstamp))
+                            { 
+                                _dataErrCollect[data.Groupstamp] = new List<UploadData>();                               
+                            } 
+                            _dataErrCollect[data.Groupstamp].Add(data);
+                            //end by xlg
                             alldata.Add(data);
                         }
                         catch (System.Threading.ThreadAbortException tae)
@@ -368,6 +393,9 @@ namespace EPMCS.Service.Job
                         catch (Exception exm)
                         {
                             logger.Error("表采集失败", exm);
+                            //add by xlg
+                            logger.ErrorFormat("采集表[{0}],地址{1},一共有{2}个采集项目", meter.DeviceName, meter.DeviceAdd, meter.CmdInfos.Count());
+                           
                         }
                     }
 
@@ -381,7 +409,6 @@ namespace EPMCS.Service.Job
             {
                 logger.Error(String.Format("串口[{0}]采集失败", state.Port), exsp);
             }
-
             return alldata;
         }
     }
