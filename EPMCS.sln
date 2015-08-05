@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPMCS.Service", "EPMCS.Service\EPMCS.Service.csproj", "{F5689CAB-B2E8-47BA-BCC2-E1734A084410}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_App|Any CPU = Debug_App|Any CPU
+		Debug_App|Mixed Platforms = Debug_App|Mixed Platforms
+		Debug_App|x86 = Debug_App|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug_App|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug_App|Any CPU.Build.0 = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug_App|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug_App|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug_App|x86.ActiveCfg = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F5689CAB-B2E8-47BA-BCC2-E1734A084410}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
