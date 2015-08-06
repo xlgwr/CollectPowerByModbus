@@ -75,11 +75,6 @@ namespace EPMCS.Service.Job
                     logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! 线程池是否成功? [{0}]", success);
                     if (success)
                     {
-                        //add xlg remove bak
-                        if (_dataErrCollect[taskgroup.Ticks.ToString()] != null)
-                        {
-                            _dataErrCollect.Remove(taskgroup.Ticks.ToString());
-                        };
                         //end xlg
                         foreach (var wir in wirs)
                         {
@@ -182,6 +177,11 @@ namespace EPMCS.Service.Job
                         }
                     }
 
+                    //add xlg remove bak
+                    if (_dataErrCollect[taskgroup.Ticks.ToString()] != null)
+                    {
+                        _dataErrCollect.Remove(taskgroup.Ticks.ToString());
+                    };
                 }
 
                 logger.DebugFormat("执行采集任务!!!!!!采集到数据 [{0}]条", alldata.Count);
