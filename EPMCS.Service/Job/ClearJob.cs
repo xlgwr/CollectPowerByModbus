@@ -29,7 +29,7 @@ namespace EPMCS.Service.Job
                         try
                         {
                             logger.DebugFormat("开始清除组{0}已上传的数据!", g);
-                            dbcontext.Database.ExecuteSqlCommand("delete from uploaddatas where Groupstamp={0} and Uploaded={1}", g, 1);
+                            dbcontext.Database.ExecuteSqlCommand("delete from uploaddatas where Groupstamp={0} and Uploaded={1}", g, 3);//change 1 to 3, by xlg
                             //var data = dbcontext.Datas.Where(m => m.Groupstamp == g && m.Uploaded == 1);
                             //dbcontext.Datas.RemoveRange(data);
                             dbcontext.SaveChanges();

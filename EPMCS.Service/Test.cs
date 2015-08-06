@@ -58,45 +58,45 @@ namespace EPMCS.Service
 
             #region "upload"
 
-            //int uploadInterval = ConfUtil.UploadIntervalInSeconds();
-            //IJobDetail upload_job = JobBuilder.Create<UploadJob>()
-            //    .WithIdentity(Consts.UploadJob, Consts.UploadGroup)
-            //    .Build();
+            int uploadInterval = ConfUtil.UploadIntervalInSeconds();
+            IJobDetail upload_job = JobBuilder.Create<UploadJob>()
+                .WithIdentity(Consts.UploadJob, Consts.UploadGroup)
+                .Build();
 
-            //ITrigger upload_trigger = TriggerBuilder.Create()
-            //    .WithIdentity(Consts.UploadTrigger, Consts.UploadGroup)
-            //    .StartAt(runTime)
-            //    .WithSimpleSchedule(x => x.WithIntervalInSeconds(uploadInterval).RepeatForever())
-            //    .Build();
+            ITrigger upload_trigger = TriggerBuilder.Create()
+                .WithIdentity(Consts.UploadTrigger, Consts.UploadGroup)
+                .StartAt(runTime)
+                .WithSimpleSchedule(x => x.WithIntervalInSeconds(uploadInterval).RepeatForever())
+                .Build();
 
-            ////Set up the listener
-            //UploadJobListener upload_listener = new UploadJobListener();
-            //IMatcher<JobKey> upload_matcher = KeyMatcher<JobKey>.KeyEquals(upload_job.Key);
-            //scheduler.ListenerManager.AddJobListener(upload_listener, upload_matcher);
+            //Set up the listener
+            UploadJobListener upload_listener = new UploadJobListener();
+            IMatcher<JobKey> upload_matcher = KeyMatcher<JobKey>.KeyEquals(upload_job.Key);
+            scheduler.ListenerManager.AddJobListener(upload_listener, upload_matcher);
 
-            //// Tell quartz to schedule the job using our trigger
-            //scheduler.ScheduleJob(upload_job, upload_trigger);
+            // Tell quartz to schedule the job using our trigger
+            scheduler.ScheduleJob(upload_job, upload_trigger);
 
             #endregion "upload"
 
             #region "collect"
 
-            IJobDetail job = JobBuilder.Create<CollectJob>()
-                         .WithIdentity(Consts.CollectJob, Consts.CollectGroup)
-                         .Build();
+            //IJobDetail job = JobBuilder.Create<CollectJob>()
+            //             .WithIdentity(Consts.CollectJob, Consts.CollectGroup)
+            //             .Build();
 
-            ITrigger trigger = TriggerBuilder.Create()
-                .WithIdentity(Consts.CollectTrigger, Consts.CollectGroup)
-                .StartAt(runTime)
-                .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
-                .Build();
+            //ITrigger trigger = TriggerBuilder.Create()
+            //    .WithIdentity(Consts.CollectTrigger, Consts.CollectGroup)
+            //    .StartAt(runTime)
+            //    .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
+            //    .Build();
 
-            //Set up the listener
-            IJobListener listener = new CollectJobListener();
-            IMatcher<JobKey> matcher = KeyMatcher<JobKey>.KeyEquals(job.Key);
-            scheduler.ListenerManager.AddJobListener(listener, matcher);
+            ////Set up the listener
+            //IJobListener listener = new CollectJobListener();
+            //IMatcher<JobKey> matcher = KeyMatcher<JobKey>.KeyEquals(job.Key);
+            //scheduler.ListenerManager.AddJobListener(listener, matcher);
 
-            scheduler.ScheduleJob(job, trigger);
+            //scheduler.ScheduleJob(job, trigger);
 
             #endregion "collect"
         }

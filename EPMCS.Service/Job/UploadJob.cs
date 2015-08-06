@@ -27,10 +27,16 @@ namespace EPMCS.Service.Job
             {
                 using (MysqlDbContext dbcontext = new MysqlDbContext())
                 {
-                    var groups = dbcontext.Datas.Where(m => m.Uploaded == 0).Select(m => m.Groupstamp).Distinct();
+                    //change by xlg, flag: 0->未使用/未上传，1->未使用/已上传，2->使用/未上传，3->使用/上传，
+                    //var groups = dbcontext.Datas.Where(m => (m.Uploaded == 0 || m.Uploaded == 2)).Distinct();
+                    var tmpUploadSQLQuery = dbcontext.Datas.Where(m => (m.Uploaded == 0 || m.Uploaded == 2)).ToList();
+                    var groups = tmpUploadSQLQuery.Select(m => m.Groupstamp).Distinct();
+
                     foreach (var g in groups)
                     {
-                        List<UploadData> data = dbcontext.Datas.Where(m => m.Groupstamp == g && m.Uploaded == 0).ToList();
+                        //add by xlg, flag: 0->未使用/未上传，1->未使用/已上传，2->使用/未上传，3->使用/上传，
+                        //List<UploadData> data = dbcontext.Datas.Where(m => m.Groupstamp == g && m.Uploaded == 0).ToList();
+                        var data = tmpUploadSQLQuery.Where(m => m.Groupstamp.Equals(g)).ToList();
                         UploadRowsCount += data.Count;
                         string sendStr = Newtonsoft.Json.JsonConvert.SerializeObject(data);
                         logger.DebugFormat("执行上传任务!!!!!!!!!!!!!!! 发送上传数据 = {0}", sendStr);
@@ -63,7 +69,8 @@ namespace EPMCS.Service.Job
                                                 if (one != null)
                                                 {
                                                     logger.DebugFormat("#######找到 CustomerId={0} ,DeviceId={1} , Groupstamp={2} #########", deviceData.DeviceId, deviceData.DeviceId, row.Groupstamp);
-                                                    one.Uploaded = 1;
+                                                    //add by xlg.   one.Uploaded = 1;
+                                                    one.Uploaded = one.Uploaded == 0 ? 1 : 3;
                                                 }
                                                 else
                                                 {
