@@ -37,6 +37,7 @@ namespace EPMCS.Service.Job
                         //add by xlg, flag: 0->未使用/未上传，1->未使用/已上传，2->使用/未上传，3->使用/上传，
                         //List<UploadData> data = dbcontext.Datas.Where(m => m.Groupstamp == g && m.Uploaded == 0).ToList();
                         var data = tmpUploadSQLQuery.Where(m => m.Groupstamp.Equals(g)).ToList();
+                        //end by xlg
                         UploadRowsCount += data.Count;
                         string sendStr = Newtonsoft.Json.JsonConvert.SerializeObject(data);
                         logger.DebugFormat("执行上传任务!!!!!!!!!!!!!!! 发送上传数据 = {0}", sendStr);

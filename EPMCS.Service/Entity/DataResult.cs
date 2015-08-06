@@ -6,6 +6,15 @@ namespace EPMCS.Service.Entity
     {
         private int status;
 
+        private string mxg;
+
+        public string Mxg
+        {
+            get { return mxg; }
+            set { mxg = value; }
+        }
+
+        
         public int Status
         {
             get { return status; }

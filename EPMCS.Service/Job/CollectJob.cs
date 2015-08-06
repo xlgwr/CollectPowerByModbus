@@ -150,7 +150,7 @@ namespace EPMCS.Service.Job
 
                                         //判断虚拟表有否超过阈值
                                         dd.ValueLevel = AlarmLevel(dd.PowerValue, mt);
-
+                                        
                                         alldata.Add(dd);
                                     }
                                     catch (Exception ex)

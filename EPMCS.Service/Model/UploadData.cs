@@ -37,9 +37,11 @@ namespace EPMCS.Model
         public double MeterValue { get; set; }
 
         //add by xlg 2015-07-05
-        [Required]
+        //[Required]
+        //[JsonIgnore]
         public double DiffMeterValuePre { get; set; }
-        [Required]
+        //[Required]
+        //[JsonIgnore]
         public DateTime PrePowerDate { get; set; }
         //end by xlg
 
