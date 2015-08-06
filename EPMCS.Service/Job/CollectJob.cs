@@ -150,7 +150,7 @@ namespace EPMCS.Service.Job
 
                                         //判断虚拟表有否超过阈值
                                         dd.ValueLevel = AlarmLevel(dd.PowerValue, mt);
-                                        
+
                                         alldata.Add(dd);
                                     }
                                     catch (Exception ex)
@@ -381,7 +381,7 @@ namespace EPMCS.Service.Job
                                     data.PrePowerDate = tmpPredata.PowerDate;
                                     data.DiffMeterValuePre = data.MeterValue - tmpPredata.MeterValue;
 
-                                    tmpPredata.Uploaded = tmpPredata.Uploaded == 0 ? 2 : 3;
+                                    tmpPredata.Uploaded = (tmpPredata.Uploaded == 0 || tmpPredata.Uploaded == 2) ? 2 : 3;
 
                                     dbcontext.SaveChanges();
                                 }
