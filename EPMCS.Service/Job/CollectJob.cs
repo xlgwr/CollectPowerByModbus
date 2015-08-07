@@ -112,7 +112,13 @@ namespace EPMCS.Service.Job
                                 }
                                 paramz["A3"].Add(mm.DeviceId, mm.A3);
 
-
+                                //add by xlg 
+                                if (!paramz.ContainsKey("DiffMeterValuePre"))
+                                {
+                                    paramz["DiffMeterValuePre"] = new Dictionary<string, object>();
+                                }
+                                paramz["DiffMeterValuePre"].Add(mm.DeviceId, mm.DiffMeterValuePre);
+                                //add end
                             }
 
                             //生成虚拟表数据
@@ -144,6 +150,10 @@ namespace EPMCS.Service.Job
 
                                         e.Parameters = paramz["A3"];
                                         dd.A3 = (double)e.Evaluate();
+                                        //add by xlg 
+                                        e.Parameters = paramz["DiffMeterValuePre"];
+                                        dd.DiffMeterValuePre = (double)e.Evaluate();
+                                        //end by xlg
 
                                         //判断虚拟表有否超过阈值
                                         dd.ValueLevel = AlarmLevel(dd.PowerValue, mt);
@@ -164,8 +174,8 @@ namespace EPMCS.Service.Job
                     }//success
                     else
                     {   //add by xlg 2015-08-05 
-                        //同一组中，如果一表维修或已坏，不会保存已采集的数据。
-                        //线程池为false，保存已采集到的数据。
+                        //同一组中，如果一表维修或已坏，old不会保存已采集的数据。
+                        //修正：线程池为false，保存已采集到的数据。
                         if (_dataErrCollect.ContainsKey(taskgroup.Ticks.ToString()))
                         {
                             alldata.AddRange(_dataErrCollect[taskgroup.Ticks.ToString()]);
