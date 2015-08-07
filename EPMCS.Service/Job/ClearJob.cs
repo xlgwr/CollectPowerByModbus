@@ -19,7 +19,7 @@ namespace EPMCS.Service.Job
             logger.Debug("执行清理任务!!!!!!!!!!!!!!!");
             using (MysqlDbContext dbcontext = new MysqlDbContext())
             {
-                var pgroups = dbcontext.Datas.Where(m => m.Uploaded == 1);
+                var pgroups = dbcontext.Datas.Where(m => m.Uploaded == 3);//change 1 to 3, by xlg
                 if (pgroups != null && pgroups.Count() > 0)
                 {
                     var groups = pgroups.Select(m => m.Groupstamp).Distinct();

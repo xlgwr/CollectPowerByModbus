@@ -70,7 +70,7 @@ namespace EPMCS.Service.Job
                                                 if (one != null)
                                                 {
                                                     logger.DebugFormat("#######找到 CustomerId={0} ,DeviceId={1} , Groupstamp={2} #########", deviceData.DeviceId, deviceData.DeviceId, row.Groupstamp);
-                                                    //add by xlg.   one.Uploaded = 1;
+                                                    //change by xlg.   one.Uploaded = 1;
                                                     one.Uploaded = one.Uploaded == 0 ? 1 : 3;
                                                 }
                                                 else

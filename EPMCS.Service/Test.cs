@@ -42,17 +42,17 @@ namespace EPMCS.Service
 
             #region "clear"
 
-            //int clearInterval = ConfUtil.ClearIntervalInMinutes();
-            //IJobDetail clear_job = JobBuilder.Create<ClearJob>()
-            //    .WithIdentity(Consts.ClearJob, Consts.ClearGroup)
-            //     .Build();
+            int clearInterval = ConfUtil.ClearIntervalInMinutes();
+            IJobDetail clear_job = JobBuilder.Create<ClearJob>()
+                .WithIdentity(Consts.ClearJob, Consts.ClearGroup)
+                 .Build();
 
-            //ITrigger clear_trigger = TriggerBuilder.Create()
-            //    .WithIdentity(Consts.ClearTrigger, Consts.ClearGroup)
-            //    .StartAt(runTime)
-            //    .WithSimpleSchedule(x => x.WithIntervalInMinutes(clearInterval).RepeatForever())
-            //    .Build();
-            //scheduler.ScheduleJob(clear_job, clear_trigger);
+            ITrigger clear_trigger = TriggerBuilder.Create()
+                .WithIdentity(Consts.ClearTrigger, Consts.ClearGroup)
+                .StartAt(runTime)
+                .WithSimpleSchedule(x => x.WithIntervalInMinutes(clearInterval).RepeatForever())
+                .Build();
+            scheduler.ScheduleJob(clear_job, clear_trigger);
 
             #endregion "clear"
 
