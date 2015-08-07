@@ -397,7 +397,8 @@ namespace EPMCS.Service.Job
                                     var tmpPredata = dbcontext.Datas.Where(d => d.Id == tmpMaxId).FirstOrDefault();
 
                                     data.PrePowerDate = tmpPredata.PowerDate;
-                                    data.DiffMeterValuePre = data.MeterValue - tmpPredata.MeterValue;
+                                    var tmpeiff = data.MeterValue - tmpPredata.MeterValue;
+                                    data.DiffMeterValuePre = tmpeiff > 0 ? tmpeiff : 0;
 
                                     tmpPredata.Uploaded = (tmpPredata.Uploaded == 0 || tmpPredata.Uploaded == 2) ? 2 : 3;
 
