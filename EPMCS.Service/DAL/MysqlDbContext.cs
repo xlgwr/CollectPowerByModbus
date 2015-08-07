@@ -19,7 +19,7 @@ namespace EPMCS.DAL
             : base("name=MysqlDbConn")
         {
             //add log for EF gen SQL by xlg
-            Database.Log = logger.Debug;
+            Database.Log = message => logger.DebugFormat(message.Replace("\n", " "));
 
             //Configuration.ProxyCreationEnabled = true;
             //Configuration.LazyLoadingEnabled = true;
