@@ -1,12 +1,15 @@
 ﻿using EPMCS.Model;
+using log4net;
 using MySql.Data.Entity;
 using System.Data.Entity;
+using System.Reflection;
 
 namespace EPMCS.DAL
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     public partial class MysqlDbContext : DbContext
     {
+        private static readonly ILog logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         static MysqlDbContext()
         {
             Database.SetInitializer(new InitializerForCreateDatabaseIfNotExists());
@@ -15,6 +18,9 @@ namespace EPMCS.DAL
         public MysqlDbContext()
             : base("name=MysqlDbConn")
         {
+            //add log for EF gen SQL by xlg
+            Database.Log = logger.Debug;
+
             //Configuration.ProxyCreationEnabled = true;
             //Configuration.LazyLoadingEnabled = true;
 
