@@ -393,7 +393,7 @@ namespace EPMCS.Service.Job
                                 if (tmpUpdateData.Count > 0)
                                 {
                                     var tmpMaxId = tmpUpdateData.Max(d => d.Id);
-                                    logger.DebugFormat("上一次采集ID:[{0}]", tmpUpdateData);
+                                    logger.DebugFormat("上一次采集ID:[{0}],总计录：[{1}]", tmpMaxId, tmpUpdateData.Count);
                                     var tmpPredata = dbcontext.Datas.Where(d => d.Id == tmpMaxId).FirstOrDefault();
 
                                     data.PrePowerDate = tmpPredata.PowerDate;
