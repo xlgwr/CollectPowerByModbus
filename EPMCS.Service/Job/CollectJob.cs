@@ -111,6 +111,8 @@ namespace EPMCS.Service.Job
                                     paramz["A3"] = new Dictionary<string, object>();
                                 }
                                 paramz["A3"].Add(mm.DeviceId, mm.A3);
+
+
                             }
 
                             //生成虚拟表数据
@@ -127,7 +129,7 @@ namespace EPMCS.Service.Job
                                             CustomerId = mt.CustomerId,
                                             DeviceCd = mt.DeviceCd,
                                             DeviceId = mt.DeviceId,
-                                            Uploaded = 0
+                                            Uploaded = 2 //Uploaded = 0 //by xlg 虚拟表不计算前值电量
                                         };
 
                                         Expression e = new Expression(mt.ComputationRule);
@@ -145,7 +147,7 @@ namespace EPMCS.Service.Job
 
                                         //判断虚拟表有否超过阈值
                                         dd.ValueLevel = AlarmLevel(dd.PowerValue, mt);
-
+                                        
                                         alldata.Add(dd);
                                     }
                                     catch (Exception ex)
@@ -353,7 +355,7 @@ namespace EPMCS.Service.Job
                                 if (info.Name.ToLower() == "pf")
                                 {
                                     data.Pf = Ints.UShortToShort(dd[0]) * info.UnitFactor;
-                                }
+                                }                                
                                 //判断本表有否超过阈值
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
 
