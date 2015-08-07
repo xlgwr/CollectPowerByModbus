@@ -55,10 +55,11 @@ namespace EPMCS.Service.Job
                     return;
                 }
                 logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! metersgroup == null [{0}]", metersgroup == null);
+                DateTime taskgroup = DateTime.Now;
                 if (metersgroup != null && metersgroup.RMeters.Count > 0)
                 {
                     logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! metersgroup.RMeters.Count= [{0}]", metersgroup.RMeters.Count);
-                    DateTime taskgroup = DateTime.Now;
+                    //DateTime taskgroup = DateTime.Now;
                     int portCount = metersgroup.RMeters.Count;
                     IWorkItemsGroup collectWorkItemsGroup = PoolsManager.GetCollectDataThreadPoolInstance().CreateWorkItemsGroup(portCount);
                     IWorkItemResult<List<UploadData>>[] wirs = new IWorkItemResult<List<UploadData>>[portCount];
@@ -157,7 +158,7 @@ namespace EPMCS.Service.Job
 
                                         //判断虚拟表有否超过阈值
                                         dd.ValueLevel = AlarmLevel(dd.PowerValue, mt);
-                                        
+
                                         alldata.Add(dd);
                                     }
                                     catch (Exception ex)
@@ -189,11 +190,8 @@ namespace EPMCS.Service.Job
                         }
                     }
 
-                    //add xlg remove bak
-                    if (_dataErrCollect[taskgroup.Ticks.ToString()] != null)
-                    {
-                        _dataErrCollect.Remove(taskgroup.Ticks.ToString());
-                    };
+
+
                 }
 
                 logger.DebugFormat("执行采集任务!!!!!!采集到数据 [{0}]条", alldata.Count);
@@ -208,6 +206,14 @@ namespace EPMCS.Service.Job
                         logger.DebugFormat("执行采集任务!!!!!!共 [{0}]数据存储到本地数据库", alldata.Count);
                     }
                     context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, alldata.Select(m => m.ValueLevel).Max());
+                }
+                //add xlg remove bak
+                if (_dataErrCollect != null)
+                {
+                    if (_dataErrCollect[taskgroup.Ticks.ToString()] != null)
+                    {
+                        _dataErrCollect.Remove(taskgroup.Ticks.ToString());
+                    };
                 }
             }
             catch (Exception ex)
@@ -365,7 +371,7 @@ namespace EPMCS.Service.Job
                                 if (info.Name.ToLower() == "pf")
                                 {
                                     data.Pf = Ints.UShortToShort(dd[0]) * info.UnitFactor;
-                                }                                
+                                }
                                 //判断本表有否超过阈值
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
 
