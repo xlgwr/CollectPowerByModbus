@@ -210,7 +210,7 @@ namespace EPMCS.Service.Job
                 //add xlg remove bak
                 if (_dataErrCollect != null)
                 {
-                    if (_dataErrCollect[taskgroup.Ticks.ToString()] != null)
+                    if (_dataErrCollect.ContainsKey(taskgroup.Ticks.ToString()))
                     {
                         _dataErrCollect.Remove(taskgroup.Ticks.ToString());
                     };
