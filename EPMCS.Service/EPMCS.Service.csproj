@@ -135,9 +135,9 @@
     <Compile Include="Entity\StateData.cs" />
     <Compile Include="Job\UploadJob.cs" />
     <Compile Include="Job\UploadJobListener.cs" />
-    <Compile Include="Migrations\201508100831238_initfirst.cs" />
-    <Compile Include="Migrations\201508100831238_initfirst.Designer.cs">
-      <DependentUpon>201508100831238_initfirst.cs</DependentUpon>
+    <Compile Include="Migrations\201508100855306_initfirst.cs" />
+    <Compile Include="Migrations\201508100855306_initfirst.Designer.cs">
+      <DependentUpon>201508100855306_initfirst.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IEntity.cs" />
@@ -195,8 +195,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508100831238_initfirst.resx">
-      <DependentUpon>201508100831238_initfirst.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508100855306_initfirst.resx">
+      <DependentUpon>201508100855306_initfirst.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

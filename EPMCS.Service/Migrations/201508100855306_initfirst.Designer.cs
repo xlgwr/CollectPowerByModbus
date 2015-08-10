@@ -13,7 +13,7 @@ namespace EPMCS.Service.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201508100831238_initfirst"; }
+            get { return "201508100855306_initfirst"; }
         }
         
         string IMigrationMetadata.Source

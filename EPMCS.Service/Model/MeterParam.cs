@@ -156,11 +156,11 @@ namespace EPMCS.Model
         }
 
         //报文
-        [StringLength(1024)]
+        [StringLength(4089)]
         private string message;
 
 
-        [StringLength(1024)]
+        [StringLength(4089)]
         public string Message
         {
             get { return message; }

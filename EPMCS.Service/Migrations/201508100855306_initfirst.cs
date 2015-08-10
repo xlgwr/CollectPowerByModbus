@@ -50,7 +50,7 @@ namespace EPMCS.Service.Migrations
                         Level4 = c.Int(nullable: false),
                         Port = c.String(maxLength: 25, unicode: false, storeType: "nvarchar"),
                         DeviceAdd = c.String(maxLength: 40, unicode: false, storeType: "nvarchar"),
-                        Message = c.String(maxLength: 1024, unicode: false, storeType: "nvarchar"),
+                        Message = c.String(maxLength: 4089, unicode: false, storeType: "nvarchar"),
                         ComputationRule = c.String(maxLength: 200, unicode: false, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.Id);
