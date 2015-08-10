@@ -7,13 +7,13 @@ namespace EPMCS.Service.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class initfrist : IMigrationMetadata
+    public sealed partial class initfirst : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initfrist));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initfirst));
         
         string IMigrationMetadata.Id
         {
-            get { return "201508061126402_initfrist"; }
+            get { return "201508100831238_initfirst"; }
         }
         
         string IMigrationMetadata.Source

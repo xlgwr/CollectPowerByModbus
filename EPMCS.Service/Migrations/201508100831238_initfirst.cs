@@ -3,7 +3,7 @@ namespace EPMCS.Service.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initfrist : DbMigration
+    public partial class initfirst : DbMigration
     {
         public override void Up()
         {
@@ -15,7 +15,7 @@ namespace EPMCS.Service.Migrations
                         CustomerId = c.String(nullable: false, maxLength: 25, unicode: false, storeType: "nvarchar"),
                         DeviceId = c.String(nullable: false, maxLength: 25, unicode: false, storeType: "nvarchar"),
                         DeviceCd = c.String(nullable: false, maxLength: 25, unicode: false, storeType: "nvarchar"),
-                        Groupstamp = c.String(nullable: false, unicode: false),
+                        Groupstamp = c.String(nullable: false, maxLength: 32, unicode: false, storeType: "nvarchar"),
                         PowerDate = c.DateTime(nullable: false, precision: 0),
                         PowerValue = c.Double(nullable: false),
                         ValueLevel = c.Int(nullable: false),
@@ -38,20 +38,20 @@ namespace EPMCS.Service.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        CustomerId = c.String(unicode: false),
-                        DeviceId = c.String(unicode: false),
-                        DeviceCd = c.String(unicode: false),
-                        DeviceName = c.String(unicode: false),
-                        FDeviceId = c.String(unicode: false),
+                        CustomerId = c.String(nullable: false, maxLength: 25, unicode: false, storeType: "nvarchar"),
+                        DeviceId = c.String(nullable: false, maxLength: 25, unicode: false, storeType: "nvarchar"),
+                        DeviceCd = c.String(nullable: false, maxLength: 25, unicode: false, storeType: "nvarchar"),
+                        DeviceName = c.String(maxLength: 200, unicode: false, storeType: "nvarchar"),
+                        FDeviceId = c.String(maxLength: 25, unicode: false, storeType: "nvarchar"),
                         DemandValue = c.Int(nullable: false),
                         Level1 = c.Int(nullable: false),
                         Level2 = c.Int(nullable: false),
                         Level3 = c.Int(nullable: false),
                         Level4 = c.Int(nullable: false),
-                        Port = c.String(unicode: false),
-                        DeviceAdd = c.String(unicode: false),
-                        Message = c.String(unicode: false),
-                        ComputationRule = c.String(unicode: false),
+                        Port = c.String(maxLength: 25, unicode: false, storeType: "nvarchar"),
+                        DeviceAdd = c.String(maxLength: 40, unicode: false, storeType: "nvarchar"),
+                        Message = c.String(maxLength: 1024, unicode: false, storeType: "nvarchar"),
+                        ComputationRule = c.String(maxLength: 200, unicode: false, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.Id);
             

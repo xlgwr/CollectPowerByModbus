@@ -20,10 +20,13 @@ namespace EPMCS.Model
         }
 
         //客户编号
+
         [Required]
         [StringLength(25)]
         private string customerId;
 
+        [Required]
+        [StringLength(25)]
         public string CustomerId
         {
             get { return customerId; }
@@ -35,6 +38,9 @@ namespace EPMCS.Model
         [StringLength(25)]
         private string deviceId;
 
+
+        [Required]
+        [StringLength(25)]
         public string DeviceId
         {
             get { return deviceId; }
@@ -46,6 +52,9 @@ namespace EPMCS.Model
         [StringLength(25)]
         private string deviceCd;
 
+
+        [Required]
+        [StringLength(25)]
         public string DeviceCd
         {
             get { return deviceCd; }
@@ -56,6 +65,8 @@ namespace EPMCS.Model
         [StringLength(200)]
         private string deviceName;
 
+
+        [StringLength(200)]
         public string DeviceName
         {
             get { return deviceName; }
@@ -66,6 +77,8 @@ namespace EPMCS.Model
         [StringLength(25)]
         private string fDeviceId;
 
+
+        [StringLength(25)]
         public string FDeviceId
         {
             get { return fDeviceId; }
@@ -122,6 +135,8 @@ namespace EPMCS.Model
         [StringLength(25)]
         private string port;
 
+
+        [StringLength(25)]
         public string Port
         {
             get { return port; }
@@ -132,6 +147,8 @@ namespace EPMCS.Model
         [StringLength(40)]
         private string deviceAdd;
 
+
+        [StringLength(40)]
         public string DeviceAdd
         {
             get { return deviceAdd; }
@@ -142,6 +159,8 @@ namespace EPMCS.Model
         [StringLength(1024)]
         private string message;
 
+
+        [StringLength(1024)]
         public string Message
         {
             get { return message; }
@@ -151,6 +170,8 @@ namespace EPMCS.Model
         [StringLength(200)]
         private string computationRule;
 
+
+        [StringLength(200)]
         public string ComputationRule
         {
             get { return computationRule; }

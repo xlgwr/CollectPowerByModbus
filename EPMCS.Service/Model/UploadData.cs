@@ -22,6 +22,7 @@ namespace EPMCS.Model
         public string DeviceCd { get; set; }
 
         [Required]
+        [StringLength(32)]
         public string Groupstamp { get; set; }
 
         [Required]

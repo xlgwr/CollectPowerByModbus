@@ -76,7 +76,6 @@ namespace EPMCS.Service.Job
                     logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! 线程池是否成功? [{0}]", success);
                     if (success)
                     {
-                        //end xlg
                         foreach (var wir in wirs)
                         {
                             alldata.AddRange(wir.Result);
@@ -317,7 +316,9 @@ namespace EPMCS.Service.Job
                                 ushort npoints = Ints.Reg16Count(info.CsharpType);
                                 ushort[] dd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
                                 string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
-                                logger.Info("收到数据: " + String.Join(",", cc));
+
+
+                                logger.Info("收到数据," + String.Join(",", cc));
 
                                 if (info.Name.ToLower() == "yearmonth")
                                 {

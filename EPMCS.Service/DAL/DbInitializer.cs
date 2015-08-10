@@ -406,7 +406,8 @@ namespace EPMCS.DAL
                 Level2 = 400,
                 Level3 = 500,
                 Level4 = 600,
-                ComputationRule = "[A001]+[A002]"
+                ComputationRule = "[A001]+[A002]",
+                
             };
             //context.Set<MeterParam>().Add(mp);
             //context.Set<MeterParam>().Add(mp1);
