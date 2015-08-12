@@ -22,11 +22,11 @@ namespace EPMCS.Model
         //客户编号
 
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         private string customerId;
 
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         public string CustomerId
         {
             get { return customerId; }
@@ -35,12 +35,12 @@ namespace EPMCS.Model
 
         //设备编号
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         private string deviceId;
 
 
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         public string DeviceId
         {
             get { return deviceId; }
@@ -49,12 +49,12 @@ namespace EPMCS.Model
 
         //设备自身编号
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         private string deviceCd;
 
 
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         public string DeviceCd
         {
             get { return deviceCd; }
@@ -62,11 +62,11 @@ namespace EPMCS.Model
         }
 
         //名称
-        [StringLength(200)]
+        [StringLength(600)]
         private string deviceName;
 
 
-        [StringLength(200)]
+        [StringLength(600)]
         public string DeviceName
         {
             get { return deviceName; }
@@ -74,11 +74,11 @@ namespace EPMCS.Model
         }
 
         //父设备编号
-        [StringLength(25)]
+        [StringLength(75)]
         private string fDeviceId;
 
 
-        [StringLength(25)]
+        [StringLength(75)]
         public string FDeviceId
         {
             get { return fDeviceId; }
@@ -132,11 +132,11 @@ namespace EPMCS.Model
         }
 
         //端口
-        [StringLength(25)]
+        [StringLength(75)]
         private string port;
 
 
-        [StringLength(25)]
+        [StringLength(75)]
         public string Port
         {
             get { return port; }
@@ -144,34 +144,34 @@ namespace EPMCS.Model
         }
 
         //设备地址
-        [StringLength(40)]
+        [StringLength(120)]
         private string deviceAdd;
 
 
-        [StringLength(40)]
+        [StringLength(120)]
         public string DeviceAdd
         {
             get { return deviceAdd; }
             set { deviceAdd = value; }
         }
 
-        //报文
-        [StringLength(4089)]
+        //报文 
+        [StringLength(4096)]
         private string message;
 
 
-        [StringLength(4089)]
+        [StringLength(4096)]
         public string Message
         {
             get { return message; }
             set { message = value; }
         }
 
-        [StringLength(200)]
+        [StringLength(600)]
         private string computationRule;
 
 
-        [StringLength(200)]
+        [StringLength(600)]
         public string ComputationRule
         {
             get { return computationRule; }

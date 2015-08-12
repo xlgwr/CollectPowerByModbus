@@ -3,3 +3,5 @@
 
 net stop EPMCSService
 net start EPMCSService
+
+exit

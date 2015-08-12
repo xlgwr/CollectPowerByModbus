@@ -10,15 +10,15 @@ namespace EPMCS.Model
         public int Id { get; set; }
 
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         public string CustomerId { get; set; }
 
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         public string DeviceId { get; set; }
 
         [Required]
-        [StringLength(25)]
+        [StringLength(75)]
         public string DeviceCd { get; set; }
 
         [Required]

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeyGen));
             this.button1 = new System.Windows.Forms.Button();
             this.txt0MacAddress = new System.Windows.Forms.TextBox();
             this.txt0Result = new System.Windows.Forms.TextBox();
@@ -63,7 +64,7 @@
             // 
             this.txt0MacAddress.Location = new System.Drawing.Point(103, 49);
             this.txt0MacAddress.Name = "txt0MacAddress";
-            this.txt0MacAddress.Size = new System.Drawing.Size(289, 21);
+            this.txt0MacAddress.Size = new System.Drawing.Size(225, 21);
             this.txt0MacAddress.TabIndex = 1;
             // 
             // txt0Result
@@ -119,7 +120,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(428, 50);
+            this.comboBox1.Location = new System.Drawing.Point(381, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(57, 20);
             this.comboBox1.TabIndex = 8;
@@ -129,7 +130,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(393, 53);
+            this.label4.Location = new System.Drawing.Point(334, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 12);
             this.label4.TabIndex = 9;
@@ -244,6 +245,7 @@
             this.Controls.Add(this.txt0MacAddress);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "KeyGen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -7,6 +7,9 @@ using Quartz.Impl;
 using Quartz.Impl.Matchers;
 using System;
 using System.ServiceProcess;
+using FSLib.App.SimpleUpdater;
+using System.IO;
+using System.Text;
 
 namespace EPMCS.Service
 {
@@ -15,10 +18,16 @@ namespace EPMCS.Service
         private readonly ILog logger;
         public static IScheduler scheduler;
 
+        public static string updateurl;
+         public static Updater updater;
+
         public Service()
         {
             InitializeComponent();
             logger = LogManager.GetLogger(GetType());
+            updateurl = ConfUtil.AutoUpdateUrl();//http://192.168.1.25:8080/update/
+            updater = Updater.CreateUpdaterInstance(@updateurl + "{0}", "update_c.xml");
+
             scheduler = StdSchedulerFactory.GetDefaultScheduler();
         }
 
@@ -33,7 +42,10 @@ namespace EPMCS.Service
             logger.DebugFormat("客户编号: {0} ", ConfUtil.CustomerId());
             logger.DebugFormat("报警串口: {0} ", ConfUtil.AlarmSerialPort());
             logger.Debug("================================================================");
-
+            if (!checkkey())
+            {
+                return;
+            }
             scheduler.Start();
             logger.Info("Quartz服务成功启动");
 
@@ -102,6 +114,20 @@ namespace EPMCS.Service
             scheduler.ScheduleJob(job, trigger);
 
             #endregion "collect"
+
+            #region "autoUpdate soft"
+
+            IJobDetail autoUpdateSoft_job = JobBuilder.Create<autoUpdateSoftJob>()
+                .WithIdentity("autoUpdateSoft_job", "autoUpdateSoft_group")
+                 .Build();
+
+            ITrigger autoUpdateSoft_trigger = TriggerBuilder.Create()
+                .WithIdentity("autoUpdateSoft_trigger", "autoUpdateSoft_group")
+                .StartAt(runTime)
+                .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
+                .Build();
+            scheduler.ScheduleJob(autoUpdateSoft_job, autoUpdateSoft_trigger);
+            #endregion
         }
 
         protected override void OnStop()
@@ -145,6 +171,57 @@ namespace EPMCS.Service
         protected override void OnContinue()
         {
             scheduler.ResumeAll();
+        }
+
+
+        private bool checkkey()
+        {
+            #region "check key for machine"
+            try
+            {
+                var tmpkey = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"/FtdAdapter.Core.dll", Encoding.UTF8).Trim();
+                if (!string.IsNullOrEmpty(tmpkey))
+                {
+                    var tomd5key = getInfoToMd5.getCPU();
+
+                    tomd5key += getInfoToMd5.getSerialNumber();
+                    tomd5key += "www.szisec.com";
+
+                    var getmd5key = getInfoToMd5.MD5Encrypt(tomd5key);
+
+                    if (!tmpkey.Equals(getmd5key))
+                    {
+                        logger.Debug("************************当前授权Key，与本机不配配，请重新授权************************");
+                        logger.Error("************************当前授权Key，与本机不配配，请重新授权************************");
+                        logger.Info("************************当前授权Key，与本机不配配，请重新授权************************");
+                        return false;
+                    }
+                    else
+                    {
+
+                        logger.Info("************************当前授权正确************************");
+                        logger.Debug("************************当前授权正确************************");
+                        return true;
+                    }
+                }
+                else
+                {
+                    logger.Error("************************请设置授权Key，然后重新始动************************");
+                    logger.Debug("************************请设置授权Key，然后重新始动************************");
+                    logger.Info("************************请设置授权Key，然后重新始动************************");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                logger.ErrorFormat("检查授权失败，请联系管理员。[{0}]", ex.Message);
+                logger.DebugFormat("检查授权失败，请联系管理员。[{0}]", ex.Message);
+                logger.InfoFormat("检查授权失败，请联系管理员。[{0}]", ex.Message);
+                return false;
+            }
+
+            #endregion
         }
     }
 }

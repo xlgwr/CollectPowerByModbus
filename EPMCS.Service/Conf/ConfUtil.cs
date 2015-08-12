@@ -182,6 +182,16 @@ namespace EPMCS.Service.Conf
             return customerId;
         }
 
+        private static string autoUpdateUrl = "";
+
+        public static string AutoUpdateUrl()
+        {
+            if (string.IsNullOrEmpty(autoUpdateUrl))
+            {
+                autoUpdateUrl = ConfigurationManager.AppSettings.Get("autoUpdateUrl");
+            }
+            return autoUpdateUrl;
+        }    
         private static string alarmSerialPort = "";
 
         public static string AlarmSerialPort()

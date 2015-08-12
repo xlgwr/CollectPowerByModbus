@@ -1,0 +1,857 @@
+﻿2015-08-10 16:46:26,874 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
+2015-08-10 16:46:26,877 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
+2015-08-10 16:46:26,878 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
+2015-08-10 16:46:26,879 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
+2015-08-10 16:46:26,879 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
+2015-08-10 16:46:26,879 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
+2015-08-10 16:46:26,880 DEBUG EPMCS.Service.Test  - 客户编号: C1110 
+2015-08-10 16:46:26,881 DEBUG EPMCS.Service.Test  - 报警串口: COM4 
+2015-08-10 16:46:26,881 DEBUG EPMCS.Service.Test  - ================================================================
+2015-08-10 16:46:26,887 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:46:26,920 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:46:27,007 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
+2015-08-10 16:46:27,013 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:46:27,013 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
+2015-08-10 16:46:27,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:46:27,014 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:46:27,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:46:27,024 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
+2015-08-10 16:46:27,024 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
+2015-08-10 16:46:27,030 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:46:27,031 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
+2015-08-10 16:46:27,047 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
+2015-08-10 16:46:27,066 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:46:30,559 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:46:30,559 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:30,574 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:30 +08:00 
+2015-08-10 16:46:30,579 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:30,579 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:30,720 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:46:30,720 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:30,723 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:46:30,723 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:30 +08:00 
+2015-08-10 16:46:30,728 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:30,728 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:30,846 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:46:30,846 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:30,846 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:46:30,846 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:30 +08:00 
+2015-08-10 16:46:30,869 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 22 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:30,869 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,471 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
+2015-08-10 16:46:31,471 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,471 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,473 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: MySqlDataReader 
+2015-08-10 16:46:31,473 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,482 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有0条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2015-08-10 16:46:31,600 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE 3 = `Extent1`.`Uploaded`) AS `GroupBy1`
+2015-08-10 16:46:31,600 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,600 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,602 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:31,602 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,602 DEBUG EPMCS.Service.Job.ClearJob  - 采集后超过15天(服务器时间为准)未上传的数据也清除!
+2015-08-10 16:46:31,629 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`) AS `GroupBy1`
+2015-08-10 16:46:31,629 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,629 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,632 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:31,632 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,632 DEBUG EPMCS.Service.Job.ClearJob  - 找到0个需要强制清除的组!
+2015-08-10 16:46:31,640 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Distinct1`.`Groupstamp` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`
+2015-08-10 16:46:31,640 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,640 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,642 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:31,642 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,645 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:46:31,667 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:46:31,667 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,667 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,668 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:31,668 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,669 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务<<<<没有发现表>>>>>
+2015-08-10 16:46:31,670 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:46:31,672 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
+2015-08-10 16:46:31,678 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE `Extent1`.`ValueLevel` > -1) AS `GroupBy1`
+2015-08-10 16:46:31,678 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,678 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,681 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:31,681 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,681 DEBUG EPMCS.Service.Job.CollectJobListener  - *************************数据库中共有0条采集的数据****************************************
+2015-08-10 16:46:31,682 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:46:31,683 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:46:31,692 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
+2015-08-10 16:46:31,692 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,692 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,695 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:31,695 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,695 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:46:31,754 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196390922,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:46:31,971 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:46:31,974 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:46:31,994 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
+2015-08-10 16:46:31,994 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,994 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
+2015-08-10 16:46:31,994 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:31 +08:00 
+2015-08-10 16:46:31,995 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 0 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:31,995 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:31,996 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1438839599000,数据库存储时间: 0
+2015-08-10 16:46:31,996 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJobListener.JobWasExecuted()取表URL : http://192.168.1.94:9092/FemWebService/device/query?customerId=C1110
+2015-08-10 16:46:32,020 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到取表回复: {"Status":1,"Data":[{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"1","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"1","deviceName":"1#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C1"},{"port":"","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"[C1]+[C2]+[C3]","deviceCd":"1000kv","level4":1575,"message":"","level2":1350,"level3":1500,"enableFlag":"1","level1":1200,"customerId":"C1110","deviceAdd":"","deviceName":"all#1","address":"","demandValue":"1500","demandMinute":"15","endString":"","deviceId":"C1110"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"2","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"2","deviceName":"2#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C2"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"3","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"3","deviceName":"3#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C3"}],"dataPeriod":2}
+2015-08-10 16:46:32,039 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:46:32,039 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:32,039 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:32 +08:00 
+2015-08-10 16:46:32,042 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:32,042 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:32,225 DEBUG EPMCS.Service.Job.UploadJobListener  - 同步表数据异常
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 EPMCS.Service.Job.UploadJobListener.JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException) 位置 e:\0xielg\fem\trunk\3-CD\EPMCS_SRC\EPMCS.Service\Job\UploadJobListener.cs:行号 71
+2015-08-10 16:46:32,228 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:46:32,229 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:46:57,000 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:46:57,001 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:46:57,001 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:46:57,001 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:46:57,005 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
+2015-08-10 16:46:57,005 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:57,005 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:57 +08:00 
+2015-08-10 16:46:57,007 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:57,007 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:57,007 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:46:57,029 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196416198,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:46:57,032 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:46:57,032 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:46:57,035 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
+2015-08-10 16:46:57,035 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:57,035 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
+2015-08-10 16:46:57,035 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:57 +08:00 
+2015-08-10 16:46:57,037 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:57,037 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:57,037 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1438839599000,数据库存储时间: 0
+2015-08-10 16:46:57,037 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJobListener.JobWasExecuted()取表URL : http://192.168.1.94:9092/FemWebService/device/query?customerId=C1110
+2015-08-10 16:46:57,058 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到取表回复: {"Status":1,"Data":[{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"1","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"1","deviceName":"1#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C1"},{"port":"","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"[C1]+[C2]+[C3]","deviceCd":"1000kv","level4":1575,"message":"","level2":1350,"level3":1500,"enableFlag":"1","level1":1200,"customerId":"C1110","deviceAdd":"","deviceName":"all#1","address":"","demandValue":"1500","demandMinute":"15","endString":"","deviceId":"C1110"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"2","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"2","deviceName":"2#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C2"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"3","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"3","deviceName":"3#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C3"}],"dataPeriod":2}
+2015-08-10 16:46:57,060 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:46:57,060 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:57,060 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:46:57 +08:00 
+2015-08-10 16:46:57,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:46:57,062 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:46:57,084 DEBUG EPMCS.Service.Job.UploadJobListener  - 同步表数据异常
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 EPMCS.Service.Job.UploadJobListener.JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException) 位置 e:\0xielg\fem\trunk\3-CD\EPMCS_SRC\EPMCS.Service\Job\UploadJobListener.cs:行号 71
+2015-08-10 16:46:57,085 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:46:57,086 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:47:27,000 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
+2015-08-10 16:47:27,000 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:47:27,000 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
+2015-08-10 16:47:27,000 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:47:27,000 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
+2015-08-10 16:47:27,000 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:47:27,000 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:47:27,000 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:47:27,003 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
+2015-08-10 16:47:27,003 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
+2015-08-10 16:47:27,003 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:27,003 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:27,003 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:47:27 +08:00 
+2015-08-10 16:47:27,004 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:47:27 +08:00 
+2015-08-10 16:47:27,005 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:47:27,005 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:27,005 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:47:27,006 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: MySqlDataReader 
+2015-08-10 16:47:27,006 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:27,006 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有0条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2015-08-10 16:47:27,006 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务<<<<没有发现表>>>>>
+2015-08-10 16:47:27,007 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
+2015-08-10 16:47:27,023 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE `Extent1`.`ValueLevel` > -1) AS `GroupBy1`
+2015-08-10 16:47:27,023 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:27,023 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:47:27 +08:00 
+2015-08-10 16:47:27,029 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:47:27,029 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:27,029 DEBUG EPMCS.Service.Job.CollectJobListener  - *************************数据库中共有0条采集的数据****************************************
+2015-08-10 16:47:27,029 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:47:27,029 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:47:27,032 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196446203,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:47:27,033 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:47:33,023 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:47:36,842 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
+2015-08-10 16:47:36,843 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:36,843 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
+2015-08-10 16:47:36,843 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:47:36 +08:00 
+2015-08-10 16:47:36,846 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:47:36,846 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:36,846 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1438839599000,数据库存储时间: 0
+2015-08-10 16:47:36,846 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJobListener.JobWasExecuted()取表URL : http://192.168.1.94:9092/FemWebService/device/query?customerId=C1110
+2015-08-10 16:47:36,868 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到取表回复: {"Status":1,"Data":[{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"1","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"1","deviceName":"1#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C1"},{"port":"","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"[C1]+[C2]+[C3]","deviceCd":"1000kv","level4":1575,"message":"","level2":1350,"level3":1500,"enableFlag":"1","level1":1200,"customerId":"C1110","deviceAdd":"","deviceName":"all#1","address":"","demandValue":"1500","demandMinute":"15","endString":"","deviceId":"C1110"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"2","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"2","deviceName":"2#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C2"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"3","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"3","deviceName":"3#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C3"}],"dataPeriod":2}
+2015-08-10 16:47:36,872 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:47:36,872 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:36,872 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:47:36 +08:00 
+2015-08-10 16:47:36,873 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:47:36,874 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:58,321 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:47:58,322 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:47:58,322 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:47:58 +08:00 
+2015-08-10 16:47:58,323 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:47:58,323 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:40,105 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:48:40,105 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
+2015-08-10 16:48:40,105 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
+2015-08-10 16:48:40,105 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
+2015-08-10 16:48:40,110 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
+2015-08-10 16:48:40,110 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:40,110 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:48:40 +08:00 
+2015-08-10 16:48:40,115 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: MySqlDataReader 
+2015-08-10 16:48:40,115 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:40,116 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:48:40,131 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有0条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2015-08-10 16:48:40,131 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务<<<<没有发现表>>>>>
+2015-08-10 16:48:40,131 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
+2015-08-10 16:48:40,151 DEBUG EPMCS.Service.Job.UploadJobListener  - 同步表数据异常
+System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+   在 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   在 EPMCS.Service.Job.UploadJobListener.JobWasExecuted(IJobExecutionContext context, JobExecutionException jobException) 位置 e:\0xielg\fem\trunk\3-CD\EPMCS_SRC\EPMCS.Service\Job\UploadJobListener.cs:行号 71
+2015-08-10 16:48:40,152 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:48:40,152 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:48:40,152 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:48:40,152 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:48:40,152 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:48:40,152 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:48:40,155 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE `Extent1`.`ValueLevel` > -1) AS `GroupBy1`
+2015-08-10 16:48:40,155 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:40,155 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:48:40 +08:00 
+2015-08-10 16:48:40,156 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:48:40,156 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:40,157 DEBUG EPMCS.Service.Job.CollectJobListener  - *************************数据库中共有0条采集的数据****************************************
+2015-08-10 16:48:40,157 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:48:40,157 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:48:40,157 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
+2015-08-10 16:48:40,157 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:40,157 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:48:40 +08:00 
+2015-08-10 16:48:40,159 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:48:40,159 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:40,159 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:48:40,179 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196519350,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:48:40,179 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:48:48,420 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:48:49,142 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
+2015-08-10 16:48:49,142 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:49,142 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
+2015-08-10 16:48:49,142 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:48:49 +08:00 
+2015-08-10 16:48:49,144 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:48:49,144 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:49,145 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1438839599000,数据库存储时间: 0
+2015-08-10 16:48:49,145 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJobListener.JobWasExecuted()取表URL : http://192.168.1.94:9092/FemWebService/device/query?customerId=C1110
+2015-08-10 16:48:49,164 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到取表回复: {"Status":1,"Data":[{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"1","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"1","deviceName":"1#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C1"},{"port":"","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"[C1]+[C2]+[C3]","deviceCd":"1000kv","level4":1575,"message":"","level2":1350,"level3":1500,"enableFlag":"1","level1":1200,"customerId":"C1110","deviceAdd":"","deviceName":"all#1","address":"","demandValue":"1500","demandMinute":"15","endString":"","deviceId":"C1110"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"2","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"2","deviceName":"2#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C2"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"3","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"3","deviceName":"3#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C3"}],"dataPeriod":2}
+2015-08-10 16:48:49,166 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:48:49,166 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:48:49,166 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:48:49 +08:00 
+2015-08-10 16:48:49,167 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 0 ms with result: EFMySqlDataReader 
+2015-08-10 16:48:49,167 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:40,931 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
+2015-08-10 16:50:40,933 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
+2015-08-10 16:50:40,933 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
+2015-08-10 16:50:40,934 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
+2015-08-10 16:50:40,934 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
+2015-08-10 16:50:40,934 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
+2015-08-10 16:50:40,934 DEBUG EPMCS.Service.Test  - 客户编号: C1110 
+2015-08-10 16:50:40,934 DEBUG EPMCS.Service.Test  - 报警串口: COM4 
+2015-08-10 16:50:40,934 DEBUG EPMCS.Service.Test  - ================================================================
+2015-08-10 16:50:40,940 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:50:40,973 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:50:41,007 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
+2015-08-10 16:50:41,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:50:41,014 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
+2015-08-10 16:50:41,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:50:41,014 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:50:41,015 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:50:41,024 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:50:41,024 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
+2015-08-10 16:50:41,025 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
+2015-08-10 16:50:41,040 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
+2015-08-10 16:50:41,045 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
+2015-08-10 16:50:41,056 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:50:44,734 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:50:44,734 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:44,749 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:44 +08:00 
+2015-08-10 16:50:44,755 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:44,755 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:44,897 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:50:44,898 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:44,900 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:44,900 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:44 +08:00 
+2015-08-10 16:50:44,905 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:44,905 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,018 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:50:45,018 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,018 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:45,018 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:45 +08:00 
+2015-08-10 16:50:45,036 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 17 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:45,036 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,784 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:50:45,785 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:50:45,785 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,785 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:45 +08:00 
+2015-08-10 16:50:45,787 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:45,788 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,792 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:50:45,793 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:50:45,793 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,793 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:45,793 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:45 +08:00 
+2015-08-10 16:50:45,795 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:45,795 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,801 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:50:45,801 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:45,801 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:45,801 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:45 +08:00 
+2015-08-10 16:50:45,806 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:45,806 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,190 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
+2015-08-10 16:50:46,198 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:50:46,198 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,198 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:46 +08:00 
+2015-08-10 16:50:46,200 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:46,200 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,204 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:50:46,204 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,204 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:46,204 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:46 +08:00 
+2015-08-10 16:50:46,206 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:46,206 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,210 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:50:46,210 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,210 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:46,210 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:46 +08:00 
+2015-08-10 16:50:46,215 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:46,215 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,567 DEBUG EPMCS.Service.Job.UploadJob  - 上传异常
+System.InvalidOperationException: The model backing the 'MysqlDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.<>c__DisplayClass1.<InitializeDatabase>b__0()
+   在 System.Data.Entity.Internal.MigrationsChecker.IsMigrationsConfigured(InternalContext internalContext, Func`1 databaseExists)
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   在 System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   在 EPMCS.Service.Job.UploadJob.Execute(IJobExecutionContext context) 位置 e:\0xielg\fem\trunk\3-CD\EPMCS_SRC\EPMCS.Service\Job\UploadJob.cs:行号 32
+2015-08-10 16:50:46,568 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:50:46,581 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:50:46,581 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,581 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:46 +08:00 
+2015-08-10 16:50:46,583 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:46,583 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,587 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:50:46,587 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,587 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:46,587 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:46 +08:00 
+2015-08-10 16:50:46,589 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:46,589 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,594 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:50:46,594 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,594 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:46,594 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:46 +08:00 
+2015-08-10 16:50:46,599 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:46,599 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:46,698 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196645867,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:50:47,187 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:50:48,824 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:50:49,512 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:50:49,512 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:49,512 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:49 +08:00 
+2015-08-10 16:50:49,515 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:49,515 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:49,519 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:50:49,519 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:49,519 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:49,519 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:49 +08:00 
+2015-08-10 16:50:49,523 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:49,523 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:49,533 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:50:49,533 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:50:49,533 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:50:49,533 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:50:49 +08:00 
+2015-08-10 16:50:49,538 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:50:49,538 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:12,420 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:51:41,227 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
+2015-08-10 16:51:41,229 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
+2015-08-10 16:51:41,230 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
+2015-08-10 16:51:41,230 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
+2015-08-10 16:51:41,230 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
+2015-08-10 16:51:41,230 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
+2015-08-10 16:51:41,231 DEBUG EPMCS.Service.Test  - 客户编号: C1110 
+2015-08-10 16:51:41,231 DEBUG EPMCS.Service.Test  - 报警串口: COM4 
+2015-08-10 16:51:41,231 DEBUG EPMCS.Service.Test  - ================================================================
+2015-08-10 16:51:41,236 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:51:41,273 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:51:42,006 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
+2015-08-10 16:51:42,013 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:51:42,013 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
+2015-08-10 16:51:42,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:51:42,014 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:51:42,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:51:42,022 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
+2015-08-10 16:51:42,023 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:51:42,028 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
+2015-08-10 16:51:42,029 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
+2015-08-10 16:51:42,060 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
+2015-08-10 16:51:42,083 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:51:45,979 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:51:45,979 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:45,998 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:45 +08:00 
+2015-08-10 16:51:46,006 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:46,006 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,157 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:51:46,158 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,160 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:46,160 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:46 +08:00 
+2015-08-10 16:51:46,165 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:46,165 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,286 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:51:46,286 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,286 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:46,287 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:46 +08:00 
+2015-08-10 16:51:46,293 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 6 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:46,293 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,968 DEBUG EPMCS.Service.Job.UploadJob  - 上传异常
+System.InvalidOperationException: The model backing the 'MysqlDbContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.<>c__DisplayClass1.<InitializeDatabase>b__0()
+   在 System.Data.Entity.Internal.MigrationsChecker.IsMigrationsConfigured(InternalContext internalContext, Func`1 databaseExists)
+   在 System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   在 System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   在 EPMCS.Service.Job.UploadJob.Execute(IJobExecutionContext context) 位置 e:\0xielg\fem\trunk\3-CD\EPMCS_SRC\EPMCS.Service\Job\UploadJob.cs:行号 32
+2015-08-10 16:51:46,973 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:51:46,983 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:51:46,983 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,983 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:46 +08:00 
+2015-08-10 16:51:46,984 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:46,985 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,989 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:51:46,989 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:46,989 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:46,989 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:46 +08:00 
+2015-08-10 16:51:46,992 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:46,992 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,001 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:51:47,001 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,001 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:47,001 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:47 +08:00 
+2015-08-10 16:51:47,007 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:47,007 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,087 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196706253,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:51:47,473 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
+2015-08-10 16:51:47,477 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:51:47,477 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,477 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:47 +08:00 
+2015-08-10 16:51:47,480 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:47,480 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,485 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:51:47,485 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,486 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:47,486 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:47 +08:00 
+2015-08-10 16:51:47,488 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:47,488 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,494 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:51:47,495 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,495 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:47,495 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:47 +08:00 
+2015-08-10 16:51:47,501 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:47,501 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,862 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:51:47,871 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:51:47,876 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:51:47,880 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:51:47,880 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:47,880 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:47 +08:00 
+2015-08-10 16:51:47,881 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:47,881 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:50,009 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:51:50,010 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:51:50,010 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:50,010 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:50,010 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:50 +08:00 
+2015-08-10 16:51:50,013 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:50,013 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:50,020 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:51:50,020 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:50,020 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:50,021 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:50 +08:00 
+2015-08-10 16:51:50,029 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 8 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:50,030 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:51,605 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:51:51,605 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:51,605 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:51 +08:00 
+2015-08-10 16:51:51,606 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:51,606 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:51,610 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:51:51,610 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:51,610 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:51,610 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:51 +08:00 
+2015-08-10 16:51:51,613 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:51,613 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:51,618 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:51:51,619 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:51:51,619 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:51:51,619 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:51:51 +08:00 
+2015-08-10 16:51:51,624 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:51:51,624 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:52:13,023 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:52:41,126 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:53:26,944 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
+2015-08-10 16:53:26,947 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
+2015-08-10 16:53:26,947 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
+2015-08-10 16:53:26,948 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
+2015-08-10 16:53:26,948 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
+2015-08-10 16:53:26,948 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
+2015-08-10 16:53:26,948 DEBUG EPMCS.Service.Test  - 客户编号: C1110 
+2015-08-10 16:53:26,948 DEBUG EPMCS.Service.Test  - 报警串口: COM4 
+2015-08-10 16:53:26,948 DEBUG EPMCS.Service.Test  - ================================================================
+2015-08-10 16:53:26,954 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:53:26,987 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:53:27,016 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
+2015-08-10 16:53:27,030 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:53:27,030 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
+2015-08-10 16:53:27,031 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:53:27,031 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:53:27,032 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:53:27,043 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
+2015-08-10 16:53:27,049 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
+2015-08-10 16:53:27,052 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:53:27,054 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
+2015-08-10 16:53:27,119 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:53:27,141 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
+2015-08-10 16:53:30,719 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:53:30,719 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:30,735 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:30 +08:00 
+2015-08-10 16:53:30,741 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:30,741 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:30,895 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:53:30,895 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:30,897 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:53:30,897 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:30 +08:00 
+2015-08-10 16:53:30,902 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:30,903 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,018 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:53:31,018 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,018 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:53:31,018 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,024 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:31,024 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,663 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE 3 = `Extent1`.`Uploaded`) AS `GroupBy1`
+2015-08-10 16:53:31,663 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,663 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,666 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:31,666 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,669 DEBUG EPMCS.Service.Job.ClearJob  - 采集后超过15天(服务器时间为准)未上传的数据也清除!
+2015-08-10 16:53:31,680 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
+2015-08-10 16:53:31,680 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,680 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,682 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: MySqlDataReader 
+2015-08-10 16:53:31,682 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,689 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`) AS `GroupBy1`
+2015-08-10 16:53:31,689 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,689 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,690 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有0条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2015-08-10 16:53:31,691 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:31,691 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,692 DEBUG EPMCS.Service.Job.ClearJob  - 找到0个需要强制清除的组!
+2015-08-10 16:53:31,702 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Distinct1`.`Groupstamp` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`
+2015-08-10 16:53:31,702 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,702 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,703 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:31,703 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,706 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:53:31,721 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:53:31,808 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:53:31,808 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,808 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,808 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
+2015-08-10 16:53:31,808 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,808 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,810 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:31,810 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,811 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务<<<<没有发现表>>>>>
+2015-08-10 16:53:31,813 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
+2015-08-10 16:53:31,813 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:31,813 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,814 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:53:31,820 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE `Extent1`.`ValueLevel` > -1) AS `GroupBy1`
+2015-08-10 16:53:31,820 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,820 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:31 +08:00 
+2015-08-10 16:53:31,822 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:31,822 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:31,822 DEBUG EPMCS.Service.Job.CollectJobListener  - *************************数据库中共有0条采集的数据****************************************
+2015-08-10 16:53:31,823 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:53:31,824 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:53:31,891 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196811065,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:53:32,105 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:53:34,083 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:53:34,821 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
+2015-08-10 16:53:34,821 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:34,821 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
+2015-08-10 16:53:34,822 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:34 +08:00 
+2015-08-10 16:53:34,825 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:34,825 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:34,826 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1438839599000,数据库存储时间: 0
+2015-08-10 16:53:34,826 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJobListener.JobWasExecuted()取表URL : http://192.168.1.94:9092/FemWebService/device/query?customerId=C1110
+2015-08-10 16:53:34,848 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到取表回复: {"Status":1,"Data":[{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"1","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"1","deviceName":"1#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C1"},{"port":"","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"[C1]+[C2]+[C3]","deviceCd":"1000kv","level4":1575,"message":"","level2":1350,"level3":1500,"enableFlag":"1","level1":1200,"customerId":"C1110","deviceAdd":"","deviceName":"all#1","address":"","demandValue":"1500","demandMinute":"15","endString":"","deviceId":"C1110"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"2","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"2","deviceName":"2#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C2"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"3","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"3","deviceName":"3#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C3"}],"dataPeriod":2}
+2015-08-10 16:53:34,878 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:53:34,878 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:34,879 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:34 +08:00 
+2015-08-10 16:53:34,880 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:34,880 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,448 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `KeyValParams`( `K`,  `V`) VALUES ( @gp1,  @gp2); SELECT `Id` FROM `KeyValParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:53:36,449 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,449 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'DeviceUpdateMsec' (Type = String, IsNullable = false, Size = 16) 
+2015-08-10 16:53:36,449 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: '1438839599000' (Type = String, IsNullable = false, Size = 13) 
+2015-08-10 16:53:36,449 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:36 +08:00 
+2015-08-10 16:53:36,450 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:36,450 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,452 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  500,  400,  450,  500,  525,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C1' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '1' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: '1#' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: 'COM3' (Type = String, IsNullable = false, Size = 4) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '1' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '<Device><cmdInfos><CmdInfo><name>yearmonth</name> <address>002F</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>dayhour</name> <address>002E</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>minutesecond</name> <address>002D</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>zljyggl</name> <address>006A</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>zssyggl</name> <address>0092</address> <csharpType>System.Int32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a1</name> <address>00B4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a2</name> <address>00B6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a3</name> <address>00B8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>v1</name> <address>00A4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v2</name> <address>00A6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v3</name> <address>00A8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>pf</name> <address>00C5</address> <csharpType>System.Int16</csharpType> <unitFactor>0.001</unitFactor></CmdInfo></cmdInfos></Device>' (Type = String, IsNullable = false, Size = 1589) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,453 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:36 +08:00 
+2015-08-10 16:53:36,456 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:36,456 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  1500,  1200,  1350,  1500,  1575,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '1000kv' (Type = String, IsNullable = false, Size = 6) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: 'all#1' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '[C1]+[C2]+[C3]' (Type = String, IsNullable = false, Size = 14) 
+2015-08-10 16:53:36,457 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:36 +08:00 
+2015-08-10 16:53:36,458 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:36,458 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,459 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  500,  400,  450,  500,  525,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:53:36,459 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,459 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:53:36,459 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C2' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:53:36,459 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '2' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:53:36,459 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: '2#' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:53:36,459 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,460 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: 'COM3' (Type = String, IsNullable = false, Size = 4) 
+2015-08-10 16:53:36,460 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '2' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:53:36,460 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '<Device><cmdInfos><CmdInfo><name>yearmonth</name> <address>002F</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>dayhour</name> <address>002E</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>minutesecond</name> <address>002D</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>zljyggl</name> <address>006A</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>zssyggl</name> <address>0092</address> <csharpType>System.Int32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a1</name> <address>00B4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a2</name> <address>00B6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a3</name> <address>00B8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>v1</name> <address>00A4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v2</name> <address>00A6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v3</name> <address>00A8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>pf</name> <address>00C5</address> <csharpType>System.Int16</csharpType> <unitFactor>0.001</unitFactor></CmdInfo></cmdInfos></Device>' (Type = String, IsNullable = false, Size = 1589) 
+2015-08-10 16:53:36,460 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,460 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:36 +08:00 
+2015-08-10 16:53:36,461 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:36,461 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,461 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  500,  400,  450,  500,  525,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:53:36,461 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:36,461 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C3' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '3' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: '3#' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: 'COM3' (Type = String, IsNullable = false, Size = 4) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '3' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '<Device><cmdInfos><CmdInfo><name>yearmonth</name> <address>002F</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>dayhour</name> <address>002E</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>minutesecond</name> <address>002D</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>zljyggl</name> <address>006A</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>zssyggl</name> <address>0092</address> <csharpType>System.Int32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a1</name> <address>00B4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a2</name> <address>00B6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a3</name> <address>00B8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>v1</name> <address>00A4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v2</name> <address>00A6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v3</name> <address>00A8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>pf</name> <address>00C5</address> <csharpType>System.Int16</csharpType> <unitFactor>0.001</unitFactor></CmdInfo></cmdInfos></Device>' (Type = String, IsNullable = false, Size = 1589) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '' (Type = String, IsNullable = false) 
+2015-08-10 16:53:36,462 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:36 +08:00 
+2015-08-10 16:53:36,463 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:36,463 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:37,604 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:53:37,604 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:37,604 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:53:37 +08:00 
+2015-08-10 16:53:37,607 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:53:37,607 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:53:37,647 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:53:37,647 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:56:18,257 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
+2015-08-10 16:56:18,259 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
+2015-08-10 16:56:18,259 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
+2015-08-10 16:56:18,260 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
+2015-08-10 16:56:18,260 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
+2015-08-10 16:56:18,260 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
+2015-08-10 16:56:18,260 DEBUG EPMCS.Service.Test  - 客户编号: C1110 
+2015-08-10 16:56:18,260 DEBUG EPMCS.Service.Test  - 报警串口: COM4 
+2015-08-10 16:56:18,260 DEBUG EPMCS.Service.Test  - ================================================================
+2015-08-10 16:56:18,266 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:56:18,304 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:56:19,006 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
+2015-08-10 16:56:19,013 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:56:19,013 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
+2015-08-10 16:56:19,013 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
+2015-08-10 16:56:19,013 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
+2015-08-10 16:56:19,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:56:19,022 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
+2015-08-10 16:56:19,022 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
+2015-08-10 16:56:19,024 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
+2015-08-10 16:56:19,041 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
+2015-08-10 16:56:19,054 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
+2015-08-10 16:56:19,071 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=C1110
+2015-08-10 16:56:22,573 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
+2015-08-10 16:56:22,573 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:22,588 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:22 +08:00 
+2015-08-10 16:56:22,594 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:22,594 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:22,735 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
+2015-08-10 16:56:22,735 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:22,738 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:56:22,738 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:22 +08:00 
+2015-08-10 16:56:22,743 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:22,743 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:22,855 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
+2015-08-10 16:56:22,855 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:22,855 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
+2015-08-10 16:56:22,855 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:22 +08:00 
+2015-08-10 16:56:22,861 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:22,861 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,539 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE 3 = `Extent1`.`Uploaded`) AS `GroupBy1`
+2015-08-10 16:56:23,539 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,539 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:23 +08:00 
+2015-08-10 16:56:23,541 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:23,541 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,543 DEBUG EPMCS.Service.Job.ClearJob  - 采集后超过15天(服务器时间为准)未上传的数据也清除!
+2015-08-10 16:56:23,561 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`) AS `GroupBy1`
+2015-08-10 16:56:23,561 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,561 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:23 +08:00 
+2015-08-10 16:56:23,563 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:23,564 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,564 DEBUG EPMCS.Service.Job.ClearJob  - 找到0个需要强制清除的组!
+2015-08-10 16:56:23,572 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Distinct1`.`Groupstamp` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`
+2015-08-10 16:56:23,572 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,572 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:23 +08:00 
+2015-08-10 16:56:23,574 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:23,574 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,577 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:56:23,622 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:56:23,726 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
+2015-08-10 16:56:23,726 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,726 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:23 +08:00 
+2015-08-10 16:56:23,728 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:23,728 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,729 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
+2015-08-10 16:56:23,758 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
+2015-08-10 16:56:23,759 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,759 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:23 +08:00 
+2015-08-10 16:56:23,760 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: MySqlDataReader 
+2015-08-10 16:56:23,760 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,768 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有0条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2015-08-10 16:56:23,797 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:56:23,797 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,797 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:23 +08:00 
+2015-08-10 16:56:23,799 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:23,799 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,800 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务<<<<没有发现表>>>>>
+2015-08-10 16:56:23,801 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
+2015-08-10 16:56:23,807 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE `Extent1`.`ValueLevel` > -1) AS `GroupBy1`
+2015-08-10 16:56:23,807 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,807 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:23 +08:00 
+2015-08-10 16:56:23,811 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:23,811 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:23,811 DEBUG EPMCS.Service.Job.CollectJobListener  - *************************数据库中共有0条采集的数据****************************************
+2015-08-10 16:56:23,812 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:56:23,816 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
+2015-08-10 16:56:23,888 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439196983070,"Version":"1.5","deviceLatestUpdateMsec":1438839599000}
+2015-08-10 16:56:24,097 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1438839599000
+2015-08-10 16:56:25,189 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
+2015-08-10 16:56:25,917 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
+2015-08-10 16:56:25,917 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:25,918 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
+2015-08-10 16:56:25,918 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:25 +08:00 
+2015-08-10 16:56:25,919 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:25,919 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:25,920 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1438839599000,数据库存储时间: 0
+2015-08-10 16:56:25,920 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJobListener.JobWasExecuted()取表URL : http://192.168.1.94:9092/FemWebService/device/query?customerId=C1110
+2015-08-10 16:56:25,938 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到取表回复: {"Status":1,"Data":[{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"1","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"1","deviceName":"1#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C1"},{"port":"","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"[C1]+[C2]+[C3]","deviceCd":"1000kv","level4":1575,"message":"","level2":1350,"level3":1500,"enableFlag":"1","level1":1200,"customerId":"C1110","deviceAdd":"","deviceName":"all#1","address":"","demandValue":"1500","demandMinute":"15","endString":"","deviceId":"C1110"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"2","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"2","deviceName":"2#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C2"},{"port":"COM3","customerName":"深圳艾赛克","FDeviceId":"","startString":"","computationRule":"","deviceCd":"3","level4":525,"message":"<Device><cmdInfos><CmdInfo><name>yearmonth<\/name> <address>002F<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>dayhour<\/name> <address>002E<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>minutesecond<\/name> <address>002D<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0<\/unitFactor><\/CmdInfo> <CmdInfo><name>zljyggl<\/name> <address>006A<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>zssyggl<\/name> <address>0092<\/address> <csharpType>System.Int32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a1<\/name> <address>00B4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a2<\/name> <address>00B6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>a3<\/name> <address>00B8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.01<\/unitFactor><\/CmdInfo> <CmdInfo><name>v1<\/name> <address>00A4<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v2<\/name> <address>00A6<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>v3<\/name> <address>00A8<\/address> <csharpType>System.UInt32<\/csharpType> <unitFactor>0.1<\/unitFactor><\/CmdInfo> <CmdInfo><name>pf<\/name> <address>00C5<\/address> <csharpType>System.Int16<\/csharpType> <unitFactor>0.001<\/unitFactor><\/CmdInfo><\/cmdInfos><\/Device>","level2":450,"level3":500,"enableFlag":"1","level1":400,"customerId":"C1110","deviceAdd":"3","deviceName":"3#","address":"","demandValue":"500","demandMinute":"15","endString":"","deviceId":"C3"}],"dataPeriod":2}
+2015-08-10 16:56:25,954 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:56:25,954 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:25,954 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:25 +08:00 
+2015-08-10 16:56:25,955 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 0 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:25,955 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,044 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `KeyValParams`( `K`,  `V`) VALUES ( @gp1,  @gp2); SELECT `Id` FROM `KeyValParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:56:27,044 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,044 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'DeviceUpdateMsec' (Type = String, IsNullable = false, Size = 16) 
+2015-08-10 16:56:27,044 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: '1438839599000' (Type = String, IsNullable = false, Size = 13) 
+2015-08-10 16:56:27,044 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:27 +08:00 
+2015-08-10 16:56:27,046 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:27,046 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  500,  400,  450,  500,  525,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C1' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '1' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: '1#' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: 'COM3' (Type = String, IsNullable = false, Size = 4) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '1' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '<Device><cmdInfos><CmdInfo><name>yearmonth</name> <address>002F</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>dayhour</name> <address>002E</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>minutesecond</name> <address>002D</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>zljyggl</name> <address>006A</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>zssyggl</name> <address>0092</address> <csharpType>System.Int32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a1</name> <address>00B4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a2</name> <address>00B6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a3</name> <address>00B8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>v1</name> <address>00A4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v2</name> <address>00A6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v3</name> <address>00A8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>pf</name> <address>00C5</address> <csharpType>System.Int16</csharpType> <unitFactor>0.001</unitFactor></CmdInfo></cmdInfos></Device>' (Type = String, IsNullable = false, Size = 1589) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,051 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:27 +08:00 
+2015-08-10 16:56:27,055 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:27,055 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  1500,  1200,  1350,  1500,  1575,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '1000kv' (Type = String, IsNullable = false, Size = 6) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: 'all#1' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '[C1]+[C2]+[C3]' (Type = String, IsNullable = false, Size = 14) 
+2015-08-10 16:56:27,056 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:27 +08:00 
+2015-08-10 16:56:27,061 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:27,061 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  500,  400,  450,  500,  525,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C2' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '2' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: '2#' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: 'COM3' (Type = String, IsNullable = false, Size = 4) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '2' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '<Device><cmdInfos><CmdInfo><name>yearmonth</name> <address>002F</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>dayhour</name> <address>002E</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>minutesecond</name> <address>002D</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>zljyggl</name> <address>006A</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>zssyggl</name> <address>0092</address> <csharpType>System.Int32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a1</name> <address>00B4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a2</name> <address>00B6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a3</name> <address>00B8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>v1</name> <address>00A4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v2</name> <address>00A6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v3</name> <address>00A8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>pf</name> <address>00C5</address> <csharpType>System.Int16</csharpType> <unitFactor>0.001</unitFactor></CmdInfo></cmdInfos></Device>' (Type = String, IsNullable = false, Size = 1589) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,062 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:27 +08:00 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - SET SESSION sql_mode='ANSI';INSERT INTO `MeterParams`( `CustomerId`,  `DeviceId`,  `DeviceCd`,  `DeviceName`,  `FDeviceId`,  `DemandValue`,  `Level1`,  `Level2`,  `Level3`,  `Level4`,  `Port`,  `DeviceAdd`,  `Message`,  `ComputationRule`) VALUES ( @gp1,  @gp2,  @gp3,  @gp4,  @gp5,  500,  400,  450,  500,  525,  @gp6,  @gp7,  @gp8,  @gp9); SELECT `Id` FROM `MeterParams`  WHERE  row_count() > 0 AND `Id`=last_insert_id()
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp1: 'C1110' (Type = String, IsNullable = false, Size = 5) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp2: 'C3' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp3: '3' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp4: '3#' (Type = String, IsNullable = false, Size = 2) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp5: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp6: 'COM3' (Type = String, IsNullable = false, Size = 4) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp7: '3' (Type = String, IsNullable = false, Size = 1) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp8: '<Device><cmdInfos><CmdInfo><name>yearmonth</name> <address>002F</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>dayhour</name> <address>002E</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>minutesecond</name> <address>002D</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>zljyggl</name> <address>006A</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>zssyggl</name> <address>0092</address> <csharpType>System.Int32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a1</name> <address>00B4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a2</name> <address>00B6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a3</name> <address>00B8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>v1</name> <address>00A4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v2</name> <address>00A6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v3</name> <address>00A8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>pf</name> <address>00C5</address> <csharpType>System.Int16</csharpType> <unitFactor>0.001</unitFactor></CmdInfo></cmdInfos></Device>' (Type = String, IsNullable = false, Size = 1589) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- @gp9: '' (Type = String, IsNullable = false) 
+2015-08-10 16:56:27,066 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:27 +08:00 
+2015-08-10 16:56:27,068 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:27,068 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,796 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
+2015-08-10 16:56:27,796 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,796 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/10 16:56:27 +08:00 
+2015-08-10 16:56:27,799 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
+2015-08-10 16:56:27,799 DEBUG EPMCS.DAL.MysqlDbContext  -  
+2015-08-10 16:56:27,839 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
+2015-08-10 16:56:27,839 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers

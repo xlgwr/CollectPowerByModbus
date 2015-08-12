@@ -135,7 +135,9 @@ namespace EPMCS.Service.Job
                                             CustomerId = mt.CustomerId,
                                             DeviceCd = mt.DeviceCd,
                                             DeviceId = mt.DeviceId,
+                                            PrePowerDate=taskgroup, //diff time init for visual
                                             Uploaded = 2 //Uploaded = 0 //by xlg 虚拟表不计算前值电量
+
                                         };
 
                                         Expression e = new Expression(mt.ComputationRule);

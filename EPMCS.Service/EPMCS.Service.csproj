@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>3103d071</NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Background</UpdateMode>
+    <UpdateInterval>1</UpdateInterval>
+    <UpdateIntervalUnits>Hours</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -91,6 +106,10 @@
     <Reference Include="Quartz">
       <HintPath>..\packages\Quartz.2.3.3\lib\net40\Quartz.dll</HintPath>
     </Reference>
+    <Reference Include="SimpleUpdater, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c532149a76b9a64b, processorArchitecture=MSIL">
+      <HintPath>..\packages\fishlee.net.simpleupdater.4.2.2.0\lib\net45\SimpleUpdater.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="SmartThreadPool">
       <HintPath>..\packages\SmartThreadPool.dll.2.2.3\lib\SmartThreadPool.dll</HintPath>
     </Reference>
@@ -98,9 +117,12 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -119,6 +141,7 @@
     <Compile Include="Basic\Logging\Logger.cs" />
     <Compile Include="Conf\ConfUtil.cs" />
     <Compile Include="Conf\Consts.cs" />
+    <Compile Include="Conf\getInfoToMd5.cs" />
     <Compile Include="Conf\MeterGroup.cs" />
     <Compile Include="DAL\DbInitializer.cs" />
     <Compile Include="DAL\MysqlDbContext.cs" />
@@ -129,15 +152,16 @@
     <Compile Include="Entity\Device.cs" />
     <Compile Include="Entity\MeterResult.cs" />
     <Compile Include="Entity\Once.cs" />
+    <Compile Include="Job\autoUpdateSoft.cs" />
     <Compile Include="Job\ClearJob.cs" />
     <Compile Include="Job\CollectJob.cs" />
     <Compile Include="Job\CollectJobListener.cs" />
     <Compile Include="Entity\StateData.cs" />
     <Compile Include="Job\UploadJob.cs" />
     <Compile Include="Job\UploadJobListener.cs" />
-    <Compile Include="Migrations\201508100855306_initfirst.cs" />
-    <Compile Include="Migrations\201508100855306_initfirst.Designer.cs">
-      <DependentUpon>201508100855306_initfirst.cs</DependentUpon>
+    <Compile Include="Migrations\201508100945128_initfirst.cs" />
+    <Compile Include="Migrations\201508100945128_initfirst.Designer.cs">
+      <DependentUpon>201508100945128_initfirst.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IEntity.cs" />
@@ -195,9 +219,31 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508100855306_initfirst.resx">
-      <DependentUpon>201508100855306_initfirst.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508100945128_initfirst.resx">
+      <DependentUpon>201508100945128_initfirst.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FtdAdapter.Core.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.97.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net40\System.Data.SQLite.Core.targets')" />

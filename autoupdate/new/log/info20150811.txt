@@ -1,0 +1,61 @@
+﻿2015-08-11 14:04:55,965 INFO  Quartz.Impl.StdSchedulerFactory  - Default Quartz.NET properties loaded from embedded resource file
+2015-08-11 14:04:56,037 INFO  Quartz.Impl.StdSchedulerFactory  - Using default implementation for object serializer
+2015-08-11 14:04:56,090 INFO  Quartz.Impl.StdSchedulerFactory  - Using default implementation for ThreadExecutor
+2015-08-11 14:04:56,185 INFO  Quartz.Core.SchedulerSignalerImpl  - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2015-08-11 14:04:56,185 INFO  Quartz.Core.QuartzScheduler  - Quartz Scheduler v.2.3.3.0 created.
+2015-08-11 14:04:56,190 INFO  Quartz.Simpl.RAMJobStore  - RAMJobStore initialized.
+2015-08-11 14:04:56,195 INFO  Quartz.Core.QuartzScheduler  - Scheduler meta-data: Quartz Scheduler (v2.3.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-08-11 14:04:56,195 INFO  Quartz.Impl.StdSchedulerFactory  - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2015-08-11 14:04:56,195 INFO  Quartz.Impl.StdSchedulerFactory  - Quartz scheduler version: 2.3.3.0
+2015-08-11 14:04:56,243 INFO  Quartz.Core.QuartzScheduler  - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2015-08-11 14:04:56,244 INFO  EPMCS.Service.Test  - Quartz服务成功启动
+2015-08-11 14:04:57,042 INFO  EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>JobToBeExecuted
+2015-08-11 14:05:24,222 INFO  EPMCS.Service.Job.CollectJobListener  - 当前组的最大报警级别=None
+2015-08-11 14:05:58,935 INFO  Quartz.Impl.StdSchedulerFactory  - Default Quartz.NET properties loaded from embedded resource file
+2015-08-11 14:05:58,991 INFO  Quartz.Impl.StdSchedulerFactory  - Using default implementation for object serializer
+2015-08-11 14:05:59,010 INFO  Quartz.Impl.StdSchedulerFactory  - Using default implementation for ThreadExecutor
+2015-08-11 14:05:59,076 INFO  Quartz.Core.SchedulerSignalerImpl  - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2015-08-11 14:05:59,077 INFO  Quartz.Core.QuartzScheduler  - Quartz Scheduler v.2.3.3.0 created.
+2015-08-11 14:05:59,081 INFO  Quartz.Simpl.RAMJobStore  - RAMJobStore initialized.
+2015-08-11 14:05:59,087 INFO  Quartz.Core.QuartzScheduler  - Scheduler meta-data: Quartz Scheduler (v2.3.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-08-11 14:05:59,087 INFO  Quartz.Impl.StdSchedulerFactory  - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2015-08-11 14:05:59,087 INFO  Quartz.Impl.StdSchedulerFactory  - Quartz scheduler version: 2.3.3.0
+2015-08-11 14:05:59,111 INFO  Quartz.Core.QuartzScheduler  - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2015-08-11 14:05:59,111 INFO  EPMCS.Service.Test  - Quartz服务成功启动
+2015-08-11 14:06:00,022 INFO  EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>JobToBeExecuted
+2015-08-11 14:08:32,456 INFO  Quartz.Impl.StdSchedulerFactory  - Default Quartz.NET properties loaded from embedded resource file
+2015-08-11 14:08:32,502 INFO  Quartz.Impl.StdSchedulerFactory  - Using default implementation for object serializer
+2015-08-11 14:08:32,520 INFO  Quartz.Impl.StdSchedulerFactory  - Using default implementation for ThreadExecutor
+2015-08-11 14:08:32,620 INFO  Quartz.Core.SchedulerSignalerImpl  - Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2015-08-11 14:08:32,621 INFO  Quartz.Core.QuartzScheduler  - Quartz Scheduler v.2.3.3.0 created.
+2015-08-11 14:08:32,625 INFO  Quartz.Simpl.RAMJobStore  - RAMJobStore initialized.
+2015-08-11 14:08:32,631 INFO  Quartz.Core.QuartzScheduler  - Scheduler meta-data: Quartz Scheduler (v2.3.3.0) 'DefaultQuartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'Quartz.Core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'Quartz.Simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'Quartz.Simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2015-08-11 14:08:32,631 INFO  Quartz.Impl.StdSchedulerFactory  - Quartz scheduler 'DefaultQuartzScheduler' initialized
+2015-08-11 14:08:32,631 INFO  Quartz.Impl.StdSchedulerFactory  - Quartz scheduler version: 2.3.3.0
+2015-08-11 14:08:32,649 INFO  Quartz.Core.QuartzScheduler  - Scheduler DefaultQuartzScheduler_$_NON_CLUSTERED started.
+2015-08-11 14:08:32,650 INFO  EPMCS.Service.Test  - Quartz服务成功启动
+2015-08-11 14:08:33,022 INFO  EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>JobToBeExecuted
+2015-08-11 14:09:13,161 INFO  Modbus.IO.ModbusSerialTransport  - TX: 1, 3, 0, 1, 0, 1, 213, 202
+2015-08-11 14:09:13,208 INFO  Modbus.IO.ModbusRtuTransport  - RX: 1, 3, 2, 0, 0, 184, 68
+2015-08-11 14:09:15,030 INFO  EPMCS.Service.Job.CollectJob  - 收到数据,0

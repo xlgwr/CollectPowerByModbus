@@ -19,7 +19,8 @@ namespace MACKey
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new KeyGen());
+            //Application.Run(new KeyGen());
+            Application.Run(new KeyGen2());
         }
         
     }
