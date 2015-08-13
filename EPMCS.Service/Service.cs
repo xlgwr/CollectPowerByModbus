@@ -25,8 +25,9 @@ namespace EPMCS.Service
         {
             InitializeComponent();
             logger = LogManager.GetLogger(GetType());
-            updateurl = ConfUtil.AutoUpdateUrl();//http://192.168.1.25:8080/update/
-            updater = Updater.CreateUpdaterInstance(@updateurl + "{0}", "update_c.xml");
+            //Updater.CheckUpdateSimple("http://你的服务器地址/路径/{0}", "xml文件名，一般是 update_c.xml 或 update.xml");
+            updateurl = ConfUtil.AutoUpdateUrl();
+            updater = Updater.CreateUpdaterInstance(@updateurl+"\\{0}", "update_c.xml");
 
             scheduler = StdSchedulerFactory.GetDefaultScheduler();
         }
@@ -117,16 +118,16 @@ namespace EPMCS.Service
 
             #region "autoUpdate soft"
 
-            IJobDetail autoUpdateSoft_job = JobBuilder.Create<autoUpdateSoftJob>()
-                .WithIdentity("autoUpdateSoft_job", "autoUpdateSoft_group")
-                 .Build();
+            //IJobDetail autoUpdateSoft_job = JobBuilder.Create<autoUpdateSoftJob>()
+            //    .WithIdentity("autoUpdateSoft_job", "autoUpdateSoft_group")
+            //     .Build();
 
-            ITrigger autoUpdateSoft_trigger = TriggerBuilder.Create()
-                .WithIdentity("autoUpdateSoft_trigger", "autoUpdateSoft_group")
-                .StartAt(runTime)
-                .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
-                .Build();
-            scheduler.ScheduleJob(autoUpdateSoft_job, autoUpdateSoft_trigger);
+            //ITrigger autoUpdateSoft_trigger = TriggerBuilder.Create()
+            //    .WithIdentity("autoUpdateSoft_trigger", "autoUpdateSoft_group")
+            //    .StartAt(runTime)
+            //    .WithSimpleSchedule(x => x.WithIntervalInMinutes(2).RepeatForever())
+            //    .Build();
+            //scheduler.ScheduleJob(autoUpdateSoft_job, autoUpdateSoft_trigger);
             #endregion
         }
 
@@ -179,7 +180,10 @@ namespace EPMCS.Service
             #region "check key for machine"
             try
             {
-                var tmpkey = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + @"/FtdAdapter.Core.dll", Encoding.UTF8).Trim();
+                var filepath=AppDomain.CurrentDomain.BaseDirectory + @"/FtdAdapter.Core.dll";
+                FileInfo fi = new FileInfo(filepath);
+                fi.LastWriteTime = Convert.ToDateTime("2015-07-22 12:49:24");
+                var tmpkey = File.ReadAllText(filepath, Encoding.UTF8).Trim();
                 if (!string.IsNullOrEmpty(tmpkey))
                 {
                     var tomd5key = getInfoToMd5.getCPU();

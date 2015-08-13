@@ -128,6 +128,13 @@ namespace EPMCS.Service.Job
                                 {
                                     try
                                     {
+                                        //check startdate and enddate add by xlgwr
+                                        if (!(taskgroup >= mt.StartDate && taskgroup <= mt.EndDate))
+                                        {
+                                            logger.DebugFormat("********************虚拟表数据:{0}不在有效日期内：{1} 至 {2}。 当前时间：{3}", mt.DeviceName, mt.StartDate, mt.EndDate, taskgroup);
+                                            continue;
+                                        }
+
                                         UploadData dd = new UploadData
                                         {
                                             PowerDate = taskgroup,
@@ -135,7 +142,7 @@ namespace EPMCS.Service.Job
                                             CustomerId = mt.CustomerId,
                                             DeviceCd = mt.DeviceCd,
                                             DeviceId = mt.DeviceId,
-                                            PrePowerDate=taskgroup, //diff time init for visual
+                                            PrePowerDate = taskgroup, //diff time init for visual
                                             Uploaded = 2 //Uploaded = 0 //by xlg 虚拟表不计算前值电量
 
                                         };
@@ -175,7 +182,12 @@ namespace EPMCS.Service.Job
                         }
                     }//success
                     else
-                    {   //add by xlg 2015-08-05 
+                    {
+                        //foreach (var wir in wirs)
+                        //{
+                        //    logger.Debug(wir.Exception);
+                        //}
+                        //add by xlg 2015-08-05 
                         //同一组中，如果一表维修或已坏，old不会保存已采集的数据。
                         //修正：线程池为false，保存已采集到的数据。
                         if (_dataErrCollect.ContainsKey(taskgroup.Ticks.ToString()))
@@ -277,6 +289,18 @@ namespace EPMCS.Service.Job
                     int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
                     foreach (MeterParam meter in state.Meters)
                     {
+                        var tmpnow = state.Group;
+                        if (string.IsNullOrEmpty(tmpnow.ToString()))
+                        {
+                            tmpnow = DateTime.Now;
+                        }
+                        //check startdate and enddate add by xlgwr
+                        if (!(tmpnow <= meter.EndDate && tmpnow >= meter.StartDate))
+                        {
+                            logger.DebugFormat("********************实体表采集数据:{0}不在有效日期内：{1} 至 {2}。 当前时间：{3}", meter.DeviceName, meter.StartDate, meter.EndDate, tmpnow);
+                            continue;
+                        }
+
                         SerialPort serialPort = null;
                         IModbusSerialMaster master = null;
                         try
@@ -311,12 +335,15 @@ namespace EPMCS.Service.Job
                             data.Groupstamp = state.Group.Ticks.ToString();
 
                             byte slaveId = byte.Parse(meter.DeviceAdd);
+
                             foreach (CmdInfo info in meter.CmdInfos)
                             {
                                 logger.DebugFormat("采集项目[{0}],采集地址[{1}]", info.Name, info.Address);
                                 ushort startAddress = Convert.ToUInt16(info.Address, 16);
                                 ushort npoints = Ints.Reg16Count(info.CsharpType);
-                                ushort[] dd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
+
+                                ushort[] dd  = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
+
                                 string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
 
 
@@ -379,6 +406,7 @@ namespace EPMCS.Service.Job
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
 
                             }
+
                             data.PowerDate = state.Group;// new DateTime(year, month, day, hour, minute, second);
                             data.Uploaded = 0;
                             //add by xlg 2015-07-05
@@ -428,6 +456,14 @@ namespace EPMCS.Service.Job
                             _dataErrCollect[data.Groupstamp].Add(data);
                             //end by xlg
                             alldata.Add(data);
+
+                            serialPort.BreakState = true;
+                            System.Threading.Thread.Sleep(1000);
+                            if (serialPort.BytesToRead > 0)
+                                serialPort.DiscardInBuffer();
+                            if (serialPort.BytesToWrite > 0)
+                                serialPort.DiscardOutBuffer();
+                            serialPort.BreakState = false;
                         }
                         catch (System.Threading.ThreadAbortException tae)
                         {
@@ -436,6 +472,13 @@ namespace EPMCS.Service.Job
                             {
                                 try
                                 {
+                                    serialPort.BreakState = true;
+                                    System.Threading.Thread.Sleep(2400);
+                                    while (serialPort.BytesToRead > 0)
+                                        serialPort.DiscardInBuffer();
+                                    while (serialPort.BytesToWrite > 0)
+                                        serialPort.DiscardOutBuffer();
+                                    serialPort.BreakState = false;
                                     if (master != null) master.Dispose();
                                     serialPort.Dispose();
                                 }

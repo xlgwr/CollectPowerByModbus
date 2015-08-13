@@ -178,6 +178,24 @@ namespace EPMCS.Model
             set { computationRule = value; }
         }
 
+        private DateTime startDate;
+
+        public DateTime StartDate
+        {
+            get {
+                return startDate; 
+            }
+            set { startDate = value; }
+        }
+        private DateTime endDate;
+
+        public DateTime EndDate
+        {
+            get { return endDate; }
+            set { endDate = value; }
+        }
+        
+
         [JsonIgnore]
         public CmdInfo[] CmdInfos { get; set; }
 

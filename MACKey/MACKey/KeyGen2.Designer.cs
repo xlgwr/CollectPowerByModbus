@@ -81,6 +81,7 @@
             this.txt0Result.Size = new System.Drawing.Size(436, 75);
             this.txt0Result.TabIndex = 17;
             this.txt0Result.TextChanged += new System.EventHandler(this.txt0Result_TextChanged);
+            this.txt0Result.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt0Result_KeyDown);
             // 
             // button1
             // 
@@ -91,6 +92,7 @@
             this.button1.Text = "生成Key";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
             // lbl0Msg
             // 
@@ -134,6 +136,7 @@
             this.Name = "KeyGen2";
             this.Text = "KeyGen2";
             this.Load += new System.EventHandler(this.KeyGen2_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyGen2_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

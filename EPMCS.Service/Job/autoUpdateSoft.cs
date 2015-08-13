@@ -17,24 +17,31 @@ namespace EPMCS.Service.Job
 
         public void Execute(Quartz.IJobExecutionContext context)
         {
+            var updater = EPMCS.Service.Service.updater;
             logger.Debug("执行软件升级任务!!!!!!!!!!!!!!!");
-            EPMCS.Service.Service.updater.Error += (s, e) =>
-             {
-                 logger.DebugFormat("更新发生了错误：{0},URL:{1}", EPMCS.Service.Service.updater.Context.Exception.Message, EPMCS.Service.Service.updateurl);
-             };
-            EPMCS.Service.Service.updater.UpdatesFound += (s, e) =>
-             {
-                 logger.Debug("发现了新版本： " + EPMCS.Service.Service.updater.Context.UpdateInfo.AppVersion);
-             };
-            EPMCS.Service.Service.updater.NoUpdatesFound += (s, e) =>
-             {
-                 logger.Debug("没有新版本！ ");
-             };
-            EPMCS.Service.Service.updater.MinmumVersionRequired += (s, e) =>
-             {
-                 logger.Debug("当前版本过低无法使用自动更新！ ");
-             };
-            Updater.CheckUpdateSimple();
+            updater.Error += (s, e) =>
+              {
+                  logger.DebugFormat("更新发生了错误：{0},URL:{1}", updater.Context.Exception.Message, updater.Context.UpdateInfoFileUrl);
+              };
+            updater.UpdatesFound += (s, e) =>
+              {
+                  logger.Debug("发现了新版本： " + updater.Context.UpdateInfo.AppVersion);
+                 //开始更新
+                  updater.StartExternalUpdater();
+              };
+            updater.NoUpdatesFound += (s, e) =>
+               {
+                   logger.Debug("没有新版本！ ");
+               };
+            updater.MinmumVersionRequired += (s, e) =>
+              {
+                  logger.Debug("当前版本过低无法使用自动更新！ ");
+              };
+            //Updater.CheckUpdateSimple();//
+            updater.Context.EnableEmbedDialog = false;
+
+            updater.BeginCheckUpdateInProcess();
+
         }
     }
 }

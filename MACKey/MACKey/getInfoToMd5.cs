@@ -101,7 +101,9 @@ namespace MACKey
             ManagementObjectSearcher mos = new ManagementObjectSearcher("select * from Win32_baseboard");
             foreach (ManagementObject mo in mos.Get())
             {
+                var pname = mo["Product"].ToString();
                 strbNumber = mo["SerialNumber"].ToString();
+
                 break;
             }
             mos.Dispose();

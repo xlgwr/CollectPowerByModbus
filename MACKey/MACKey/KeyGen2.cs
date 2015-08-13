@@ -32,12 +32,38 @@ namespace MACKey
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Enabled = false;
             genkey();
+            this.Enabled = true;
         }
 
         private void txt0Result_TextChanged(object sender, EventArgs e)
         {
             lbl0Msg.Text = txt0Result.Text.Length.ToString();
+        }
+
+        private void KeyGen2_KeyDown(object sender, KeyEventArgs e)
+        {
+            morefrom(e);
+        }
+
+        private static void morefrom(KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5 || e.KeyCode == Keys.F6 || e.KeyCode == Keys.F7 || e.KeyCode == Keys.F8)
+            {
+                KeyGen frmkey1 = new KeyGen();
+                frmkey1.ShowDialog();
+            }
+        }
+
+        private void txt0Result_KeyDown(object sender, KeyEventArgs e)
+        {
+            morefrom(e);
+        }
+
+        private void button1_KeyDown(object sender, KeyEventArgs e)
+        {
+            morefrom(e);
         }
     }
 }

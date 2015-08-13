@@ -106,6 +106,37 @@ namespace EPMCS.Service.Util
                 logger.Error(msg, ex);
             }
         }
+        /// <summary>
+        /// 转换器启动处理
+        /// </summary>
+        /// <param name="CommPort">GPIO口</param>
+        public void StartPollGPIO(string CommPort, short[] flags)
+        {
+            bool w_isPolling = false;
+
+            try
+            {
+                //Open COM port using provided settings:
+                if (mb.Open(CommPort, 9600, 8, Parity.None, StopBits.One))
+                {
+                    //Disable double starts:
+                    //dataType = "Hexadecimal";
+                    if (SetWriteFunction(1, 768, flags[0], 2)) w_isPolling = true;
+                    if (SetWriteFunction(1, 769, flags[1], 2)) w_isPolling = true;
+                    if (SetWriteFunction(1, 770, flags[2], 2)) w_isPolling = true;
+                    if (SetWriteFunction(1, 771, flags[3], 2)) w_isPolling = true;
+
+                    //Set polling flag:
+                    isPolling = w_isPolling;
+                }
+            }
+            catch (Exception ex)
+            {
+                //转换器串口打开失败
+                string msg = String.Format("转换器串口【{0}】打开失败，转换器无法启动！详细：{1}", CommPort, ex.StackTrace);
+                logger.Error(msg, ex);
+            }
+        }
 
         #endregion 转换器启动处理
 

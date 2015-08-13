@@ -1,26 +1,26 @@
 <?xml version="1.0"?>
 <UpdateInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <AppName>EPMCS.Service</AppName>
-  <AppVersion>1.0.0.0</AppVersion>
-  <PublishUrl>http://127.0.0.1:8080/</PublishUrl>
-  <FileExecuteBefore>_srv_stop.cmd</FileExecuteBefore>
-  <FileExecuteAfter>_srv_start.cmd</FileExecuteAfter>
+  <AppVersion>1.0.0.6</AppVersion>
+  <PublishUrl />
+  <FileExecuteBefore>UpdateStart.cmd</FileExecuteBefore>
+  <FileExecuteAfter>UpdateEnd.cmd</FileExecuteAfter>
   <ExecuteTimeout>0</ExecuteTimeout>
-  <TreatErrorAsNotUpdated>false</TreatErrorAsNotUpdated>
+  <TreatErrorAsNotUpdated>true</TreatErrorAsNotUpdated>
   <PromptUserBeforeAutomaticUpgrade>true</PromptUserBeforeAutomaticUpgrade>
   <Desc>版本一安装包</Desc>
-  <Package>ac2514c0b4b644b4a1ea4f7af387638f.zip</Package>
-  <MD5>4CEE00C74101801BFB580C51FC7CC342</MD5>
+  <Package>8b893f515ec34b4186d1f2392ab0de71.zip</Package>
+  <MD5>1B5E0C769DD43584FC3C8224518AE087</MD5>
   <DeleteMethod>None</DeleteMethod>
-  <PackageSize>5899070</PackageSize>
-  <ForceUpdate>false</ForceUpdate>
+  <PackageSize>5898262</PackageSize>
+  <ForceUpdate>true</ForceUpdate>
   <Packages>
     <PackageInfo>
       <FilePath>Antlr3.Runtime.dll</FilePath>
       <FileSize>103424</FileSize>
       <Version>3.5.0.2</Version>
       <PackageHash>5704D3371D867A5AFFCCCF13A32B0C3A</PackageHash>
-      <PackageName>0c41ec3f762a45758dc73f1c0914b304.zip</PackageName>
+      <PackageName>3fed6ac195ca40feb8d7b318636f6a03.zip</PackageName>
       <PackageSize>44269</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -34,7 +34,7 @@
       <FileSize>435712</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>7B4A1A7BC2061D67932C69B5A64D341E</PackageHash>
-      <PackageName>1d0e6b6714564624844bff566d465d5d.zip</PackageName>
+      <PackageName>b9c1d4424ebd4d47aa496558281df9c2.zip</PackageName>
       <PackageSize>97343</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -48,7 +48,7 @@
       <FileSize>10240</FileSize>
       <Version>3.2.0.0</Version>
       <PackageHash>BF60BA2A1426953CA8282B6C6915D59D</PackageHash>
-      <PackageName>07a4867bd91e4e3f9bdd21bcbde7da37.zip</PackageName>
+      <PackageName>feabe5d78dbb4fb189b8857365787323.zip</PackageName>
       <PackageSize>4049</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -62,7 +62,7 @@
       <FileSize>11776</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>46CBC25A3DE2304A8A079C07F3480877</PackageHash>
-      <PackageName>7aa76344e47e4978a8bfed8e5d799054.zip</PackageName>
+      <PackageName>4d229caf10bb4a60892ec66788210f99.zip</PackageName>
       <PackageSize>1145</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -76,7 +76,7 @@
       <FileSize>54432</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>461EDF1EA011E56C3371BB8277926179</PackageHash>
-      <PackageName>18227e9d6a814233b39ab0f73a53f7a3.zip</PackageName>
+      <PackageName>62fe5c0f489841afbbc4513a0fb8fea4.zip</PackageName>
       <PackageSize>4313</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -90,7 +90,7 @@
       <FileSize>44544</FileSize>
       <Version>3.2.0.0</Version>
       <PackageHash>3C410C5943CA98599487305F416E4D8A</PackageHash>
-      <PackageName>33cfb43fc184415caf6d51da825e1338.zip</PackageName>
+      <PackageName>6fdb79c3a39a4c69894e1ae50f2ffe06.zip</PackageName>
       <PackageSize>18564</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -104,7 +104,7 @@
       <FileSize>15360</FileSize>
       <Version>3.2.0.0</Version>
       <PackageHash>539581135C9C6BCD9A74FD5C5D5BF74E</PackageHash>
-      <PackageName>5160d316dc914831838cbce2db4f0b7f.zip</PackageName>
+      <PackageName>7e28c01543fb46c2abb29084afbb339c.zip</PackageName>
       <PackageSize>6878</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -118,7 +118,7 @@
       <FileSize>42496</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>D8DDC0993E399C9DEED401B4FC0DEF10</PackageHash>
-      <PackageName>eb8ab69fa8f64394a15fe44aff6709df.zip</PackageName>
+      <PackageName>3fc691ec30e94421b5d601bde9294d5f.zip</PackageName>
       <PackageSize>7272</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -132,7 +132,7 @@
       <FileSize>17447</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>81BCD29A996988F89DAC51EC929484D3</PackageHash>
-      <PackageName>cdbdf6e3b67b437cb2e2497f503ed426.zip</PackageName>
+      <PackageName>c3f18b58c62c4a59a17a441b5f527c9b.zip</PackageName>
       <PackageSize>2798</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -146,7 +146,7 @@
       <FileSize>169472</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>9E2A48FF666FA5BE2E5AF8232F00A42E</PackageHash>
-      <PackageName>6d2a2155306842b4b0f6fa08c1a1304d.zip</PackageName>
+      <PackageName>3fea5b94471243c28328bad91ed230ff.zip</PackageName>
       <PackageSize>33432</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -160,7 +160,7 @@
       <FileSize>167494</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>38286336D60497B4F4336FDB0DF55839</PackageHash>
-      <PackageName>40436c88090c4ce7856569b4f7649dd4.zip</PackageName>
+      <PackageName>5b9fdc2e760f41a899f332dbd4ced0d8.zip</PackageName>
       <PackageSize>13944</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -174,7 +174,7 @@
       <FileSize>5062304</FileSize>
       <Version>6.0.20911.0</Version>
       <PackageHash>3EBEB0F3C5A37BA51FC09DED058D51EE</PackageHash>
-      <PackageName>d1231fa54c724b72a07087dc112459f0.zip</PackageName>
+      <PackageName>b93fa36cc075441b90a48a103e7ebd9e.zip</PackageName>
       <PackageSize>1595917</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -188,7 +188,7 @@
       <FileSize>580768</FileSize>
       <Version>6.0.20911.0</Version>
       <PackageHash>5A381226E7D053BCFC9BF6F588C16152</PackageHash>
-      <PackageName>20bdf12036474f319015f2eb403254d7.zip</PackageName>
+      <PackageName>a0978c15cc1b4379b606a0dd1ea13c91.zip</PackageName>
       <PackageSize>133450</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -202,7 +202,7 @@
       <FileSize>334304</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>25FE52249203F4299B0E152C127497F6</PackageHash>
-      <PackageName>4f299ca813d049658f6fb3dca00cab43.zip</PackageName>
+      <PackageName>4c0c5dd9c40e4d3e8db3aaee10146b80.zip</PackageName>
       <PackageSize>41861</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -216,7 +216,7 @@
       <FileSize>6875415</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>4CE496854467571672DF769B7226BD59</PackageHash>
-      <PackageName>ded20c29ec9e4bd183b9ab174e83865a.zip</PackageName>
+      <PackageName>f348552f1763454989aa42ca92eb0e7f.zip</PackageName>
       <PackageSize>676196</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -227,42 +227,42 @@
     </PackageInfo>
     <PackageInfo>
       <FilePath>EPMCS.Service.exe</FilePath>
-      <FileSize>93696</FileSize>
-      <Version>1.0.0.0</Version>
-      <PackageHash>F0B5DDE69A4D386153E316D14B148A16</PackageHash>
-      <PackageName>636c63fb94fc423f87012d06031dc2eb.zip</PackageName>
-      <PackageSize>37628</PackageSize>
+      <FileSize>98304</FileSize>
+      <Version>1.0.0.6</Version>
+      <PackageHash>B9E3246F50781026F5531BA489ABD6A1</PackageHash>
+      <PackageName>736a941464ea4617bb6e6717b44fc7fb.zip</PackageName>
+      <PackageSize>39840</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>053805E425F0C593662BF93C5EA32652</FileHash>
+      <FileHash>9BE3620DD9E85F005FFC07167DAB732F</FileHash>
       <Files>
         <string>EPMCS.Service.exe</string>
       </Files>
     </PackageInfo>
     <PackageInfo>
       <FilePath>EPMCS.Service.exe.config</FilePath>
-      <FileSize>7695</FileSize>
+      <FileSize>7602</FileSize>
       <Version>0.0.0.0</Version>
-      <PackageHash>E94F89D4AC4FE1F70112D2DDD647D78C</PackageHash>
-      <PackageName>28c9877f0d0840aa9ffdc93580c17133.zip</PackageName>
-      <PackageSize>2370</PackageSize>
+      <PackageHash>D02F2C60470D633B044EC16BBDE4D91B</PackageHash>
+      <PackageName>37038c1534e0491caa93435d2de7f847.zip</PackageName>
+      <PackageSize>2335</PackageSize>
       <Method>SkipIfExists</Method>
       <VerificationLevel>None</VerificationLevel>
-      <FileHash>911637EA3C35BF592F91A51BB67B4CD5</FileHash>
+      <FileHash>FEC1EAE05E6BBAB5066735AF3E60EA3E</FileHash>
       <Files>
         <string>EPMCS.Service.exe.config</string>
       </Files>
     </PackageInfo>
     <PackageInfo>
       <FilePath>EPMCS.Service.pdb</FilePath>
-      <FileSize>214528</FileSize>
+      <FileSize>212480</FileSize>
       <Version>0.0.0.0</Version>
-      <PackageHash>198675D4B8D7A4992ABAB47696F59979</PackageHash>
-      <PackageName>d02205240e5044bb97b97dc349510ac0.zip</PackageName>
-      <PackageSize>48640</PackageSize>
+      <PackageHash>A23D3C81C30B4634F3EB81FD430C4B18</PackageHash>
+      <PackageName>fde46cf134034ef795db46a732e70903.zip</PackageName>
+      <PackageSize>47038</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>01B02EBC532299BB7255CBEF1D800C23</FileHash>
+      <FileHash>3D49774663BA7C71D9915B4DDAB75C62</FileHash>
       <Files>
         <string>EPMCS.Service.pdb</string>
       </Files>
@@ -271,8 +271,8 @@
       <FilePath>EPMCS.Service.vshost.exe</FilePath>
       <FileSize>22656</FileSize>
       <Version>12.0.30723.0</Version>
-      <PackageHash>7BF93323C847E904828B1E47E6F391BC</PackageHash>
-      <PackageName>4a8d5a2508dd496eb6c6c150598c4bc4.zip</PackageName>
+      <PackageHash>DD89AED2046C1C58AB9DF95013F4A38D</PackageHash>
+      <PackageName>9fd93fd31eec467ea3a422f73c6cff03.zip</PackageName>
       <PackageSize>13524</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -283,16 +283,30 @@
     </PackageInfo>
     <PackageInfo>
       <FilePath>EPMCS.Service.vshost.exe.config</FilePath>
-      <FileSize>7810</FileSize>
+      <FileSize>7603</FileSize>
       <Version>0.0.0.0</Version>
-      <PackageHash>39BDB27C85EEDBB8301BA52439971095</PackageHash>
-      <PackageName>77a0cabd9364413ba34fac39acfebc5f.zip</PackageName>
-      <PackageSize>2416</PackageSize>
+      <PackageHash>A89CDFD300C778B051FBCC2A96FD9AFA</PackageHash>
+      <PackageName>5a93b785952b4b85a7d633a4ef4bce93.zip</PackageName>
+      <PackageSize>2337</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>42FD54E631D6976EC13958B08AD31595</FileHash>
+      <FileHash>B1A21360E831818806D1195D45FE2000</FileHash>
       <Files>
         <string>EPMCS.Service.vshost.exe.config</string>
+      </Files>
+    </PackageInfo>
+    <PackageInfo>
+      <FilePath>FtdAdapter.Core.dll</FilePath>
+      <FileSize>34</FileSize>
+      <Version>0.0.0.0</Version>
+      <PackageHash>A31E3BE45FC6A1C54E77223A49A10F61</PackageHash>
+      <PackageName>70af0eaa14f24908869ae6c362be4df7.zip</PackageName>
+      <PackageSize>172</PackageSize>
+      <Method>SkipIfExists</Method>
+      <VerificationLevel>None</VerificationLevel>
+      <FileHash>9104363759C5A30AF6B2E4C28E23F60F</FileHash>
+      <Files>
+        <string>FtdAdapter.Core.dll</string>
       </Files>
     </PackageInfo>
     <PackageInfo>
@@ -300,10 +314,10 @@
       <FileSize>28672</FileSize>
       <Version>1.11.0.0</Version>
       <PackageHash>F7AE9048A63B07B47D957BA6846E1741</PackageHash>
-      <PackageName>f49e123b906f45d09f82c7095d3c3a62.zip</PackageName>
+      <PackageName>1899b899a782441590615fb7f2cda3d9.zip</PackageName>
       <PackageSize>8372</PackageSize>
-      <Method>VersionCompare</Method>
-      <VerificationLevel>Size Hash</VerificationLevel>
+      <Method>SkipIfExists</Method>
+      <VerificationLevel>None</VerificationLevel>
       <FileHash>C360D51C4E32EC2B4F24FFD952350C45</FileHash>
       <Files>
         <string>FtdAdapter.dll</string>
@@ -314,7 +328,7 @@
       <FileSize>270336</FileSize>
       <Version>1.2.10.0</Version>
       <PackageHash>5FB83685070FC74880FD4B70FD262FEC</PackageHash>
-      <PackageName>d296ffd338ac4f5db71af8647205c589.zip</PackageName>
+      <PackageName>493090e47dbe450e906870c7594554ec.zip</PackageName>
       <PackageSize>96405</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -328,7 +342,7 @@
       <FileSize>1365508</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>2E067BA9B0C046B5489340F842F4E62A</PackageHash>
-      <PackageName>e7bb0e9f2d494adda4b83d5b26b19ae3.zip</PackageName>
+      <PackageName>3d766417333c48b38590c9875fe26bda.zip</PackageName>
       <PackageSize>148578</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -342,7 +356,7 @@
       <FileSize>86016</FileSize>
       <Version>1.11.0.0</Version>
       <PackageHash>9663BF12FCFA987A8582E67C5EC3E100</PackageHash>
-      <PackageName>b6a642f15c3743e0866826ee2247a3c7.zip</PackageName>
+      <PackageName>17a559acf29d4a9e9e5d087d174e6781.zip</PackageName>
       <PackageSize>31088</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -356,7 +370,7 @@
       <FileSize>8704</FileSize>
       <Version>1.11.0.0</Version>
       <PackageHash>6819BBD07DAD8C362A638684C35110F9</PackageHash>
-      <PackageName>1249bf2ebd6f4e6493c32f79de1cba48.zip</PackageName>
+      <PackageName>0df01ea1826a49e5b185e1c059e4882e.zip</PackageName>
       <PackageSize>4092</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -370,7 +384,7 @@
       <FileSize>457216</FileSize>
       <Version>6.9.7.0</Version>
       <PackageHash>DAF3407B2A341CD5B35CA03C69642210</PackageHash>
-      <PackageName>8f83eeae7a5f47509c27a5f05bd9c30c.zip</PackageName>
+      <PackageName>9fdaffa58a2e46e89f65da247a4ffb1f.zip</PackageName>
       <PackageSize>177010</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -384,7 +398,7 @@
       <FileSize>369664</FileSize>
       <Version>6.9.7.0</Version>
       <PackageHash>55751283C2C5B1C328C49BA302ECD4F5</PackageHash>
-      <PackageName>55873ad2b501491985db31d7516ce705.zip</PackageName>
+      <PackageName>ebb2b1d62cf24882bddc8dcf14b02546.zip</PackageName>
       <PackageSize>69470</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -398,7 +412,7 @@
       <FileSize>103424</FileSize>
       <Version>1.4.1.0</Version>
       <PackageHash>0AF68CE11D723DEDB1605B6A3EAEF79F</PackageHash>
-      <PackageName>636b17ee3a6b4f56a0a6635f3500780a.zip</PackageName>
+      <PackageName>0d756cc6c98f4bcc96b2db9c15dce0f3.zip</PackageName>
       <PackageSize>29927</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -412,7 +426,7 @@
       <FileSize>520192</FileSize>
       <Version>7.0.1.18622</Version>
       <PackageHash>4476A6A14C739019817304A13EB177DE</PackageHash>
-      <PackageName>6115726e071a4c1d8c3f9b2a8460ec68.zip</PackageName>
+      <PackageName>9771c5035cce48a2ae2dfd890becd0c4.zip</PackageName>
       <PackageSize>197414</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -426,7 +440,7 @@
       <FileSize>501178</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>3C627826831F9B1DF6E9DB49F0167E5F</PackageHash>
-      <PackageName>a72afd683eaa4196a2bea20359916488.zip</PackageName>
+      <PackageName>fcbb26f595b74ca497469fb022aa5c21.zip</PackageName>
       <PackageSize>39866</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -440,7 +454,7 @@
       <FileSize>889344</FileSize>
       <Version>2.3.3.0</Version>
       <PackageHash>3F689D9536FB71EB523A0BC6B1C0E8B2</PackageHash>
-      <PackageName>0d1124134eaa4f41836d189c98bd7e99.zip</PackageName>
+      <PackageName>164662a00608438b8310160ef96927dd.zip</PackageName>
       <PackageSize>293823</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -454,7 +468,7 @@
       <FileSize>1814016</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>7560C73035FCAC604672194B4C259A0C</PackageHash>
-      <PackageName>44b33e98aaf54f95b38001a324a68b8c.zip</PackageName>
+      <PackageName>135395a55e594ffe93a918a6592b021d.zip</PackageName>
       <PackageSize>442475</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -468,7 +482,7 @@
       <FileSize>1039898</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>6BDF978EDA54F44C2B06047B92120FEC</PackageHash>
-      <PackageName>721e4bd2037d49f395bb817cb71fadcd.zip</PackageName>
+      <PackageName>6b45d7772a9548b880f16f158d5d27e1.zip</PackageName>
       <PackageSize>114791</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -482,7 +496,7 @@
       <FileSize>386048</FileSize>
       <Version>4.2.2.0</Version>
       <PackageHash>4FF5F4DBA77353259C058DC7985C5381</PackageHash>
-      <PackageName>ec29257f777e48bb94dcc1b174b18a4f.zip</PackageName>
+      <PackageName>1741b614d5f84093b1349aa31f817d2a.zip</PackageName>
       <PackageSize>148456</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -496,7 +510,7 @@
       <FileSize>500463</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>7062062FCCD248DDDB527A100005D773</PackageHash>
-      <PackageName>6f351d87bcac42bfa787842bf650e58f.zip</PackageName>
+      <PackageName>da714400c8964cedb5f6f30610693f56.zip</PackageName>
       <PackageSize>61313</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -510,7 +524,7 @@
       <FileSize>66560</FileSize>
       <Version>2.2.3.0</Version>
       <PackageHash>C9124A4D1117C7ACC51409BA3635C415</PackageHash>
-      <PackageName>e96ef98f22c14376b1c5b599a70b7900.zip</PackageName>
+      <PackageName>03234804d7884a05bf03b2f010bd33b9.zip</PackageName>
       <PackageSize>26795</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -524,7 +538,7 @@
       <FileSize>187904</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>57FC256C7FCBC6C8C54E7F29E49C4BCF</PackageHash>
-      <PackageName>73e868fd3b4f4cb6bffc9e3fe733aca6.zip</PackageName>
+      <PackageName>99fa626f165b4358956d5f92a475c7cf.zip</PackageName>
       <PackageSize>43901</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -538,7 +552,7 @@
       <FileSize>21504</FileSize>
       <Version>1.1.0.0</Version>
       <PackageHash>EBA1C52FB0EBEDAC3354BD1CAA63D567</PackageHash>
-      <PackageName>c9c0f22021984f7584588eb7ea483963.zip</PackageName>
+      <PackageName>0dfbc51ee1fc450399c9884e48ea6a9f.zip</PackageName>
       <PackageSize>10061</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -548,11 +562,39 @@
       </Files>
     </PackageInfo>
     <PackageInfo>
+      <FilePath>UpdateEnd.cmd</FilePath>
+      <FileSize>249</FileSize>
+      <Version>0.0.0.0</Version>
+      <PackageHash>4BB86B32745F3B4A4A8A90E2ED38291C</PackageHash>
+      <PackageName>49dc8903d5394cfba9680b1eaaa8a9b1.zip</PackageName>
+      <PackageSize>316</PackageSize>
+      <Method>VersionCompare</Method>
+      <VerificationLevel>Size Hash</VerificationLevel>
+      <FileHash>3C700739AD46B372FF4C05BCDEAED0E7</FileHash>
+      <Files>
+        <string>UpdateEnd.cmd</string>
+      </Files>
+    </PackageInfo>
+    <PackageInfo>
+      <FilePath>UpdateStart.cmd</FilePath>
+      <FileSize>220</FileSize>
+      <Version>0.0.0.0</Version>
+      <PackageHash>9A5C3A9E7C9281A1527CF5166EE5B2BE</PackageHash>
+      <PackageName>26585d1ae79442128c2991f38b67d9b8.zip</PackageName>
+      <PackageSize>321</PackageSize>
+      <Method>VersionCompare</Method>
+      <VerificationLevel>Size Hash</VerificationLevel>
+      <FileHash>87903B414CC8DA215EC781ABFC5E9EB3</FileHash>
+      <Files>
+        <string>UpdateStart.cmd</string>
+      </Files>
+    </PackageInfo>
+    <PackageInfo>
       <FilePath>Xstream.Core.dll</FilePath>
       <FileSize>32768</FileSize>
       <Version>1.0.4471.16137</Version>
       <PackageHash>615F910C1068ACC9A087CA80F0DCAC4D</PackageHash>
-      <PackageName>42ca9682dff846f8a9d091955aececab.zip</PackageName>
+      <PackageName>a1b0ba443c824ba1ab6100acc36ece19.zip</PackageName>
       <PackageSize>8444</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -566,7 +608,7 @@
       <FileSize>169</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>BBED22F12437466B773325F5E439E235</PackageHash>
-      <PackageName>a89d667c1a754623a9ed852e3b3815b2.zip</PackageName>
+      <PackageName>4556b0fab66640ba9a2ed463da2f2982.zip</PackageName>
       <PackageSize>248</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -580,7 +622,7 @@
       <FileSize>652</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>546B8840ABF3A14301F6D6C4D492A153</PackageHash>
-      <PackageName>b799f7e2d0814ebca27721f6591c3ce0.zip</PackageName>
+      <PackageName>590784fda97c4fdeb20cea49425f786b.zip</PackageName>
       <PackageSize>523</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -591,14 +633,14 @@
     </PackageInfo>
     <PackageInfo>
       <FilePath>_srv_restart.cmd</FilePath>
-      <FileSize>135</FileSize>
+      <FileSize>143</FileSize>
       <Version>0.0.0.0</Version>
-      <PackageHash>A4AF05A58580EB3D9F0F1C6733089C25</PackageHash>
-      <PackageName>28209cca450c4197a7d31879736fced3.zip</PackageName>
-      <PackageSize>208</PackageSize>
+      <PackageHash>4110AEA8A6EBD62D5F04B0CA3D819C8D</PackageHash>
+      <PackageName>a159b75dd28b4264b3bea3d49e2226c2.zip</PackageName>
+      <PackageSize>214</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>65C582261CFA8F833537F03F0068873F</FileHash>
+      <FileHash>42887CD36F16482ED9B6B406FB05ED42</FileHash>
       <Files>
         <string>_srv_restart.cmd</string>
       </Files>
@@ -607,8 +649,8 @@
       <FilePath>_srv_start.cmd</FilePath>
       <FileSize>112</FileSize>
       <Version>0.0.0.0</Version>
-      <PackageHash>8B74FC114B544F50551A7292C4B7D9B0</PackageHash>
-      <PackageName>6fb0a6e09ac444029a44081046c7551e.zip</PackageName>
+      <PackageHash>88032B9BA8A9565CC3D9A777D70ED894</PackageHash>
+      <PackageName>bf0c95f86f3a4ba19213f4d556d3f7c4.zip</PackageName>
       <PackageSize>198</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -621,8 +663,8 @@
       <FilePath>_srv_stop.cmd</FilePath>
       <FileSize>111</FileSize>
       <Version>0.0.0.0</Version>
-      <PackageHash>CC8F1F326AB66D83D4E266208C66CBC3</PackageHash>
-      <PackageName>e64635c2e452453295776f9d9eb16f8c.zip</PackageName>
+      <PackageHash>BAC5790F8A0C9333565620BE749C99C3</PackageHash>
+      <PackageName>e90a2d19e03b4af381e7fcc5c88f4628.zip</PackageName>
       <PackageSize>195</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -636,7 +678,7 @@
       <FileSize>112</FileSize>
       <Version>0.0.0.0</Version>
       <PackageHash>61A9E41EEDC2825173F60F7753CAB556</PackageHash>
-      <PackageName>8b2db603c4d340578a513424f69c9805.zip</PackageName>
+      <PackageName>2a5c475d9f0f4c7894c298e856be79d0.zip</PackageName>
       <PackageSize>206</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -646,39 +688,11 @@
       </Files>
     </PackageInfo>
     <PackageInfo>
-      <FilePath>安装前执行.cmd</FilePath>
-      <FileSize>297</FileSize>
-      <Version>0.0.0.0</Version>
-      <PackageHash>0ED49CAB283FCD524D4021E3C5487487</PackageHash>
-      <PackageName>d4a71873d78f412f8dce9ee99da50396.zip</PackageName>
-      <PackageSize>361</PackageSize>
-      <Method>VersionCompare</Method>
-      <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>E66B2CA486BF06643116CB66F3B9D71E</FileHash>
-      <Files>
-        <string>安装前执行.cmd</string>
-      </Files>
-    </PackageInfo>
-    <PackageInfo>
-      <FilePath>安装后执行.cmd</FilePath>
-      <FileSize>305</FileSize>
-      <Version>0.0.0.0</Version>
-      <PackageHash>321181C956C7E8513B077D8E96725071</PackageHash>
-      <PackageName>818dfecef41b4236a86164f948a33f6f.zip</PackageName>
-      <PackageSize>379</PackageSize>
-      <Method>VersionCompare</Method>
-      <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>D60988FE6FFDE9A11A0EF694B34A62C1</FileHash>
-      <Files>
-        <string>安装后执行.cmd</string>
-      </Files>
-    </PackageInfo>
-    <PackageInfo>
       <FilePath>en\SimpleUpdater.resources.dll</FilePath>
       <FileSize>70144</FileSize>
       <Version>4.2.2.0</Version>
-      <PackageHash>F4B441A321911EC9AA53E3C8B791D9C1</PackageHash>
-      <PackageName>9d98ba55a59f487e8db93a6cb8a73191.zip</PackageName>
+      <PackageHash>202D00F57588A480C093754D53C50987</PackageHash>
+      <PackageName>157f2e6837314cc99a9182819ed0102c.zip</PackageName>
       <PackageSize>23811</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -688,39 +702,11 @@
       </Files>
     </PackageInfo>
     <PackageInfo>
-      <FilePath>log\debug20150812.txt</FilePath>
-      <FileSize>1104</FileSize>
-      <Version>0.0.0.0</Version>
-      <PackageHash>EB2701A3EB59D590F96BDB90DA3824FA</PackageHash>
-      <PackageName>0f10f5f6c3324d388b6a740c27499957.zip</PackageName>
-      <PackageSize>643</PackageSize>
-      <Method>VersionCompare</Method>
-      <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>CD9ABBD955D46A9F988DB75A34502336</FileHash>
-      <Files>
-        <string>log\debug20150812.txt</string>
-      </Files>
-    </PackageInfo>
-    <PackageInfo>
-      <FilePath>log\info20150812.txt</FilePath>
-      <FileSize>1552</FileSize>
-      <Version>0.0.0.0</Version>
-      <PackageHash>93E6457C4138EC5CE5CC4D70BC83C930</PackageHash>
-      <PackageName>90ef4d43f8e64b3ba32eb38e99ef3dbe.zip</PackageName>
-      <PackageSize>842</PackageSize>
-      <Method>VersionCompare</Method>
-      <VerificationLevel>Size Hash</VerificationLevel>
-      <FileHash>1AC5564BA496E674901FC0C5B1FD52B3</FileHash>
-      <Files>
-        <string>log\info20150812.txt</string>
-      </Files>
-    </PackageInfo>
-    <PackageInfo>
       <FilePath>x64\SQLite.Interop.dll</FilePath>
       <FileSize>1186304</FileSize>
       <Version>1.0.97.0</Version>
-      <PackageHash>AC6DD905217F02243C71B0F14C3DCC98</PackageHash>
-      <PackageName>dcd9f2b76270415e992722951030efd7.zip</PackageName>
+      <PackageHash>EE220F11F832713162C71A4B3D4DFBF5</PackageHash>
+      <PackageName>e665d0b22ac34909983d3f2de2f9d64a.zip</PackageName>
       <PackageSize>614779</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -733,8 +719,8 @@
       <FilePath>x86\SQLite.Interop.dll</FilePath>
       <FileSize>927232</FileSize>
       <Version>1.0.97.0</Version>
-      <PackageHash>A0A72B2976DFB22A008DC3D87DF7FF42</PackageHash>
-      <PackageName>e1c05c87e7784d3595d6d932c1773380.zip</PackageName>
+      <PackageHash>8E3B4BA47D37618E492FEFCC0E06EA55</PackageHash>
+      <PackageName>533deafb9b2341b3bcbc1926e565ad42.zip</PackageName>
       <PackageSize>519593</PackageSize>
       <Method>VersionCompare</Method>
       <VerificationLevel>Size Hash</VerificationLevel>
@@ -746,9 +732,9 @@
   </Packages>
   <HideBeforeExecuteWindow>false</HideBeforeExecuteWindow>
   <HideAfterExecuteWindow>false</HideAfterExecuteWindow>
-  <MustUpdate>false</MustUpdate>
-  <AutoExitCurrentProcess>false</AutoExitCurrentProcess>
+  <MustUpdate>true</MustUpdate>
+  <AutoExitCurrentProcess>true</AutoExitCurrentProcess>
   <AutoEndProcessesWithinAppDir>true</AutoEndProcessesWithinAppDir>
-  <AutoKillProcesses>false</AutoKillProcesses>
+  <AutoKillProcesses>true</AutoKillProcesses>
   <RequreAdminstrorPrivilege>true</RequreAdminstrorPrivilege>
 </UpdateInfo>

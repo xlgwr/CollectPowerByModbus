@@ -2,17 +2,17 @@
 <AuProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <UpdateInfo>
     <AppName>EPMCS.Service</AppName>
-    <AppVersion>1.0.0.0</AppVersion>
-    <PublishUrl>http://127.0.0.1:8080/</PublishUrl>
-    <FileExecuteBefore>_srv_stop.cmd</FileExecuteBefore>
-    <FileExecuteAfter>_srv_start.cmd</FileExecuteAfter>
+    <AppVersion>1.0.0.6</AppVersion>
+    <PublishUrl />
+    <FileExecuteBefore>UpdateStart.cmd</FileExecuteBefore>
+    <FileExecuteAfter>UpdateEnd.cmd</FileExecuteAfter>
     <ExecuteTimeout>0</ExecuteTimeout>
     <TreatErrorAsNotUpdated>false</TreatErrorAsNotUpdated>
     <PromptUserBeforeAutomaticUpgrade>true</PromptUserBeforeAutomaticUpgrade>
     <Desc>版本一安装包</Desc>
     <DeleteMethod>None</DeleteMethod>
     <PackageSize>0</PackageSize>
-    <ForceUpdate>true</ForceUpdate>
+    <ForceUpdate>false</ForceUpdate>
     <Packages />
     <HideBeforeExecuteWindow>false</HideBeforeExecuteWindow>
     <HideAfterExecuteWindow>false</HideAfterExecuteWindow>
@@ -20,7 +20,7 @@
     <AutoExitCurrentProcess>false</AutoExitCurrentProcess>
     <AutoEndProcessesWithinAppDir>true</AutoEndProcessesWithinAppDir>
     <AutoKillProcesses>false</AutoKillProcesses>
-    <RequreAdminstrorPrivilege>true</RequreAdminstrorPrivilege>
+    <RequreAdminstrorPrivilege>false</RequreAdminstrorPrivilege>
   </UpdateInfo>
   <DefaultFileVerificationLevel>Size Hash</DefaultFileVerificationLevel>
   <DefaultUpdateMethod>VersionCompare</DefaultUpdateMethod>
@@ -55,14 +55,25 @@
       <UpdateMethod>Ignore</UpdateMethod>
       <FileVerificationLevel>None</FileVerificationLevel>
     </ProjectItem>
+    <ProjectItem>
+      <Path>FtdAdapter.Core.dll</Path>
+      <UpdateMethod>SkipIfExists</UpdateMethod>
+      <FileVerificationLevel>None</FileVerificationLevel>
+    </ProjectItem>
+    <ProjectItem>
+      <Path>FtdAdapter.dll</Path>
+      <UpdateMethod>SkipIfExists</UpdateMethod>
+      <FileVerificationLevel>None</FileVerificationLevel>
+    </ProjectItem>
   </Files>
   <ApplicationDirectory>..\EPMCS.Service\bin\Debug</ApplicationDirectory>
   <DestinationDirectory>update</DestinationDirectory>
   <CreateCompatiblePackage>true</CreateCompatiblePackage>
   <CompressPackage>true</CompressPackage>
   <EnableIncreaseUpdate>true</EnableIncreaseUpdate>
+  <VersionUpdateSrc>..\EPMCS.Service\bin\Debug\EPMCS.Service.exe</VersionUpdateSrc>
   <PackageExtension>zip</PackageExtension>
   <UseRandomPackageNaming>true</UseRandomPackageNaming>
-  <CleanBeforeBuild>false</CleanBeforeBuild>
+  <CleanBeforeBuild>true</CleanBeforeBuild>
   <ComponentFlags />
 </AuProject>
