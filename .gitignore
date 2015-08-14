@@ -19,7 +19,10 @@ bld/
 [Oo]bj/
 
 # NuGet
+packages
 /packages
+*/packages
+
 
 # Roslyn cache directories
 *.ide/
