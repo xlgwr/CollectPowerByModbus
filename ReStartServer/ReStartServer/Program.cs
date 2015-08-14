@@ -1,7 +1,7 @@
 ﻿//#define Dev
 
 using System.ServiceProcess;
-namespace EPMCS.Service
+namespace ReStartServer
 {
 #if Dev
 
@@ -25,7 +25,7 @@ namespace EPMCS.Service
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service()
+                new Service1()
             };
             ServiceBase.Run(ServicesToRun);
         }
