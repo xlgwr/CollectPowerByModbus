@@ -1,6 +1,7 @@
 ﻿using EPMCS.DAL;
 using EPMCS.Model;
 using EPMCS.Model.NotInDb;
+using EPMCS.Service.Util;
 using log4net;
 using System;
 using System.Collections.Concurrent;
@@ -212,6 +213,16 @@ namespace EPMCS.Service.Conf
                 ports = new ConcurrentDictionary<string, SerialPort>();
             }
             return ports;
+        }
+
+        private static ConcurrentDictionary<string, MyCom> myComports = new ConcurrentDictionary<string, MyCom>(2, 2);
+        public static ConcurrentDictionary<string, MyCom> MyComports()
+        {
+            if (myComports == null)
+            {
+                myComports = new ConcurrentDictionary<string, MyCom>();
+            }
+            return myComports;
         }
     }
 

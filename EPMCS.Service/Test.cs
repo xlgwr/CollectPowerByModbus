@@ -88,15 +88,13 @@ namespace EPMCS.Service
 
             #region "collect"
 
-            IJobDetail job = JobBuilder.Create<CollectJob>()
-                         .WithIdentity(Consts.CollectJob, Consts.CollectGroup)
-                         .Build();
-
+            //nmodbus
+            IJobDetail job = JobBuilder.Create<CollectJob>().WithIdentity(Consts.CollectJob, Consts.CollectGroup).Build();
             ITrigger trigger = TriggerBuilder.Create()
-                .WithIdentity(Consts.CollectTrigger, Consts.CollectGroup)
-                .StartAt(runTime)
-                .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
-                .Build();
+                 .WithIdentity(Consts.CollectTrigger, Consts.CollectGroup)
+                 .StartAt(runTime)
+                 .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
+                 .Build();
 
             //Set up the listener
             IJobListener listener = new CollectJobListener();
@@ -136,6 +134,14 @@ namespace EPMCS.Service
                 {
                     em.Close();
                     em.Dispose();
+                }
+                finally { }
+            }
+            foreach (var em in ConfUtil.MyComports().Values)
+            {
+                try
+                {
+                    em.Close();
                 }
                 finally { }
             }

@@ -313,6 +313,9 @@ namespace EPMCS.Service.Job
                                 serialPort.DataBits = 8;
                                 serialPort.Parity = Parity.Odd;
                                 serialPort.StopBits = StopBits.One;
+                                //add by xlg
+                                serialPort.ReadTimeout = 3000;
+                                serialPort.WriteTimeout = 3000;
 
                                 ConfUtil.Ports()[state.Port] = serialPort;
                             }
@@ -335,6 +338,7 @@ namespace EPMCS.Service.Job
                             data.Groupstamp = state.Group.Ticks.ToString();
 
                             byte slaveId = byte.Parse(meter.DeviceAdd);
+                            bool isTimeOutOrError = false;
 
                             foreach (CmdInfo info in meter.CmdInfos)
                             {
@@ -342,7 +346,19 @@ namespace EPMCS.Service.Job
                                 ushort startAddress = Convert.ToUInt16(info.Address, 16);
                                 ushort npoints = Ints.Reg16Count(info.CsharpType);
 
-                                ushort[] dd  = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
+
+                                ushort[] dd;
+                                try
+                                {
+                                    dd= master.ReadHoldingRegisters(slaveId, startAddress, npoints);
+                                }
+                                catch (Exception ex)
+                                {
+                                    logger.ErrorFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address,slaveId,ex.Message);
+                                    logger.DebugFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address, slaveId,ex.Message);
+                                    isTimeOutOrError = true;
+                                    break;
+                                }              
 
                                 string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
 
@@ -406,7 +422,11 @@ namespace EPMCS.Service.Job
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
 
                             }
-
+                            if (isTimeOutOrError)
+                            {
+                                logger.DebugFormat("********继续下个设备采集，当前采集表[{0}],地址{1}", meter.DeviceName, meter.DeviceAdd);                               
+                                continue;
+                            }
                             data.PowerDate = state.Group;// new DateTime(year, month, day, hour, minute, second);
                             data.Uploaded = 0;
                             //add by xlg 2015-07-05
