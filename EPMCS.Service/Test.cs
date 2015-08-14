@@ -88,20 +88,20 @@ namespace EPMCS.Service
 
             #region "collect"
 
-            //nmodbus
-            IJobDetail job = JobBuilder.Create<CollectJob>().WithIdentity(Consts.CollectJob, Consts.CollectGroup).Build();
-            ITrigger trigger = TriggerBuilder.Create()
-                 .WithIdentity(Consts.CollectTrigger, Consts.CollectGroup)
-                 .StartAt(runTime)
-                 .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
-                 .Build();
+            ////nmodbus
+            //IJobDetail job = JobBuilder.Create<CollectJob>().WithIdentity(Consts.CollectJob, Consts.CollectGroup).Build();
+            //ITrigger trigger = TriggerBuilder.Create()
+            //     .WithIdentity(Consts.CollectTrigger, Consts.CollectGroup)
+            //     .StartAt(runTime)
+            //     .WithSimpleSchedule(x => x.WithIntervalInSeconds(60).RepeatForever())
+            //     .Build();
 
-            //Set up the listener
-            IJobListener listener = new CollectJobListener();
-            IMatcher<JobKey> matcher = KeyMatcher<JobKey>.KeyEquals(job.Key);
-            scheduler.ListenerManager.AddJobListener(listener, matcher);
+            ////Set up the listener
+            //IJobListener listener = new CollectJobListener();
+            //IMatcher<JobKey> matcher = KeyMatcher<JobKey>.KeyEquals(job.Key);
+            //scheduler.ListenerManager.AddJobListener(listener, matcher);
 
-            scheduler.ScheduleJob(job, trigger);
+            //scheduler.ScheduleJob(job, trigger);
 
             #endregion "collect"
         }

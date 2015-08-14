@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt1Rece = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbox4StopBits = new System.Windows.Forms.ComboBox();
@@ -40,22 +40,18 @@
             this.cbox0PortName = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt1Rece = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btn2Power = new System.Windows.Forms.Button();
+            this.btn1Alert = new System.Windows.Forms.Button();
+            this.cbox7ID = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txt1Rece
-            // 
-            this.txt1Rece.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt1Rece.Location = new System.Drawing.Point(3, 17);
-            this.txt1Rece.Multiline = true;
-            this.txt1Rece.Name = "txt1Rece";
-            this.txt1Rece.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt1Rece.Size = new System.Drawing.Size(683, 175);
-            this.txt1Rece.TabIndex = 31;
             // 
             // label4
             // 
@@ -107,6 +103,7 @@
             this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 22;
             this.label3.Text = "数据位(D)：";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cbox1BaudRate
             // 
@@ -145,13 +142,22 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txt1Rece);
-            this.groupBox1.Location = new System.Drawing.Point(12, 284);
+            this.groupBox1.Location = new System.Drawing.Point(12, 231);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(689, 195);
+            this.groupBox1.Size = new System.Drawing.Size(449, 248);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "收到数据：";
+            this.groupBox1.Text = "Message：";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txt1Rece
+            // 
+            this.txt1Rece.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt1Rece.Location = new System.Drawing.Point(3, 17);
+            this.txt1Rece.Name = "txt1Rece";
+            this.txt1Rece.Size = new System.Drawing.Size(443, 228);
+            this.txt1Rece.TabIndex = 0;
+            this.txt1Rece.Text = "";
             // 
             // groupBox2
             // 
@@ -174,19 +180,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "设置：";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton1.Location = new System.Drawing.Point(33, 29);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(49, 16);
-            this.radioButton1.TabIndex = 35;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "电表";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
@@ -200,27 +193,99 @@
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.radioButton1.Location = new System.Drawing.Point(33, 29);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(49, 16);
+            this.radioButton1.TabIndex = 35;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "电表";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // btn2Power
+            // 
+            this.btn2Power.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn2Power.Location = new System.Drawing.Point(304, 113);
+            this.btn2Power.Name = "btn2Power";
+            this.btn2Power.Size = new System.Drawing.Size(131, 52);
+            this.btn2Power.TabIndex = 0;
+            this.btn2Power.Text = "电表测试";
+            this.btn2Power.UseVisualStyleBackColor = true;
+            this.btn2Power.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btn1Alert
+            // 
+            this.btn1Alert.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn1Alert.Location = new System.Drawing.Point(304, 41);
+            this.btn1Alert.Name = "btn1Alert";
+            this.btn1Alert.Size = new System.Drawing.Size(131, 52);
+            this.btn1Alert.TabIndex = 0;
+            this.btn1Alert.Text = "报警灯测试";
+            this.btn1Alert.UseVisualStyleBackColor = true;
+            this.btn1Alert.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbox7ID
+            // 
+            this.cbox7ID.FormattingEnabled = true;
+            this.cbox7ID.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10"});
+            this.cbox7ID.Location = new System.Drawing.Point(366, 182);
+            this.cbox7ID.Name = "cbox7ID";
+            this.cbox7ID.Size = new System.Drawing.Size(67, 20);
+            this.cbox7ID.TabIndex = 35;
+            this.cbox7ID.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(313, 185);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 12);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "电表ID:";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 491);
+            this.ClientSize = new System.Drawing.Size(471, 491);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbox7ID);
+            this.Controls.Add(this.btn1Alert);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btn2Power);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "TestDevices";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt1Rece;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbox4StopBits;
@@ -235,6 +300,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button btn2Power;
+        private System.Windows.Forms.Button btn1Alert;
+        private System.Windows.Forms.ComboBox cbox7ID;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RichTextBox txt1Rece;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

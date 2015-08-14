@@ -314,8 +314,8 @@ namespace EPMCS.Service.Job
                                 serialPort.Parity = Parity.Odd;
                                 serialPort.StopBits = StopBits.One;
                                 //add by xlg
-                                serialPort.ReadTimeout = 3000;
-                                serialPort.WriteTimeout = 3000;
+                                serialPort.ReadTimeout = 1000;
+                                serialPort.WriteTimeout = 1000;
 
                                 ConfUtil.Ports()[state.Port] = serialPort;
                             }
@@ -478,7 +478,7 @@ namespace EPMCS.Service.Job
                             alldata.Add(data);
 
                             serialPort.BreakState = true;
-                            System.Threading.Thread.Sleep(1000);
+                            System.Threading.Thread.Sleep(100);
                             if (serialPort.BytesToRead > 0)
                                 serialPort.DiscardInBuffer();
                             if (serialPort.BytesToWrite > 0)
@@ -493,7 +493,7 @@ namespace EPMCS.Service.Job
                                 try
                                 {
                                     serialPort.BreakState = true;
-                                    System.Threading.Thread.Sleep(2400);
+                                    System.Threading.Thread.Sleep(100);
                                     while (serialPort.BytesToRead > 0)
                                         serialPort.DiscardInBuffer();
                                     while (serialPort.BytesToWrite > 0)
