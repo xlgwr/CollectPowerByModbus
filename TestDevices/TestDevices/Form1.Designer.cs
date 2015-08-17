@@ -215,7 +215,7 @@
             this.btn2Power.TabIndex = 0;
             this.btn2Power.Text = "电表测试";
             this.btn2Power.UseVisualStyleBackColor = true;
-            this.btn2Power.Click += new System.EventHandler(this.button1_Click);
+            this.btn2Power.Click += new System.EventHandler(this.btn2Power_Click);
             // 
             // btn1Alert
             // 

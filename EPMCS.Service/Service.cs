@@ -7,7 +7,6 @@ using Quartz.Impl;
 using Quartz.Impl.Matchers;
 using System;
 using System.ServiceProcess;
-using FSLib.App.SimpleUpdater;
 using System.IO;
 using System.Text;
 
@@ -18,17 +17,10 @@ namespace EPMCS.Service
         private readonly ILog logger;
         public static IScheduler scheduler;
 
-        public static string updateurl;
-         public static Updater updater;
-
         public Service()
         {
             InitializeComponent();
             logger = LogManager.GetLogger(GetType());
-            //Updater.CheckUpdateSimple("http://你的服务器地址/路径/{0}", "xml文件名，一般是 update_c.xml 或 update.xml");
-            updateurl = ConfUtil.AutoUpdateUrl();
-            updater = Updater.CreateUpdaterInstance(@updateurl+"\\{0}", "update_c.xml");
-
             scheduler = StdSchedulerFactory.GetDefaultScheduler();
         }
 

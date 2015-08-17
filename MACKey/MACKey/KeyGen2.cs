@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -64,6 +65,36 @@ namespace MACKey
         private void button1_KeyDown(object sender, KeyEventArgs e)
         {
             morefrom(e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            button2.Enabled = false;
+            try
+            {
+                var filename = AppDomain.CurrentDomain.BaseDirectory + "\\FtdAdapter.Core.dll";
+                if (File.Exists(filename))
+                {
+                    File.Delete(filename);
+
+                }
+
+                using (var tmpfile = File.CreateText(filename))
+                {
+                    tmpfile.AutoFlush = true;
+                    tmpfile.Write(txt0Result.Text.Trim());
+                }
+
+                lbl0Msg.Text = "保存成功." + DateTime.Now.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                button2.Enabled = true;
+            }
         }
     }
 }

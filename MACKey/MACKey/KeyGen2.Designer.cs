@@ -38,6 +38,7 @@
             this.lbl0Msg = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txt3SerialModel = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -75,7 +76,7 @@
             // 
             // txt0Result
             // 
-            this.txt0Result.Location = new System.Drawing.Point(12, 209);
+            this.txt0Result.Location = new System.Drawing.Point(12, 234);
             this.txt0Result.Multiline = true;
             this.txt0Result.Name = "txt0Result";
             this.txt0Result.Size = new System.Drawing.Size(436, 75);
@@ -85,7 +86,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(153, 138);
+            this.button1.Location = new System.Drawing.Point(103, 138);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(119, 54);
             this.button1.TabIndex = 16;
@@ -97,7 +98,7 @@
             // lbl0Msg
             // 
             this.lbl0Msg.AutoSize = true;
-            this.lbl0Msg.Location = new System.Drawing.Point(19, 186);
+            this.lbl0Msg.Location = new System.Drawing.Point(19, 211);
             this.lbl0Msg.Name = "lbl0Msg";
             this.lbl0Msg.Size = new System.Drawing.Size(0, 12);
             this.lbl0Msg.TabIndex = 19;
@@ -118,15 +119,27 @@
             this.txt3SerialModel.Size = new System.Drawing.Size(325, 21);
             this.txt3SerialModel.TabIndex = 20;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(249, 138);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(119, 54);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "保存Key";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
+            // 
             // KeyGen2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(453, 298);
+            this.ClientSize = new System.Drawing.Size(453, 321);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txt3SerialModel);
             this.Controls.Add(this.lbl0Msg);
             this.Controls.Add(this.txt0Result);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txt5User);
@@ -153,5 +166,6 @@
         private System.Windows.Forms.Label lbl0Msg;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt3SerialModel;
+        private System.Windows.Forms.Button button2;
     }
 }

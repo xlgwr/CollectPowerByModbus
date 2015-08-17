@@ -314,8 +314,8 @@ namespace EPMCS.Service.Job
                                 serialPort.Parity = Parity.Odd;
                                 serialPort.StopBits = StopBits.One;
                                 //add by xlg
-                                serialPort.ReadTimeout = 1000;
-                                serialPort.WriteTimeout = 1000;
+                                serialPort.ReadTimeout = 50;
+                                serialPort.WriteTimeout = 50;
 
                                 ConfUtil.Ports()[state.Port] = serialPort;
                             }
@@ -327,7 +327,10 @@ namespace EPMCS.Service.Job
                             if (!serialPort.IsOpen)
                             {
                                 serialPort.Open();
+                                System.Threading.Thread.Sleep(20);
                             }
+
+
                             master = ModbusSerialMaster.CreateRtu(serialPort);
 
                             logger.DebugFormat("开始采集表[{0}],地址{1},一共有{2}个采集项目", meter.DeviceName, meter.DeviceAdd, meter.CmdInfos.Count());
@@ -350,15 +353,15 @@ namespace EPMCS.Service.Job
                                 ushort[] dd;
                                 try
                                 {
-                                    dd= master.ReadHoldingRegisters(slaveId, startAddress, npoints);
+                                    dd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
                                 }
                                 catch (Exception ex)
                                 {
-                                    logger.ErrorFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address,slaveId,ex.Message);
-                                    logger.DebugFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address, slaveId,ex.Message);
+                                    logger.ErrorFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address, slaveId, ex.Message);
+                                    logger.DebugFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address, slaveId, ex.Message);
                                     isTimeOutOrError = true;
                                     break;
-                                }              
+                                }
 
                                 string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
 
@@ -421,10 +424,18 @@ namespace EPMCS.Service.Job
                                 //判断本表有否超过阈值
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
 
+                                serialPort.BreakState = true;
+                                System.Threading.Thread.Sleep(20);
+                                if (serialPort.BytesToRead > 0)
+                                    serialPort.DiscardInBuffer();
+                                if (serialPort.BytesToWrite > 0)
+                                    serialPort.DiscardOutBuffer();
+                                serialPort.BreakState = false;
+
                             }
                             if (isTimeOutOrError)
                             {
-                                logger.DebugFormat("********继续下个设备采集，当前采集表[{0}],地址{1}", meter.DeviceName, meter.DeviceAdd);                               
+                                logger.DebugFormat("********继续下个设备采集，当前采集表[{0}],地址{1}", meter.DeviceName, meter.DeviceAdd);
                                 continue;
                             }
                             data.PowerDate = state.Group;// new DateTime(year, month, day, hour, minute, second);
@@ -461,6 +472,7 @@ namespace EPMCS.Service.Job
                                     data.PrePowerDate = data.PowerDate;
                                 }
 
+
                             }
 
                             // add to bak data
@@ -477,13 +489,6 @@ namespace EPMCS.Service.Job
                             //end by xlg
                             alldata.Add(data);
 
-                            serialPort.BreakState = true;
-                            System.Threading.Thread.Sleep(100);
-                            if (serialPort.BytesToRead > 0)
-                                serialPort.DiscardInBuffer();
-                            if (serialPort.BytesToWrite > 0)
-                                serialPort.DiscardOutBuffer();
-                            serialPort.BreakState = false;
                         }
                         catch (System.Threading.ThreadAbortException tae)
                         {
