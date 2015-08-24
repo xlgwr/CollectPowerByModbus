@@ -8,10 +8,12 @@ using EPMCS.Service.Thread;
 using EPMCS.Service.Util;
 using log4net;
 using Modbus.Device;
+using MySql.Data.MySqlClient;
 using NCalc;
 using Quartz;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
@@ -56,10 +58,39 @@ namespace EPMCS.Service.Job
                 }
                 logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! metersgroup == null [{0}]", metersgroup == null);
                 DateTime taskgroup = DateTime.Now;
+                //add by xlg
+                var taskgroupMin = taskgroup.AddSeconds(-taskgroup.Second).AddMilliseconds(-taskgroup.Millisecond);
+                //one min only a collect job
+                using (MysqlDbContext dbcontext = new MysqlDbContext())
+                {
+                    try
+                    {
+                        logger.DebugFormat("开始获取时间min!");
+
+                        //var dd = dbcontext.Database.SqlQuery<int>("select count(*) from uploaddatas where DATE_FORMAT(PowerDate,'%Y%m%d%H%i')=@p0", taskgroupMin.ToString("yyyyMMddHHmm")).SingleOrDefault();
+
+                        var dd = dbcontext.Database.SqlQuery<DateTime?>("select max(PowerDate) from uploaddatas").SingleOrDefault();
+
+                        if (dd.HasValue)
+                        {
+                            logger.DebugFormat("开始获取时间min!,db:{0}", dd);
+                            if (taskgroupMin.ToString("yyyyMMddHHmm").Equals(dd.Value.ToString("yyyyMMddHHmm")))
+                            {
+                                return;
+                            }
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.ErrorFormat("**获取时间min失败，{0}", ex);
+                    }
+                }
+
                 if (metersgroup != null && metersgroup.RMeters.Count > 0)
                 {
                     logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! metersgroup.RMeters.Count= [{0}]", metersgroup.RMeters.Count);
-                    //DateTime taskgroup = DateTime.Now;
+
                     int portCount = metersgroup.RMeters.Count;
                     IWorkItemsGroup collectWorkItemsGroup = PoolsManager.GetCollectDataThreadPoolInstance().CreateWorkItemsGroup(portCount);
                     IWorkItemResult<List<UploadData>>[] wirs = new IWorkItemResult<List<UploadData>>[portCount];
@@ -137,12 +168,12 @@ namespace EPMCS.Service.Job
 
                                         UploadData dd = new UploadData
                                         {
-                                            PowerDate = taskgroup,
+                                            PowerDate = taskgroup.AddSeconds(-taskgroup.Second).AddMilliseconds(-taskgroup.Millisecond),
                                             Groupstamp = taskgroup.Ticks.ToString(),
                                             CustomerId = mt.CustomerId,
                                             DeviceCd = mt.DeviceCd,
                                             DeviceId = mt.DeviceId,
-                                            PrePowerDate = taskgroup, //diff time init for visual
+                                            PrePowerDate = taskgroup.AddSeconds(-taskgroup.Second).AddMilliseconds(-taskgroup.Millisecond),//diff time init for visual
                                             Uploaded = 2 //Uploaded = 0 //by xlg 虚拟表不计算前值电量
 
                                         };
@@ -440,7 +471,10 @@ namespace EPMCS.Service.Job
                                 logger.DebugFormat("********继续下个设备采集，当前采集表[{0}],地址{1}", meter.DeviceName, meter.DeviceAdd);
                                 continue;
                             }
-                            data.PowerDate = state.Group;// new DateTime(year, month, day, hour, minute, second);
+                            //change to yyyyMMddmm
+                            var mssec = state.Group.Millisecond;
+                            var sec = state.Group.Second;
+                            data.PowerDate = state.Group.AddSeconds(-sec).AddMilliseconds(-mssec);// new DateTime(year, month, day, hour, minute, second);
                             data.Uploaded = 0;
                             //add by xlg 2015-07-05
 

@@ -150,6 +150,23 @@ namespace EPMCS.Service.Conf
             return uploadIntervalInSeconds;
         }
 
+        //上传条数
+        private static int uploadedTake = 0;
+
+        public static int UploadedTake()
+        {
+            if (uploadedTake <= 0)
+            {
+                string txt = ConfigurationManager.AppSettings.Get(Consts.UploadedTake);
+                if (!int.TryParse(txt, out uploadedTake))
+                {
+                    uploadedTake = 30; //默认30秒
+                }
+                if (uploadedTake < 30) uploadedTake = 30;
+            }
+            return uploadedTake;
+        }
+
         private static string uploadUrl = "";
 
         public static string UploadUrl()

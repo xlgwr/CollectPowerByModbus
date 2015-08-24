@@ -7,6 +7,7 @@
         public static readonly string UnuploadKeepDays = "UnuploadKeepDays";
         public static readonly string ClearIntervalInMinutes = "ClearIntervalInMinutes";
         public static readonly string UploadIntervalInSeconds = "UploadIntervalInSeconds";
+        public static readonly string UploadedTake = "UploadedTake";
 
         public static readonly string ClearJob = "clear_job";
         public static readonly string ClearTrigger = "clear_trigger";
@@ -26,6 +27,5 @@
 
         public static readonly string DeviceLatestUpdateKey = "DeviceUpdateMsec";
         public static readonly string AlarmSerialPortKey = "AlarmSerialPort";
-
     }
 }
