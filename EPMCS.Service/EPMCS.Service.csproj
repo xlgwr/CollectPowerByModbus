@@ -139,10 +139,12 @@
   <ItemGroup>
     <Compile Include="Basic\Logging\ILogger.cs" />
     <Compile Include="Basic\Logging\Logger.cs" />
+    <Compile Include="Basic\WinLogWirter.cs" />
     <Compile Include="Conf\ConfUtil.cs" />
     <Compile Include="Conf\Consts.cs" />
     <Compile Include="Conf\getInfoToMd5.cs" />
     <Compile Include="Conf\MeterGroup.cs" />
+    <Compile Include="Conf\SP.cs" />
     <Compile Include="DAL\DbInitializer.cs" />
     <Compile Include="DAL\MysqlDbContext.cs" />
     <Compile Include="DAL\MysqlDbInterceptorLogging.cs" />
@@ -156,12 +158,9 @@
     <Compile Include="Job\CollectJob.cs" />
     <Compile Include="Job\CollectJobListener.cs" />
     <Compile Include="Entity\StateData.cs" />
+    <Compile Include="Job\Common.cs" />
     <Compile Include="Job\UploadJob.cs" />
     <Compile Include="Job\UploadJobListener.cs" />
-    <Compile Include="Migrations\201508130443106_initfirst.cs" />
-    <Compile Include="Migrations\201508130443106_initfirst.Designer.cs">
-      <DependentUpon>201508130443106_initfirst.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\IEntity.cs" />
     <Compile Include="Model\IRowVersion.cs" />
@@ -241,11 +240,6 @@
     <Content Include="FtdAdapter.Core.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508130443106_initfirst.resx">
-      <DependentUpon>201508130443106_initfirst.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.97.0\build\net40\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net40\System.Data.SQLite.Core.targets')" />

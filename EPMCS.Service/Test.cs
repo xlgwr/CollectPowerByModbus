@@ -1,4 +1,5 @@
-﻿using EPMCS.Service.Conf;
+﻿using EPMCS.Service.Basic;
+using EPMCS.Service.Conf;
 using EPMCS.Service.Job;
 using EPMCS.Service.Thread;
 using log4net;
@@ -15,13 +16,28 @@ namespace EPMCS.Service
     {
         private readonly ILog logger;
         public static IScheduler scheduler;
+        private readonly WinLogWirter winlogger;
         public Test()
         {
             logger = LogManager.GetLogger(GetType());
-
+            winlogger = new WinLogWirter();
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);   
             scheduler = StdSchedulerFactory.GetDefaultScheduler();
         }
+        void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            try
+            {
 
+                Exception ex = e.ExceptionObject as Exception;
+                winlogger.LogEvent("来自“EPMCS.Service”的全局异常。" + ex.Message + "详细信息如下："
+                                    + Environment.NewLine + "［InnerException］" + ex.InnerException
+                                    + Environment.NewLine + "［Source］" + ex.Source
+                                    + Environment.NewLine + "［TargetSite］" + ex.TargetSite
+                                    + Environment.NewLine + "［StackTrace］" + ex.StackTrace);
+            }
+            catch { }
+        }
         public void OnStart()
         {
             logger.Debug("====================以下参数修改后需重启服务生效===================");
@@ -37,6 +53,11 @@ namespace EPMCS.Service
             if (!checkkey())
             {
                 return;
+            }
+            ComSerialPortCollection paramz = ConfUtil.GetComPortsParams();
+            if (paramz == null || paramz.Count == 0)
+            {
+                throw new Exception("没有为串口配置参数,请为硬件所有串口配置通信参数!");
             }
 
             scheduler.Start();

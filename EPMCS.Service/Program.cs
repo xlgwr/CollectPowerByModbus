@@ -1,5 +1,6 @@
 ﻿//#define Dev
 
+using System;
 using System.ServiceProcess;
 namespace EPMCS.Service
 {
@@ -9,8 +10,10 @@ namespace EPMCS.Service
     {
         private static void Main(string[] args)
         {
-            Test test = new Test();
-            test.OnStart();
+            //Conf.ComSerialPortCollection paramz = Conf.ConfUtil.GetComPortsParams();
+            //Console.WriteLine();
+           Test test = new Test();
+           test.OnStart();
         }
     }
 

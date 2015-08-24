@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbox4StopBits = new System.Windows.Forms.ComboBox();
@@ -48,7 +48,6 @@
             this.btn1Alert = new System.Windows.Forms.Button();
             this.cbox7ID = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -251,16 +250,13 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(313, 185);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 12);
+            this.label5.Size = new System.Drawing.Size(52, 12);
             this.label5.TabIndex = 36;
             this.label5.Text = "电表ID:";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // Form1
             // 
@@ -273,6 +269,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn2Power);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "TestDevices";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -305,7 +302,6 @@
         private System.Windows.Forms.ComboBox cbox7ID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox txt1Rece;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

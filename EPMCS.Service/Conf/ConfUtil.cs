@@ -224,6 +224,16 @@ namespace EPMCS.Service.Conf
             }
             return myComports;
         }
+
+        private static ComSerialPortCollection comSerialPorts;
+        public static ComSerialPortCollection GetComPortsParams()
+        {
+            if (comSerialPorts == null)
+            {
+                return comSerialPorts = ((ComSerialPortsSection)ConfigurationManager.GetSection("ComSerialPortsSection")).ComSerialPortList;
+            }
+            return comSerialPorts;
+        }
     }
 
     public class Device

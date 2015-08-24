@@ -2,73 +2,73 @@
   <cmdInfos>
     <CmdInfo>
       <name>yearmonth</name>
-      <address>002F</address>
+      <address>0001</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>dayhour</name>
-      <address>002E</address>
+      <address>0002</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>minutesecond</name>
-      <address>002D</address>
+      <address>0003</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>zljyggl</name>
-      <address>006A</address>
+      <address>0004</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>zssyggl</name>
-      <address>0092</address>
+      <address>0005</address>
       <csharpType>System.Int32</csharpType>
       <unitFactor>0.01</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>a1</name>
-      <address>00B4</address>
+      <address>0006</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>a2</name>
-      <address>00B6</address>
+      <address>0007</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>a3</name>
-      <address>00B8</address>
+      <address>0008</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>v1</name>
-      <address>00A4</address>
+      <address>0008</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>v2</name>
-      <address>00A6</address>
+      <address>0008</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>v3</name>
-      <address>00A8</address>
+      <address>0008</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
     </CmdInfo>
     <CmdInfo>
       <name>pf</name>
-      <address>00C5</address>
+      <address>0008</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0.001</unitFactor>
     </CmdInfo>

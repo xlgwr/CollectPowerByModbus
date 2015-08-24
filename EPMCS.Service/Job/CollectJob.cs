@@ -305,17 +305,19 @@ namespace EPMCS.Service.Job
                         IModbusSerialMaster master = null;
                         try
                         {
+                            Conf.ComSerialPortCollection paramz = Conf.ConfUtil.GetComPortsParams();
 
                             if (!(ConfUtil.Ports().ContainsKey(state.Port)))
                             {
+                                //TODO 串口个参数变为可配置,各个端口分别配置
                                 serialPort = new SerialPort(state.Port);
-                                serialPort.BaudRate = 19200;
-                                serialPort.DataBits = 8;
-                                serialPort.Parity = Parity.Odd;
-                                serialPort.StopBits = StopBits.One;
+                                serialPort.BaudRate = paramz[state.Port].BaudRate;
+                                serialPort.DataBits = paramz[state.Port].DataBits;
+                                serialPort.Parity = paramz[state.Port].Parity;
+                                serialPort.StopBits = paramz[state.Port].StopBits;
                                 //add by xlg
-                                serialPort.ReadTimeout = 50;
-                                serialPort.WriteTimeout = 50;
+                                serialPort.ReadTimeout = paramz[state.Port].ReadTimeout;
+                                serialPort.WriteTimeout = paramz[state.Port].WriteTimeout;
 
                                 ConfUtil.Ports()[state.Port] = serialPort;
                             }
@@ -327,7 +329,7 @@ namespace EPMCS.Service.Job
                             if (!serialPort.IsOpen)
                             {
                                 serialPort.Open();
-                                System.Threading.Thread.Sleep(20);
+                                System.Threading.Thread.Sleep(paramz[state.Port].ReadDelay);
                             }
 
 
@@ -425,7 +427,7 @@ namespace EPMCS.Service.Job
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
 
                                 serialPort.BreakState = true;
-                                System.Threading.Thread.Sleep(20);
+                                System.Threading.Thread.Sleep(paramz[state.Port].ReadDelay);
                                 if (serialPort.BytesToRead > 0)
                                     serialPort.DiscardInBuffer();
                                 if (serialPort.BytesToWrite > 0)
@@ -451,11 +453,12 @@ namespace EPMCS.Service.Job
                                     .Where(d => d.CustomerId.Equals(data.CustomerId)
                                         && d.DeviceId.Equals(data.DeviceId)
                                         && d.DeviceCd.Equals(data.DeviceCd)
-                                        && d.PowerDate < data.PowerDate).ToList();
-                                if (tmpUpdateData.Count > 0)
+                                        && d.PowerDate < data.PowerDate);//.ToList();
+                                var allCount = tmpUpdateData.Count();
+                                if (allCount > 0)
                                 {
                                     var tmpMaxId = tmpUpdateData.Max(d => d.Id);
-                                    logger.DebugFormat("上一次采集ID:[{0}],总计录：[{1}]", tmpMaxId, tmpUpdateData.Count);
+                                    logger.DebugFormat("上一次采集ID:[{0}],总计录：[{1}]", tmpMaxId, allCount);
                                     var tmpPredata = dbcontext.Datas.Where(d => d.Id == tmpMaxId).FirstOrDefault();
 
                                     data.PrePowerDate = tmpPredata.PowerDate;

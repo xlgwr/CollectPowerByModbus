@@ -141,7 +141,7 @@ namespace EPMCS.Model
         public string Port
         {
             get { return port; }
-            set { port = value; }
+            set { port = (value??"").ToUpper(); }
         }
 
         //设备地址

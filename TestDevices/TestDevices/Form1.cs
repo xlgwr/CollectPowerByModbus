@@ -38,6 +38,7 @@ namespace TestDevices
             api.commSetSerialPara<SerialPortDatabits>(cbox2DataBits, "8", true);
             api.commSetSerialPara<Parity>(cbox3Parity, 1, false);
             api.commSetSerialPara<StopBits>(cbox4StopBits, 1, false);
+            radioButton1.Checked = true;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -105,6 +106,11 @@ namespace TestDevices
         }
         void initSP()
         {
+            if (_sp.IsOpen)
+            {
+                _sp.Close();
+            }
+
             _sp.PortName = cbox0PortName.Text;
             _sp.BaudRate = (int)((SerialPortBaudRates)Enum.Parse(typeof(SerialPortBaudRates), cbox1BaudRate.Text));
             _sp.DataBits = (int)((SerialPortDatabits)Enum.Parse(typeof(SerialPortDatabits), cbox2DataBits.Text));
@@ -114,10 +120,11 @@ namespace TestDevices
             _sp.ReadTimeout = 100;
             _sp.WriteTimeout = 100;
 
-            if (_sp.IsOpen)
+            if (!_sp.IsOpen)
             {
-                _sp.Close();
+                _sp.Open();
             }
+
         }
         private void label3_Click(object sender, EventArgs e)
         {
@@ -132,6 +139,10 @@ namespace TestDevices
         }
         private void btn2Power_Click(object sender, EventArgs e)
         {
+            txt1Rece.Text = "开始测试电表: "+cbox7ID.Text+" 设备.";
+            this.btn2Power.Enabled = false;
+            this.Cursor = Cursors.WaitCursor;
+
             var tmpCmdInfoFile = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\device.xml", System.Text.Encoding.UTF8);
             var CmdInfo = Ints.FromXML(tmpCmdInfoFile);
             int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
@@ -157,8 +168,9 @@ namespace TestDevices
                 }
                 catch (Exception ex)
                 {
-                    getInfoPower("***********采集项目["+info.Name+"],采集地址["+info.Address+"],设备地址：["+slaveId+"],Error:["+ex.Message+"]");
+                    getInfoPower("***********采集项目[" + info.Name + "],采集地址[" + info.Address + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
                     isTimeOutOrError = true;
+
                     break;
                 }
 
@@ -185,7 +197,7 @@ namespace TestDevices
                 if (info.Name.ToLower() == "zljyggl") //总累计有功功率
                 {
                     var MeterValue = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
-                    getInfoPower("总累计有功功率:"+MeterValue.ToString());
+                    getInfoPower("总累计有功功率:" + MeterValue.ToString());
                 }
                 if (info.Name.ToLower() == "zssyggl")
                 {//总瞬时有功功率
@@ -230,6 +242,9 @@ namespace TestDevices
                 }
 
             }
+            getInfoPower("测试电表：[ "+cbox7ID.Text+" ]完成。");
+            this.btn2Power.Enabled = true;
+            this.Cursor = Cursors.Default;
         }
     }
 }
