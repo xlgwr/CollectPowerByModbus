@@ -20,6 +20,7 @@ namespace EPMCS.Service.Job
 
         public void Execute(IJobExecutionContext context)
         {
+
             bool urlOk = context.JobDetail.JobDataMap.GetBoolean(Consts.DeviceLatestUpdateKey);
             logger.DebugFormat("获取表更新时间的提交是否成功? {0}", urlOk);
             string Url = ConfUtil.UploadUrl() + "?customerId=" + ConfUtil.CustomerId();
@@ -32,10 +33,12 @@ namespace EPMCS.Service.Job
                 {
                     //uploaded: 0->未使用/未上传，1->未使用/已上传，2->使用/未上传，3->使用/上传，
                     var takeNum = ConfUtil.UploadedTake();
-                    var fetchData = dbcontext.Datas.Where(m => (m.Uploaded & 1) == 0).Take(takeNum);
-                    while (fetchData.Count() > 0)
-                    {
-                        UploadRowsCount = UploadRowsCount + fetchData.Count();
+                    var fetchData = dbcontext.Datas.Where(m => (m.Uploaded & 1) == 0).OrderByDescending(m => m.PowerDate).Take(takeNum);
+                    var tmpcount = 0;
+                    while((tmpcount= fetchData.Count()) > 0)
+                    {          
+                        logger.DebugFormat("#################开始执行上传任务!!!!!!!!!!!!!!! Count：{0}", tmpcount);
+                        UploadRowsCount = UploadRowsCount + tmpcount;
                         string sendJson = Newtonsoft.Json.JsonConvert.SerializeObject(fetchData.ToList());
                         logger.DebugFormat("执行上传任务!!!!!!!!!!!!!!! 发送上传数据 = {0}", sendJson);
                         DataResult ret = HttpClientHelper.PostResponse<DataResult>(Url, sendJson);
@@ -77,7 +80,8 @@ namespace EPMCS.Service.Job
                             logger.DebugFormat("表的最后更新时间 msec={0}", ret.DeviceLatestUpdateMsec);
                             Common.UpdateMeters(ret.DeviceLatestUpdateMsec);
                         }
-                        fetchData = dbcontext.Datas.Where(m => (m.Uploaded & 1) == 0).Take(30);
+
+                        //fetchData = dbcontext.Datas.Where(m => (m.Uploaded & 1) == 0).OrderByDescending(m => m.PowerDate).Take(takeNum);
                     }//end while
                 }//end using
             }

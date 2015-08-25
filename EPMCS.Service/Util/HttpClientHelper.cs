@@ -111,7 +111,7 @@ namespace EPMCS.Service.Util
             {
                 Task<string> t = response.Content.ReadAsStringAsync();
                 string s = t.Result;
-                logger.DebugFormat("收到上传回复: {0}", s);
+                logger.DebugFormat("**********收到上传回复: {0}", s);
                 result = JsonConvert.DeserializeObject<T>(s);
             }
             return result;

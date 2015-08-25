@@ -59,7 +59,7 @@ namespace EPMCS.Service.Job
                 logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! metersgroup == null [{0}]", metersgroup == null);
                 DateTime taskgroup = DateTime.Now;
                 //add by xlg
-                var taskgroupMin = taskgroup.AddSeconds(-taskgroup.Second).AddMilliseconds(-taskgroup.Millisecond);
+                var taskgroupMin = new DateTime(taskgroup.Year, taskgroup.Month, taskgroup.Day, taskgroup.Hour, taskgroup.Minute, 0);
                 //one min only a collect job
                 using (MysqlDbContext dbcontext = new MysqlDbContext())
                 {
@@ -67,15 +67,16 @@ namespace EPMCS.Service.Job
                     {
                         logger.DebugFormat("开始获取时间min!");
 
-                        //var dd = dbcontext.Database.SqlQuery<int>("select count(*) from uploaddatas where DATE_FORMAT(PowerDate,'%Y%m%d%H%i')=@p0", taskgroupMin.ToString("yyyyMMddHHmm")).SingleOrDefault();
-
                         var dd = dbcontext.Database.SqlQuery<DateTime?>("select max(PowerDate) from uploaddatas").SingleOrDefault();
 
                         if (dd.HasValue)
                         {
-                            logger.DebugFormat("开始获取时间min!,db:{0}", dd);
-                            if (taskgroupMin.ToString("yyyyMMddHHmm").Equals(dd.Value.ToString("yyyyMMddHHmm")))
+                            logger.DebugFormat("***************开始获取时间min!,curr:{0}:{1},db:{2}:{3}", taskgroupMin, taskgroupMin.Ticks, dd.Value, dd.Value.Ticks);
+
+                            if (taskgroupMin.Ticks <= dd.Value.Ticks)
                             {
+                                logger.DebugFormat("***************开始获取时间min!,curr:{0}:{1} <= db:{2}:{3}", taskgroupMin, taskgroupMin.Ticks, dd.Value, dd.Value.Ticks);
+
                                 return;
                             }
                         }
