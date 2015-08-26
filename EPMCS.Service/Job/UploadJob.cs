@@ -23,7 +23,7 @@ namespace EPMCS.Service.Job
 
             bool urlOk = context.JobDetail.JobDataMap.GetBoolean(Consts.DeviceLatestUpdateKey);
             logger.DebugFormat("获取表更新时间的提交是否成功? {0}", urlOk);
-            string Url = ConfUtil.UploadUrl() + "?customerId=" + ConfUtil.CustomerId();
+            string Url = ConfUtil.UploadUrl() + "?customerId=" + ConfUtil.CustomerId() + "&Version=" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             logger.DebugFormat("执行上传任务!!!!!!!!!!!!!!! URL= {0}", Url);
             int UploadRowsCount = 0;
             int retCount = 0;
@@ -35,9 +35,9 @@ namespace EPMCS.Service.Job
                     var takeNum = ConfUtil.UploadedTake();
                     var fetchData = dbcontext.Datas.Where(m => (m.Uploaded & 1) == 0).OrderByDescending(m => m.PowerDate).Take(takeNum);
                     var tmpcount = 0;
-                    while((tmpcount= fetchData.Count()) > 0)
-                    {          
-                        logger.DebugFormat("#################开始执行上传任务!!!!!!!!!!!!!!! Count：{0}", tmpcount);
+                    while ((tmpcount = fetchData.Count()) > 0)
+                    {
+                        logger.DebugFormat("#################开始执行上传任务!!!!!!!!!!!!!!! Count：{0},take:{1}.", tmpcount, takeNum);
                         UploadRowsCount = UploadRowsCount + tmpcount;
                         string sendJson = Newtonsoft.Json.JsonConvert.SerializeObject(fetchData.ToList());
                         logger.DebugFormat("执行上传任务!!!!!!!!!!!!!!! 发送上传数据 = {0}", sendJson);
@@ -80,8 +80,6 @@ namespace EPMCS.Service.Job
                             logger.DebugFormat("表的最后更新时间 msec={0}", ret.DeviceLatestUpdateMsec);
                             Common.UpdateMeters(ret.DeviceLatestUpdateMsec);
                         }
-
-                        //fetchData = dbcontext.Datas.Where(m => (m.Uploaded & 1) == 0).OrderByDescending(m => m.PowerDate).Take(takeNum);
                     }//end while
                 }//end using
             }

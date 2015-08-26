@@ -168,6 +168,7 @@
     <Compile Include="Model\MeterParam.cs" />
     <Compile Include="Model\NotInDb\CmdInfo.cs" />
     <Compile Include="Model\UploadData.cs" />
+    <None Include="Properties\AssemblyInfo.template.cs" />
     <Compile Include="Service.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -249,6 +250,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.97.0\build\net40\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.97.0\build\net40\System.Data.SQLite.Core.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>$(ProjectDir)\subwcrev.exe $(SolutionDir) $(ProjectDir)Properties/AssemblyInfo.template.cs $(ProjectDir)Properties/AssemblyInfo.cs -f</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
