@@ -23,7 +23,7 @@ namespace EPMCS.Service.Job
         public void JobToBeExecuted(Quartz.IJobExecutionContext context)
         {
             logger.Debug("UploadJobListener.JobToBeExecuted() 执行之前先检查一下表是否需要更新!!");
-            string Url = ConfUtil.UploadUrl() + "?customerId=" + ConfUtil.CustomerId();
+            string Url = ConfUtil.UploadUrl() + "?customerId=" + ConfUtil.CustomerId() + "&Version=" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             try
             {
                 logger.DebugFormat("上传空数据,以获得表的最后更新时间!");
@@ -61,6 +61,6 @@ namespace EPMCS.Service.Job
             //}
         }
 
-        
+
     }
 }

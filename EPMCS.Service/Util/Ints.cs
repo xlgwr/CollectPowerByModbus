@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace EPMCS.Service.Util
 {
@@ -53,18 +54,29 @@ namespace EPMCS.Service.Util
 
             return BitConverter.ToInt32(x, 0);
         }
-
-        public static uint UShortArrayToUInt32(ushort[] val)
+        public static object ToValue(ushort[] arr, string methodName)
         {
-            byte[] i = BitConverter.GetBytes(val[0]);
-            byte[] j = BitConverter.GetBytes(val[1]);
-            byte[] x = new byte[i.Length + j.Length];
-            //将第一个数组的值放到你要的数组开头
-            i.CopyTo(x, 0);
-            //将第二数组的值接着第一个数组最后1位放
-            j.CopyTo(x, i.Length);
+            var bb = UshortArrayToByteArray(arr);
+            MethodInfo method = typeof(BitConverter).GetMethod(methodName, new Type[] {
+				typeof(byte[]),
+				typeof(int)
+			});
+            return method != null ? method.Invoke(null, new object[] {
+				bb,
+				0
+			}) : 0;
+        }
 
-            return BitConverter.ToUInt32(x, 0);
+        public static byte[] UshortArrayToByteArray(ushort[] arr)
+        {
+            var x = new byte[arr.Length * 2];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                var t = BitConverter.GetBytes(arr[i]);
+                //Array.Reverse(t);
+                t.CopyTo(x, i * 2);
+            }
+            return x;
         }
 
         public static ushort Reg16Count(string intType)

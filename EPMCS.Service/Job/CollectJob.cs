@@ -383,6 +383,10 @@ namespace EPMCS.Service.Job
                                 ushort startAddress = Convert.ToUInt16(info.Address, 16);
                                 ushort npoints = Ints.Reg16Count(info.CsharpType);
 
+                                var tomethod = "To" + info.CsharpType.Split('.')[1];
+
+
+
 
                                 ushort[] dd;
                                 try
@@ -404,7 +408,8 @@ namespace EPMCS.Service.Job
 
                                 if (info.Name.ToLower() == "yearmonth")
                                 {
-                                    year = 2000 + Ints.UshortHighByteToInt(dd[0]);
+                                    year = 2000 + Convert.ToInt32(Ints.UshortHighByteToInt(dd[0]));
+
                                     month = Ints.UshortLowByteToInt(dd[0]);
                                 }
                                 if (info.Name.ToLower() == "dayhour")
@@ -419,41 +424,41 @@ namespace EPMCS.Service.Job
                                 }
                                 if (info.Name.ToLower() == "zljyggl") //总累计有功功率
                                 {
-                                    data.MeterValue = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
+                                    data.MeterValue = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "zssyggl")
                                 {//总瞬时有功功率
-                                    data.PowerValue = Ints.UShortArrayToInt32(dd) * info.UnitFactor;
+                                    data.PowerValue = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                     //Random ran = new Random();
                                     //data.PowerValue = ran.Next(10, 550);
                                 }
                                 if (info.Name.ToLower() == "a1")
                                 {
-                                    data.A1 = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
+                                    data.A1 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "a2")
                                 {
-                                    data.A2 = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
+                                    data.A2 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "a3")
                                 {
-                                    data.A3 = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
+                                    data.A3 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v1")
                                 {
-                                    data.V1 = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
+                                    data.V1 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v2")
                                 {
-                                    data.V2 = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
+                                    data.V2 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v3")
                                 {
-                                    data.V3 = Ints.UShortArrayToUInt32(dd) * info.UnitFactor;
+                                    data.V3 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "pf")
                                 {
-                                    data.Pf = Ints.UShortToShort(dd[0]) * info.UnitFactor;
+                                    data.Pf = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
                                 }
                                 //判断本表有否超过阈值
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
