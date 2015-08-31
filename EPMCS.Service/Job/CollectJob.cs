@@ -14,6 +14,7 @@ using Quartz;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
@@ -53,6 +54,7 @@ namespace EPMCS.Service.Job
             List<UploadData> alldata = new List<UploadData>();
 
             int meterCount = 0;
+            Stopwatch stopWatch = new Stopwatch();
             try
             {
                 MeterGroup metersgroup = ConfUtil.Meters();
@@ -65,6 +67,9 @@ namespace EPMCS.Service.Job
 
                 logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! metersgroup == null [{0}]", metersgroup == null);
                 DateTime taskgroup = DateTime.Now;
+
+                stopWatch.Start();
+
                 //add by xlg
                 var taskgroupMin = new DateTime(taskgroup.Year, taskgroup.Month, taskgroup.Day, taskgroup.Hour, taskgroup.Minute, 0);
                 //one min only a collect job
@@ -260,7 +265,11 @@ namespace EPMCS.Service.Job
                         dbcontext.Datas.AddRange(alldata);
                         dbcontext.SaveChanges();
 
-                        logger.DebugFormat("执行采集任务!!!!!!共 [{0}]数据存储到本地数据库", alldata.Count);
+                        stopWatch.Stop();
+                        TimeSpan ts = stopWatch.Elapsed;
+                        string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
+
+                        logger.DebugFormat("########################执行采集任务!!!!!!共 [{0}]数据存储到本地数据库,UseTime(h:M:S.ms):{1}", alldata.Count,elapsedTime);
                     }
                     context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, alldata.Select(m => m.ValueLevel).Max());
                 }
