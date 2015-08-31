@@ -16,7 +16,7 @@ namespace cmdKey
         {
             try
             {
-                var tomd5key = getInfoToMd5.getCPU() + getInfoToMd5.getSerialNumber() + "www.szisec.com";
+                var tomd5key = getInfoToMd5.getCPU() +getInfoToMd5.getMacAddress(0)+ getInfoToMd5.getSerialNumber() + "www.szisec.com";
                 var filename = AppDomain.CurrentDomain.BaseDirectory + "\\FtdAdapter.Core.dll";
                 var key = getInfoToMd5.MD5Encrypt(tomd5key);
                 if (File.Exists(filename))

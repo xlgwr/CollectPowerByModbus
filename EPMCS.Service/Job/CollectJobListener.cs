@@ -56,7 +56,14 @@ namespace EPMCS.Service.Job
             if (alarmPort != null && alarmPort.ToUpper().StartsWith("COM"))
             {
                 short[] d = new short[] { 0, 0, 0, 0 };
-                if (level > 0) { d[level - 1] = 1; }
+                if (level > 0)
+                {
+                    d[level - 1] = 1;
+                }
+                else if (level == 0)
+                {
+                    d = new short[] { 0, 0, 0, 0 };
+                }
                 ModbusPoll mp = new ModbusPoll();
                 try
                 {

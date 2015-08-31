@@ -39,6 +39,10 @@ namespace EPMCS.Service.Job
                 {
                     var result = dbcontext.Database.SqlQuery<int>("select count(1) from uploaddatas ");
                     logger.DebugFormat("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有{0}条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", result.FirstOrDefault());
+
+
+
+
                 }
             }
             finally
@@ -46,16 +50,19 @@ namespace EPMCS.Service.Job
 
             }
 
+            List<UploadData> alldata = new List<UploadData>();
 
+            int meterCount = 0;
             try
             {
-                List<UploadData> alldata = new List<UploadData>();
                 MeterGroup metersgroup = ConfUtil.Meters();
                 if (metersgroup == null || metersgroup.RMeters == null || metersgroup.RMeters.Count == 0)
                 {
                     logger.Debug("执行采集任务<<<<没有发现表>>>>>");
                     return;
                 }
+                meterCount = metersgroup.RMeters.Sum(m => m.Value.Count) + metersgroup.VMeters.Count;
+
                 logger.DebugFormat("执行采集任务!!!!!!!!!!!!!!! metersgroup == null [{0}]", metersgroup == null);
                 DateTime taskgroup = DateTime.Now;
                 //add by xlg
@@ -197,7 +204,10 @@ namespace EPMCS.Service.Job
                                         //end by xlg
 
                                         //判断虚拟表有否超过阈值
+
                                         dd.ValueLevel = AlarmLevel(dd.PowerValue, mt);
+
+
 
                                         alldata.Add(dd);
                                     }
@@ -240,6 +250,8 @@ namespace EPMCS.Service.Job
                 }
 
                 logger.DebugFormat("执行采集任务!!!!!!采集到数据 [{0}]条", alldata.Count);
+
+
                 //存数据库
                 if (alldata.Count > 0)
                 {
@@ -252,6 +264,7 @@ namespace EPMCS.Service.Job
                     }
                     context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, alldata.Select(m => m.ValueLevel).Max());
                 }
+
                 //add xlg remove bak
                 if (_dataErrCollect != null)
                 {
@@ -266,6 +279,40 @@ namespace EPMCS.Service.Job
                 logger.Error("串口采集失败", ex);
                 //throw ex;
             }
+            finally
+            {
+                //超过5分钟未上传，全报警。
+                try
+                {
+                    if (alldata.Count() == meterCount)
+                    {
+                        using (MysqlDbContext dbcontext = new MysqlDbContext())
+                        {
+                            var tmpDateNow = DateTime.Now;
+                            var tmpDateMin5 = tmpDateNow.AddMinutes(-5);
+                            var tmpDateMin2 = tmpDateNow.AddMinutes(-2);
+
+                            var lastData = dbcontext.Datas.Where(m => (m.PowerDate <= tmpDateMin2 && m.PowerDate >= tmpDateMin5 && (m.Uploaded | 1) == 0)).Count();
+                            logger.DebugFormat("********有超过5分钟未上传，全报警。{0}.", lastData);
+                            if (lastData > 0)
+                            {
+                                context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, -1);
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, -1);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    logger.Error(ex.Message);
+                }
+
+            }
+
         }
 
         /// <summary>
@@ -402,66 +449,68 @@ namespace EPMCS.Service.Job
                                 }
 
                                 string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
+                                var ddvalue = Ints.ToValue(dd, tomethod);
 
+                                logger.InfoFormat("**收到数据:{0},value:{1},UnitFactor:{2}，Name:{3}", String.Join(",", cc), ddvalue, info.UnitFactor, info.Name);
 
-                                logger.Info("收到数据," + String.Join(",", cc));
+                                //if (info.Name.ToLower() == "yearmonth")
+                                //{
+                                //    year = 2000 + Convert.ToInt32(Ints.UshortHighByteToInt(dd[0]));
 
-                                if (info.Name.ToLower() == "yearmonth")
-                                {
-                                    year = 2000 + Convert.ToInt32(Ints.UshortHighByteToInt(dd[0]));
-
-                                    month = Ints.UshortLowByteToInt(dd[0]);
-                                }
-                                if (info.Name.ToLower() == "dayhour")
-                                {
-                                    day = Ints.UshortHighByteToInt(dd[0]);
-                                    hour = Ints.UshortLowByteToInt(dd[0]);
-                                }
-                                if (info.Name.ToLower() == "minutesecond")
-                                {
-                                    minute = Ints.UshortHighByteToInt(dd[0]);
-                                    second = Ints.UshortLowByteToInt(dd[0]);
-                                }
+                                //    month = Ints.UshortLowByteToInt(dd[0]);
+                                //}
+                                //if (info.Name.ToLower() == "dayhour")
+                                //{
+                                //    day = Ints.UshortHighByteToInt(dd[0]);
+                                //    hour = Ints.UshortLowByteToInt(dd[0]);
+                                //}
+                                //if (info.Name.ToLower() == "minutesecond")
+                                //{
+                                //    minute = Ints.UshortHighByteToInt(dd[0]);
+                                //    second = Ints.UshortLowByteToInt(dd[0]);
+                                //}
                                 if (info.Name.ToLower() == "zljyggl") //总累计有功功率
                                 {
-                                    data.MeterValue = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.MeterValue = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "zssyggl")
                                 {//总瞬时有功功率
-                                    data.PowerValue = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.PowerValue = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                     //Random ran = new Random();
                                     //data.PowerValue = ran.Next(10, 550);
                                 }
                                 if (info.Name.ToLower() == "a1")
                                 {
-                                    data.A1 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.A1 = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "a2")
                                 {
-                                    data.A2 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.A2 = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "a3")
                                 {
-                                    data.A3 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.A3 = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v1")
                                 {
-                                    data.V1 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.V1 = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v2")
                                 {
-                                    data.V2 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.V2 = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v3")
                                 {
-                                    data.V3 = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.V3 = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "pf")
                                 {
-                                    data.Pf = Convert.ToDouble(Ints.ToValue(dd, tomethod)) * info.UnitFactor;
+                                    data.Pf = Convert.ToDouble(ddvalue) * info.UnitFactor;
                                 }
                                 //判断本表有否超过阈值
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
+
+
 
                                 serialPort.BreakState = true;
                                 System.Threading.Thread.Sleep(paramz[state.Port].ReadDelay);

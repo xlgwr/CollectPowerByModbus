@@ -42,11 +42,8 @@ namespace MACKey
         }
         void initTxtmd5()
         {
-            var tomd5 = txt0MacAddress.Text.Trim();
-            if (chk0cpu.Checked)
-            {
-                tomd5 += txt1CPU.Text.Trim();
-            }
+            var tomd5 = txt1CPU.Text.Trim() + txt0MacAddress.Text.Trim();
+
             if (chk0DeviceID.Checked)
             {
                 tomd5 += txt2HardDevice.Text.Trim();

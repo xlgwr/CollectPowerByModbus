@@ -202,6 +202,7 @@ namespace EPMCS.Service
                 {
                     var tomd5key = getInfoToMd5.getCPU();
 
+                    tomd5key += getInfoToMd5.getMacAddress(0);
                     tomd5key += getInfoToMd5.getSerialNumber();
                     tomd5key += "www.szisec.com";
 

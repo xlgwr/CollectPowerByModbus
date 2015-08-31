@@ -18,7 +18,7 @@ namespace EPMCS.Model.NotInDb
         {
             get { return address; }
             set { address = value; }
-        }
+        }   
 
         private string csharpType;
 
@@ -28,9 +28,9 @@ namespace EPMCS.Model.NotInDb
             set { csharpType = value; }
         }
 
-        private Double unitFactor;
+        private double unitFactor;
 
-        public Double UnitFactor
+        public double UnitFactor
         {
             get { return unitFactor; }
             set { unitFactor = value; }
