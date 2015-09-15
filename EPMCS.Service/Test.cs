@@ -44,6 +44,7 @@ namespace EPMCS.Service
             logger.DebugFormat("未上传成功的数据保存{0}天后强制删除!", ConfUtil.ForceClearDays());
             logger.DebugFormat("清除任务间隔{0}分钟循环执行!", ConfUtil.ClearIntervalInMinutes());
             logger.DebugFormat("上传任务间隔{0}秒钟循环执行!", ConfUtil.UploadIntervalInSeconds());
+            logger.DebugFormat("每次上传数据Take:{0}!", ConfUtil.UploadedTake());
             logger.DebugFormat("上传链接地址: {0} ", ConfUtil.UploadUrl());
             logger.DebugFormat("取表链接地址: {0} ", ConfUtil.MetersUrl());
             logger.DebugFormat("客户编号: {0} ", ConfUtil.CustomerId());

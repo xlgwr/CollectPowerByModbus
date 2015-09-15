@@ -10,6 +10,8 @@ namespace EPMCS.Service.Conf
 
         public Dictionary<string, List<MeterParam>> RMeters { get; set; }
 
+        public List<string> MMeter { get; set; }
+
         public Object Clone()
         {
             return this.MemberwiseClone();

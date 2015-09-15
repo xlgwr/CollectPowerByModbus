@@ -1,280 +1,0 @@
-﻿2015-08-11 14:04:56,237 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
-2015-08-11 14:04:56,239 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
-2015-08-11 14:04:56,239 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
-2015-08-11 14:04:56,240 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
-2015-08-11 14:04:56,240 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
-2015-08-11 14:04:56,240 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
-2015-08-11 14:04:56,240 DEBUG EPMCS.Service.Test  - 客户编号: dell 
-2015-08-11 14:04:56,240 DEBUG EPMCS.Service.Test  - 报警串口: COM14 
-2015-08-11 14:04:56,240 DEBUG EPMCS.Service.Test  - ================================================================
-2015-08-11 14:04:56,246 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:04:56,281 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:04:57,026 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
-2015-08-11 14:04:57,033 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:04:57,033 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
-2015-08-11 14:04:57,033 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:04:57,034 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
-2015-08-11 14:04:57,034 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:04:57,042 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
-2015-08-11 14:04:57,042 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
-2015-08-11 14:04:57,044 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
-2015-08-11 14:04:57,194 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
-2015-08-11 14:04:57,261 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
-2015-08-11 14:04:57,362 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=dell
-2015-08-11 14:05:02,233 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
-2015-08-11 14:05:02,233 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:02,249 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:02 +08:00 
-2015-08-11 14:05:02,254 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:02,255 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:02,412 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
-2015-08-11 14:05:02,412 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:02,414 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
-2015-08-11 14:05:02,414 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:02 +08:00 
-2015-08-11 14:05:02,419 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:02,419 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:02,515 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
-2015-08-11 14:05:02,516 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:02,516 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
-2015-08-11 14:05:02,516 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:02 +08:00 
-2015-08-11 14:05:02,549 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 33 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:02,549 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,187 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE 3 = `Extent1`.`Uploaded`) AS `GroupBy1`
-2015-08-11 14:05:03,187 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,187 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:03 +08:00 
-2015-08-11 14:05:03,187 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 0 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:03,187 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,189 DEBUG EPMCS.Service.Job.ClearJob  - 采集后超过15天(服务器时间为准)未上传的数据也清除!
-2015-08-11 14:05:03,202 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`) AS `GroupBy1`
-2015-08-11 14:05:03,202 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,202 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:03 +08:00 
-2015-08-11 14:05:03,203 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 0 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:03,203 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,203 DEBUG EPMCS.Service.Job.ClearJob  - 找到0个需要强制清除的组!
-2015-08-11 14:05:03,211 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Distinct1`.`Groupstamp` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`
-2015-08-11 14:05:03,211 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,211 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:03 +08:00 
-2015-08-11 14:05:03,212 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 0 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:03,212 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,214 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
-2015-08-11 14:05:03,223 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:05:03,333 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
-2015-08-11 14:05:03,333 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,333 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:03 +08:00 
-2015-08-11 14:05:03,335 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: MySqlDataReader 
-2015-08-11 14:05:03,335 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,341 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有0条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2015-08-11 14:05:03,714 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
-2015-08-11 14:05:03,714 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,714 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
-2015-08-11 14:05:03,715 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,715 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:03 +08:00 
-2015-08-11 14:05:03,714 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:03 +08:00 
-2015-08-11 14:05:03,717 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:03,717 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,718 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:03,718 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:03,718 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
-2015-08-11 14:05:24,102 DEBUG EPMCS.Service.Conf.ConfUtil  - 解析xml异常: 
-2015-08-11 14:05:24,178 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439273123042,"Version":"1.5","deviceLatestUpdateMsec":1439272681160}
-2015-08-11 14:05:24,206 DEBUG EPMCS.Service.Job.CollectJobListener  - >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>CollectJobListener.JobWasExecuted
-2015-08-11 14:05:24,218 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE `Extent1`.`ValueLevel` > -1) AS `GroupBy1`
-2015-08-11 14:05:24,218 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:24,218 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:24 +08:00 
-2015-08-11 14:05:24,221 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:24,221 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:24,221 DEBUG EPMCS.Service.Job.CollectJobListener  - *************************数据库中共有0条采集的数据****************************************
-2015-08-11 14:05:24,222 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
-2015-08-11 14:05:24,222 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:05:24,467 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1439272681160
-2015-08-11 14:05:25,933 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
-2015-08-11 14:05:26,762 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
-2015-08-11 14:05:26,762 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:26,762 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
-2015-08-11 14:05:26,762 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:26 +08:00 
-2015-08-11 14:05:26,764 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:26,764 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:26,766 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1439272681160,数据库存储时间: 1439272681160
-2015-08-11 14:05:26,766 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
-2015-08-11 14:05:26,767 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:05:27,000 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
-2015-08-11 14:05:27,000 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:05:27,000 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
-2015-08-11 14:05:27,001 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=dell
-2015-08-11 14:05:27,004 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
-2015-08-11 14:05:27,004 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:27,004 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:27 +08:00 
-2015-08-11 14:05:27,005 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:27,005 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:27,005 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
-2015-08-11 14:05:27,025 DEBUG EPMCS.Service.Util.HttpClientHelper  - 收到上传回复: {"Status":1,"Customer":[],"IntervalSeconds":120,"SysDate":1439273125897,"Version":"1.5","deviceLatestUpdateMsec":1439272681160}
-2015-08-11 14:05:27,025 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据! 监听值 msec=1439272681160
-2015-08-11 14:05:27,794 DEBUG EPMCS.Service.Job.UploadJobListener  - UploadJob.Execution() 已经完成!!
-2015-08-11 14:05:28,570 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`K`,  `Extent1`.`V` FROM `KeyValParams` AS `Extent1`  WHERE (`Extent1`.`K` = @p__linq__0) AND (@p__linq__0 IS NOT NULL) LIMIT 1
-2015-08-11 14:05:28,570 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:28,570 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'DeviceUpdateMsec' (Type = String, Size = 16) 
-2015-08-11 14:05:28,570 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:05:28 +08:00 
-2015-08-11 14:05:28,598 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 28 ms with result: EFMySqlDataReader 
-2015-08-11 14:05:28,599 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:05:28,599 DEBUG EPMCS.Service.Job.UploadJobListener  - 收到表最后更新时间 1439272681160,数据库存储时间: 1439272681160
-2015-08-11 14:05:28,599 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
-2015-08-11 14:05:28,600 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:05:59,104 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
-2015-08-11 14:05:59,106 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
-2015-08-11 14:05:59,107 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
-2015-08-11 14:05:59,107 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
-2015-08-11 14:05:59,107 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
-2015-08-11 14:05:59,107 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
-2015-08-11 14:05:59,108 DEBUG EPMCS.Service.Test  - 客户编号: dell 
-2015-08-11 14:05:59,108 DEBUG EPMCS.Service.Test  - 报警串口: COM14 
-2015-08-11 14:05:59,108 DEBUG EPMCS.Service.Test  - ================================================================
-2015-08-11 14:05:59,113 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:05:59,147 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:06:00,006 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
-2015-08-11 14:06:00,013 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:06:00,013 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
-2015-08-11 14:06:00,013 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:06:00,014 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
-2015-08-11 14:06:00,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:06:00,022 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
-2015-08-11 14:06:00,022 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
-2015-08-11 14:06:00,023 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
-2015-08-11 14:06:00,044 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
-2015-08-11 14:06:00,071 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=dell
-2015-08-11 14:06:00,074 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
-2015-08-11 14:06:03,451 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
-2015-08-11 14:06:03,451 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:03,467 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:03 +08:00 
-2015-08-11 14:06:03,473 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:03,473 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:03,588 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
-2015-08-11 14:06:03,588 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:03,590 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
-2015-08-11 14:06:03,590 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:03 +08:00 
-2015-08-11 14:06:03,595 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:03,595 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:03,687 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
-2015-08-11 14:06:03,687 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:03,687 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
-2015-08-11 14:06:03,687 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:03 +08:00 
-2015-08-11 14:06:03,693 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 6 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:03,693 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,372 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
-2015-08-11 14:06:04,372 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,372 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:04 +08:00 
-2015-08-11 14:06:04,373 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: MySqlDataReader 
-2015-08-11 14:06:04,373 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,380 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE 3 = `Extent1`.`Uploaded`) AS `GroupBy1`
-2015-08-11 14:06:04,380 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,380 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:04 +08:00 
-2015-08-11 14:06:04,381 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有0条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2015-08-11 14:06:04,383 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:04,383 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,383 DEBUG EPMCS.Service.Job.ClearJob  - 采集后超过15天(服务器时间为准)未上传的数据也清除!
-2015-08-11 14:06:04,407 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`) AS `GroupBy1`
-2015-08-11 14:06:04,407 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,408 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:04 +08:00 
-2015-08-11 14:06:04,423 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 15 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:04,424 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,424 DEBUG EPMCS.Service.Job.ClearJob  - 找到0个需要强制清除的组!
-2015-08-11 14:06:04,433 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Distinct1`.`Groupstamp` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`
-2015-08-11 14:06:04,433 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,433 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:04 +08:00 
-2015-08-11 14:06:04,435 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:04,435 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,440 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
-2015-08-11 14:06:04,448 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:06:04,495 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
-2015-08-11 14:06:04,495 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,495 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:04 +08:00 
-2015-08-11 14:06:04,495 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
-2015-08-11 14:06:04,495 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,495 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:06:04 +08:00 
-2015-08-11 14:06:04,499 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:04,499 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:06:04,499 DEBUG EPMCS.Service.Job.UploadJob  - 没有采集记录,上传空数据!
-2015-08-11 14:06:04,499 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 3 ms with result: EFMySqlDataReader 
-2015-08-11 14:06:04,500 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:32,643 DEBUG EPMCS.Service.Test  - ====================以下参数修改后需重启服务生效===================
-2015-08-11 14:08:32,645 DEBUG EPMCS.Service.Test  - 未上传成功的数据保存15天后强制删除!
-2015-08-11 14:08:32,646 DEBUG EPMCS.Service.Test  - 清除任务间隔5分钟循环执行!
-2015-08-11 14:08:32,646 DEBUG EPMCS.Service.Test  - 上传任务间隔30秒钟循环执行!
-2015-08-11 14:08:32,646 DEBUG EPMCS.Service.Test  - 上传链接地址: http://192.168.1.94:9092/FemWebService/powerRecord/add 
-2015-08-11 14:08:32,646 DEBUG EPMCS.Service.Test  - 取表链接地址: http://192.168.1.94:9092/FemWebService/device/query 
-2015-08-11 14:08:32,646 DEBUG EPMCS.Service.Test  - 客户编号: dell 
-2015-08-11 14:08:32,647 DEBUG EPMCS.Service.Test  - 报警串口: COM14 
-2015-08-11 14:08:32,647 DEBUG EPMCS.Service.Test  - ================================================================
-2015-08-11 14:08:32,652 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:08:32,686 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:08:33,006 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'clear_group.clear_job', class=EPMCS.Service.Job.ClearJob
-2015-08-11 14:08:33,012 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:08:33,013 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'collect_group.collect_job', class=EPMCS.Service.Job.CollectJob
-2015-08-11 14:08:33,013 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 1 triggers
-2015-08-11 14:08:33,013 DEBUG Quartz.Simpl.SimpleJobFactory  - Producing instance of Job 'upload_group.upload_job', class=EPMCS.Service.Job.UploadJob
-2015-08-11 14:08:33,014 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:08:33,022 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job upload_group.upload_job
-2015-08-11 14:08:33,022 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job collect_group.collect_job
-2015-08-11 14:08:33,025 DEBUG Quartz.Core.JobRunShell  - Calling Execute on job clear_group.clear_job
-2015-08-11 14:08:33,056 DEBUG EPMCS.Service.Job.ClearJob  - 执行清理任务!!!!!!!!!!!!!!!
-2015-08-11 14:08:33,081 DEBUG EPMCS.Service.Job.UploadJob  - 执行上传任务!!!!!!!!!!!!!!! URL= http://192.168.1.94:9092/FemWebService/powerRecord/add?customerId=dell
-2015-08-11 14:08:33,082 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!
-2015-08-11 14:08:36,363 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`) AS `GroupBy1`
-2015-08-11 14:08:36,364 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:36,379 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:36 +08:00 
-2015-08-11 14:08:36,385 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:36,386 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:36,504 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `GroupBy1`
-2015-08-11 14:08:36,504 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:36,506 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
-2015-08-11 14:08:36,506 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:36 +08:00 
-2015-08-11 14:08:36,511 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 4 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:36,511 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:36,602 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Project1`.`C1`,  `Project1`.`MigrationId`,  `Project1`.`Model` FROM (SELECT `Extent1`.`MigrationId`,  `Extent1`.`Model`,  1 AS `C1` FROM `__MigrationHistory` AS `Extent1`  WHERE (`Extent1`.`ContextKey` = @p__linq__0) AND (@p__linq__0 IS NOT NULL)) AS `Project1`  ORDER BY  `Project1`.`MigrationId` DESC LIMIT 1
-2015-08-11 14:08:36,602 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:36,602 DEBUG EPMCS.DAL.MysqlDbContext  - -- p__linq__0: 'EPMCS.Service.Migrations.Configuration' (Type = String, Size = 38) 
-2015-08-11 14:08:36,602 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:36 +08:00 
-2015-08-11 14:08:36,607 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 5 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:36,607 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,335 DEBUG EPMCS.DAL.MysqlDbContext  - select count(1) from uploaddatas 
-2015-08-11 14:08:37,336 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,336 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:37 +08:00 
-2015-08-11 14:08:37,338 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 1 ms with result: MySqlDataReader 
-2015-08-11 14:08:37,338 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,342 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM `UploadDatas` AS `Extent1`  WHERE 3 = `Extent1`.`Uploaded`) AS `GroupBy1`
-2015-08-11 14:08:37,342 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,342 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:37 +08:00 
-2015-08-11 14:08:37,344 DEBUG EPMCS.Service.Job.CollectJob  - ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有4条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-2015-08-11 14:08:37,353 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:37,353 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,353 DEBUG EPMCS.Service.Job.ClearJob  - 采集后超过15天(服务器时间为准)未上传的数据也清除!
-2015-08-11 14:08:37,377 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `GroupBy1`.`A1` AS `C1` FROM (SELECT COUNT(1) AS `A1` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`) AS `GroupBy1`
-2015-08-11 14:08:37,378 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,378 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:37 +08:00 
-2015-08-11 14:08:37,380 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:37,380 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,380 DEBUG EPMCS.Service.Job.ClearJob  - 找到1个需要强制清除的组!
-2015-08-11 14:08:37,390 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Distinct1`.`Groupstamp` FROM (SELECT DISTINCT  `Extent1`.`Groupstamp` FROM `UploadDatas` AS `Extent1`  WHERE 0 = `Extent1`.`Uploaded`) AS `Distinct1`
-2015-08-11 14:08:37,390 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,390 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:37 +08:00 
-2015-08-11 14:08:37,393 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:37,393 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,398 DEBUG Quartz.Core.JobRunShell  - Trigger instruction : NoInstruction
-2015-08-11 14:08:37,410 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:08:37,418 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`Groupstamp`,  `Extent1`.`PowerDate`,  `Extent1`.`PowerValue`,  `Extent1`.`ValueLevel`,  `Extent1`.`MeterValue`,  `Extent1`.`DiffMeterValuePre`,  `Extent1`.`PrePowerDate`,  `Extent1`.`A1`,  `Extent1`.`A2`,  `Extent1`.`A3`,  `Extent1`.`V1`,  `Extent1`.`V2`,  `Extent1`.`V3`,  `Extent1`.`Pf`,  `Extent1`.`Uploaded` FROM `UploadDatas` AS `Extent1`  WHERE (0 = `Extent1`.`Uploaded`) OR (2 = `Extent1`.`Uploaded`)
-2015-08-11 14:08:37,418 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,418 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:37 +08:00 
-2015-08-11 14:08:37,421 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:37,421 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,424 DEBUG EPMCS.DAL.MysqlDbContext  - SELECT `Extent1`.`Id`,  `Extent1`.`CustomerId`,  `Extent1`.`DeviceId`,  `Extent1`.`DeviceCd`,  `Extent1`.`DeviceName`,  `Extent1`.`FDeviceId`,  `Extent1`.`DemandValue`,  `Extent1`.`Level1`,  `Extent1`.`Level2`,  `Extent1`.`Level3`,  `Extent1`.`Level4`,  `Extent1`.`Port`,  `Extent1`.`DeviceAdd`,  `Extent1`.`Message`,  `Extent1`.`ComputationRule` FROM `MeterParams` AS `Extent1`
-2015-08-11 14:08:37,424 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:08:37,424 DEBUG EPMCS.DAL.MysqlDbContext  - -- Executing at 2015/8/11 14:08:37 +08:00 
-2015-08-11 14:08:37,427 DEBUG EPMCS.DAL.MysqlDbContext  - -- Completed in 2 ms with result: EFMySqlDataReader 
-2015-08-11 14:08:37,427 DEBUG EPMCS.DAL.MysqlDbContext  -  
-2015-08-11 14:09:12,517 DEBUG Quartz.Core.QuartzSchedulerThread  - Batch acquisition of 0 triggers
-2015-08-11 14:09:12,994 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!! metersgroup == null [False]
-2015-08-11 14:09:12,994 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!! metersgroup.RMeters.Count= [1]
-2015-08-11 14:09:13,006 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!! 建立线程工作项Count = [1]
-2015-08-11 14:09:13,007 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!! 建立线程工作项 [0] , [COM10], [3]
-2015-08-11 14:09:13,027 DEBUG EPMCS.Service.Job.CollectJob  - 执行采集任务!!!!!!!!!!!!!!!  执行所有工作项,等待全部完成
-2015-08-11 14:09:13,095 DEBUG EPMCS.Service.Job.CollectJob  - 采集串口COM10,一共有3颗表需要采集
-2015-08-11 14:09:13,113 DEBUG EPMCS.Service.Job.CollectJob  - 开始采集表[D2#],地址1,一共有12个采集项目
-2015-08-11 14:09:13,113 DEBUG EPMCS.Service.Job.CollectJob  - 采集项目[yearmonth],采集地址[0001]

@@ -1,17 +1,16 @@
-﻿using EPMCS.Model.NotInDb;
+﻿
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace EPMCS.Model
 {
     /// <summary>
     ///
     /// </summary>
-    public class MeterParam : IEntity, ICloneable
+    public class MeterParam 
     {
-        [Key]
+
         private int id;
 
         public int Id
@@ -21,13 +20,8 @@ namespace EPMCS.Model
         }
 
         //客户编号
-
-        [Required]
-        [StringLength(75)]
         private string customerId;
 
-        [Required]
-        [StringLength(75)]
         public string CustomerId
         {
             get { return customerId; }
@@ -35,13 +29,9 @@ namespace EPMCS.Model
         }
 
         //设备编号
-        [Required]
-        [StringLength(75)]
+ 
         private string deviceId;
 
-
-        [Required]
-        [StringLength(75)]
         public string DeviceId
         {
             get { return deviceId; }
@@ -49,13 +39,11 @@ namespace EPMCS.Model
         }
 
         //设备自身编号
-        [Required]
-        [StringLength(75)]
+     
         private string deviceCd;
 
 
-        [Required]
-        [StringLength(75)]
+  
         public string DeviceCd
         {
             get { return deviceCd; }
@@ -63,11 +51,10 @@ namespace EPMCS.Model
         }
 
         //名称
-        [StringLength(600)]
+    
         private string deviceName;
 
 
-        [StringLength(600)]
         public string DeviceName
         {
             get { return deviceName; }
@@ -75,11 +62,11 @@ namespace EPMCS.Model
         }
 
         //父设备编号
-        [StringLength(75)]
+   
         private string fDeviceId;
 
 
-        [StringLength(75)]
+       
         public string FDeviceId
         {
             get { return fDeviceId; }
@@ -87,7 +74,6 @@ namespace EPMCS.Model
         }
 
         //需量管理值
-        [Required]
         private int demandValue;
 
         public int DemandValue
@@ -133,11 +119,11 @@ namespace EPMCS.Model
         }
 
         //端口
-        [StringLength(75)]
+     
         private string port;
 
 
-        [StringLength(75)]
+   
         public string Port
         {
             get { return port; }
@@ -145,11 +131,10 @@ namespace EPMCS.Model
         }
 
         //设备地址
-        [StringLength(120)]
+
         private string deviceAdd;
 
 
-        [StringLength(120)]
         public string DeviceAdd
         {
             get { return deviceAdd; }
@@ -157,22 +142,22 @@ namespace EPMCS.Model
         }
 
         //报文 
-        [StringLength(4096)]
+    
         private string message;
 
 
-        [StringLength(4096)]
+      
         public string Message
         {
             get { return message; }
             set { message = value; }
         }
 
-        [StringLength(600)]
+       
         private string computationRule;
 
 
-        [StringLength(600)]
+     
         public string ComputationRule
         {
             get { return computationRule; }
@@ -197,15 +182,6 @@ namespace EPMCS.Model
             get { return endDate; }
             set { endDate = value; }
         }
-        
-
-        [JsonIgnore]
-        public CmdInfo[] CmdInfos { get; set; }
-
-        public Object Clone()
-        {
-            return this.MemberwiseClone();
-        }
     }
 }
 
@@ -219,7 +195,6 @@ public class UnixDateTimeConverter : DateTimeConverterBase
         }
         var ticks = (long)reader.Value;
         var date = new DateTime(1970, 1, 1).ToLocalTime();
-        
         date = date.AddMilliseconds(ticks);
         return date;
     }
@@ -234,34 +209,12 @@ public class UnixDateTimeConverter : DateTimeConverterBase
             {
                 throw new ArgumentOutOfRangeException("时间格式错误.1");
             }
-            ticks = (long)delta.TotalMilliseconds;
+            ticks = (long)(delta.TotalMilliseconds);
         }
         else
         {
             throw new Exception("时间格式错误.2");
         }
         writer.WriteValue(ticks);
-    }   
+    }
 }
-
-/*
- *
-CREATE TABLE [MeterParams] (
-[Id] VARCHAR(80)  UNIQUE NOT NULL PRIMARY KEY,
-[CustomerId] VARCHAR(25)  NOT NULL,
-[DeviceId] VARCHAR(25)  NOT NULL,
-[DeviceCd] VARCHAR(25)  NOT NULL,
-[DeviceName] VARCHAR(200)  NOT NULL,
-[FDeviceId] VARCHAR(25)  NULL,
-[DemandValue] INTEGER  NOT NULL,
-[Level1] INTEGER  NOT NULL,
-[Level2] INTEGER  NOT NULL,
-[Level3] INTEGER  NOT NULL,
-[Level4] INTEGER  NOT NULL,
-[Port] VARCHAR(32)  NULL,
-[DeviceAdd] VARCHAR(32)  NULL,
-[Message] VARCHAR(1024)  NULL,
-[ComputationRule] VARCHAR(400)  NULL
-)
- *
- */

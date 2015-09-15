@@ -39,6 +39,7 @@ namespace EPMCS.Service.Conf
             MeterGroup mg = new MeterGroup();
             mg.RMeters = new Dictionary<string, List<MeterParam>>();
             mg.VMeters = new List<MeterParam>();
+            mg.MMeter = new List<string>();
             using (MysqlDbContext dbcontext = new MysqlDbContext())
             {
                 List<MeterParam> meters = dbcontext.Meters.ToList();
@@ -46,6 +47,10 @@ namespace EPMCS.Service.Conf
                 {
                     foreach (MeterParam m in meters)
                     {
+                        if (string.IsNullOrEmpty(m.FDeviceId))
+                        {
+                            mg.MMeter.Add(m.DeviceId);//主表
+                        }
                         if (string.IsNullOrEmpty(m.ComputationRule))
                         {
                             if (!mg.RMeters.ContainsKey(m.Port.ToUpper()))
@@ -160,9 +165,9 @@ namespace EPMCS.Service.Conf
                 string txt = ConfigurationManager.AppSettings.Get(Consts.UploadedTake);
                 if (!int.TryParse(txt, out uploadedTake))
                 {
-                    uploadedTake = 30; //默认30秒
+                    uploadedTake = 5;
                 }
-                if (uploadedTake < 30) uploadedTake = 30;
+                if (uploadedTake < 1) uploadedTake = 1;
             }
             return uploadedTake;
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Xstream.Core;
 
 namespace TestDevices
@@ -31,6 +32,18 @@ namespace TestDevices
         {
             return BitConverter.ToInt16(BitConverter.GetBytes(val), 0);
         }
+        public static Single UShortToSingle(ushort[] val)
+        {
+            byte[] i = BitConverter.GetBytes(val[0]); //
+            byte[] j = BitConverter.GetBytes(val[1]);
+            byte[] x = new byte[i.Length + j.Length];
+            //将第一个数组的值放到你要的数组开头
+            i.CopyTo(x, 0);
+            //将第二数组的值接着第一个数组最后1位放
+            j.CopyTo(x, i.Length);
+            return BitConverter.ToSingle(x, 0);
+        }
+
 
         public static int UShortHighToInt(ushort val)
         {
@@ -51,23 +64,78 @@ namespace TestDevices
             i.CopyTo(x, 0);
             //将第二数组的值接着第一个数组最后1位放
             j.CopyTo(x, i.Length);
-
             return BitConverter.ToInt32(x, 0);
         }
-
-        public static uint UShortArrayToUInt32(ushort[] val)
+        public static object ToValue(ushort[] arr, string methodName)
         {
-            byte[] i = BitConverter.GetBytes(val[0]);
-            byte[] j = BitConverter.GetBytes(val[1]);
-            byte[] x = new byte[i.Length + j.Length];
-            //将第一个数组的值放到你要的数组开头
-            i.CopyTo(x, 0);
-            //将第二数组的值接着第一个数组最后1位放
-            j.CopyTo(x, i.Length);
+            var bb = UshortArrayToByteArray(arr);
 
-            return BitConverter.ToUInt32(x, 0);
+            MethodInfo method = typeof(BitConverter).GetMethod(methodName, new Type[] {
+				typeof(byte[]),
+				typeof(int)
+			});
+            return method != null ? method.Invoke(null, new object[] {
+				bb,
+				0
+			}) : 0;
         }
+        /// <summary>
+        /// 大端和小端
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="methodName"></param>
+        /// <param name="isDaDuanOrXiaoDuan">true:大端,false:小端</param>
+        /// <returns></returns>
+        public static object ToValue(ushort[] arr, string methodName, bool isDaDuanOrXiaoDuan)
+        {
+            var bb = UshortArrayToByteArray(arr, isDaDuanOrXiaoDuan);
 
+            MethodInfo method = typeof(BitConverter).GetMethod(methodName, new Type[] {
+				typeof(byte[]),
+				typeof(int)
+			});
+            return method != null ? method.Invoke(null, new object[] {
+				bb,
+				0
+			}) : 0;
+        }
+        public static byte[] UshortArrayToByteArray(ushort[] arr)
+        {
+            var x = new byte[arr.Length * 2];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                var t = BitConverter.GetBytes(arr[i]);
+                //Array.Reverse(t);
+                t.CopyTo(x, i * 2);
+            }
+            return x;
+        }
+        public static byte[] UshortArrayToByteArray(ushort[] arr, bool isDaDuanOrXiaoDuan)
+        {
+            var x = new byte[arr.Length * 2];
+            if (!isDaDuanOrXiaoDuan)
+            {
+                Array.Reverse(arr);
+            }
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                var t = BitConverter.GetBytes(arr[i]);
+                t.CopyTo(x, i * 2);
+            }
+            return x;
+        }
+        public static Single hxToSingle(string hx, ushort[] arr)
+        {
+            hx = hx.Replace(" ", "");
+
+            uint num1 = uint.Parse(hx, System.Globalization.NumberStyles.AllowHexSpecifier);
+            byte[] floatVals1 = BitConverter.GetBytes(num1);
+
+            var x = UshortArrayToByteArray(arr, true);
+            var y = UshortArrayToByteArray(arr, false);
+
+            return BitConverter.ToSingle(floatVals1, 0);
+        }
         public static ushort Reg16Count(string intType)
         {
             if (typeof(System.Int16).ToString() == intType)
@@ -86,9 +154,12 @@ namespace TestDevices
             {
                 return 2;
             }
+            if (typeof(System.Single).ToString() == intType)
+            {
+                return 2;
+            }
             return 0;
         }
-
         public static CmdInfo[] FromXML(string xml)
         {
             XStream xstream = new XStream();
@@ -123,6 +194,7 @@ namespace TestDevices
     }
     public class Device
     {
+
         private CmdInfo[] cmdInfos;
 
         public CmdInfo[] CmdInfos

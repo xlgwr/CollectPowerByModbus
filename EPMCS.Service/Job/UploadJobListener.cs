@@ -26,13 +26,17 @@ namespace EPMCS.Service.Job
             string Url = ConfUtil.UploadUrl() + "?customerId=" + ConfUtil.CustomerId() + "&Version=" + Assembly.GetExecutingAssembly().GetName().Version.ToString();
             try
             {
-                logger.DebugFormat("上传空数据,以获得表的最后更新时间!");
+                logger.DebugFormat("上传空数据,以获得表的最后更新时间!,URL:{0}",Url);
                 DataResult ret = HttpClientHelper.PostResponse<DataResult>(Url, "[]");
                 if (ret != null)
                 {
                     logger.DebugFormat("表的最后更新时间 msec={0}", ret.DeviceLatestUpdateMsec);
                     Common.UpdateMeters(ret.DeviceLatestUpdateMsec);
                     context.JobDetail.JobDataMap.Put(Consts.DeviceLatestUpdateKey, true);
+                }
+                else
+                {
+                    logger.DebugFormat("****返回空记录!,URL:{0}", Url);
                 }
             }
             catch (Exception ex)

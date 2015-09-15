@@ -48,6 +48,11 @@
             this.btn1Alert = new System.Windows.Forms.Button();
             this.cbox7ID = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt6timeOff = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.comb0Devices = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +60,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 173);
+            this.label4.Location = new System.Drawing.Point(18, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 12);
             this.label4.TabIndex = 27;
@@ -64,7 +69,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 147);
+            this.label6.Location = new System.Drawing.Point(18, 176);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 26;
@@ -73,7 +78,7 @@
             // cbox4StopBits
             // 
             this.cbox4StopBits.FormattingEnabled = true;
-            this.cbox4StopBits.Location = new System.Drawing.Point(89, 170);
+            this.cbox4StopBits.Location = new System.Drawing.Point(89, 144);
             this.cbox4StopBits.Name = "cbox4StopBits";
             this.cbox4StopBits.Size = new System.Drawing.Size(147, 20);
             this.cbox4StopBits.TabIndex = 5;
@@ -81,7 +86,7 @@
             // cbox3Parity
             // 
             this.cbox3Parity.FormattingEnabled = true;
-            this.cbox3Parity.Location = new System.Drawing.Point(89, 144);
+            this.cbox3Parity.Location = new System.Drawing.Point(89, 173);
             this.cbox3Parity.Name = "cbox3Parity";
             this.cbox3Parity.Size = new System.Drawing.Size(147, 20);
             this.cbox3Parity.TabIndex = 4;
@@ -128,6 +133,7 @@
             this.cbox0PortName.Name = "cbox0PortName";
             this.cbox0PortName.Size = new System.Drawing.Size(147, 20);
             this.cbox0PortName.TabIndex = 1;
+            this.cbox0PortName.Text = "COM4";
             // 
             // label1
             // 
@@ -141,9 +147,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txt1Rece);
-            this.groupBox1.Location = new System.Drawing.Point(12, 231);
+            this.groupBox1.Location = new System.Drawing.Point(12, 259);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 248);
+            this.groupBox1.Size = new System.Drawing.Size(449, 220);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Message：";
@@ -154,12 +160,14 @@
             this.txt1Rece.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt1Rece.Location = new System.Drawing.Point(3, 17);
             this.txt1Rece.Name = "txt1Rece";
-            this.txt1Rece.Size = new System.Drawing.Size(443, 228);
+            this.txt1Rece.Size = new System.Drawing.Size(443, 200);
             this.txt1Rece.TabIndex = 0;
             this.txt1Rece.Text = "";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.comb0Devices);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Controls.Add(this.cbox0PortName);
@@ -174,7 +182,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 213);
+            this.groupBox2.Size = new System.Drawing.Size(254, 241);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "设置：";
@@ -258,11 +266,69 @@
             this.label5.TabIndex = 36;
             this.label5.Text = "电表ID:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(301, 213);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 12);
+            this.label7.TabIndex = 38;
+            this.label7.Text = "电表超时:";
+            // 
+            // txt6timeOff
+            // 
+            this.txt6timeOff.Location = new System.Drawing.Point(366, 208);
+            this.txt6timeOff.Mask = "999";
+            this.txt6timeOff.Name = "txt6timeOff";
+            this.txt6timeOff.Size = new System.Drawing.Size(69, 21);
+            this.txt6timeOff.TabIndex = 39;
+            this.txt6timeOff.Text = "100";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(304, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "关闭Com口";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // comb0Devices
+            // 
+            this.comb0Devices.FormattingEnabled = true;
+            this.comb0Devices.Items.AddRange(new object[] {
+            "device-默认",
+            "device-CL7339N",
+            "device-DTSF1352",
+            "device-SPM33",
+            "device-松下表1",
+            "device-松下表2"});
+            this.comb0Devices.Location = new System.Drawing.Point(89, 201);
+            this.comb0Devices.Name = "comb0Devices";
+            this.comb0Devices.Size = new System.Drawing.Size(147, 20);
+            this.comb0Devices.TabIndex = 36;
+            this.comb0Devices.Text = "device-松下表1";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(31, 206);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "电表：";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 491);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txt6timeOff);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbox7ID);
             this.Controls.Add(this.btn1Alert);
@@ -302,6 +368,11 @@
         private System.Windows.Forms.ComboBox cbox7ID;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox txt1Rece;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox txt6timeOff;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox comb0Devices;
     }
 }
 

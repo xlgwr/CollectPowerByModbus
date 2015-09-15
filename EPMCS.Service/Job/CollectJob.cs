@@ -40,10 +40,6 @@ namespace EPMCS.Service.Job
                 {
                     var result = dbcontext.Database.SqlQuery<int>("select count(1) from uploaddatas ");
                     logger.DebugFormat("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~采集表中共有{0}条数据 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~", result.FirstOrDefault());
-
-
-
-
                 }
             }
             finally
@@ -83,8 +79,6 @@ namespace EPMCS.Service.Job
 
                         if (dd.HasValue)
                         {
-                            logger.DebugFormat("***************开始获取时间min!,curr:{0}:{1},db:{2}:{3}", taskgroupMin, taskgroupMin.Ticks, dd.Value, dd.Value.Ticks);
-
                             if (taskgroupMin.Ticks <= dd.Value.Ticks)
                             {
                                 logger.DebugFormat("***************开始获取时间min!,curr:{0}:{1} <= db:{2}:{3}", taskgroupMin, taskgroupMin.Ticks, dd.Value, dd.Value.Ticks);
@@ -181,13 +175,13 @@ namespace EPMCS.Service.Job
 
                                         UploadData dd = new UploadData
                                         {
-                                            PowerDate = taskgroup.AddSeconds(-taskgroup.Second).AddMilliseconds(-taskgroup.Millisecond),
+                                            PowerDate = taskgroupMin,
                                             Groupstamp = taskgroup.Ticks.ToString(),
                                             CustomerId = mt.CustomerId,
                                             DeviceCd = mt.DeviceCd,
                                             DeviceId = mt.DeviceId,
-                                            PrePowerDate = taskgroup.AddSeconds(-taskgroup.Second).AddMilliseconds(-taskgroup.Millisecond),//diff time init for visual
-                                            Uploaded = 2 //Uploaded = 0 //by xlg 虚拟表不计算前值电量
+                                            PrePowerDate = taskgroupMin,
+                                            Uploaded = 2 // by xlg 虚拟表不计算前值电量
 
                                         };
 
@@ -212,8 +206,6 @@ namespace EPMCS.Service.Job
 
                                         dd.ValueLevel = AlarmLevel(dd.PowerValue, mt);
 
-
-
                                         alldata.Add(dd);
                                     }
                                     catch (Exception ex)
@@ -230,10 +222,6 @@ namespace EPMCS.Service.Job
                     }//success
                     else
                     {
-                        //foreach (var wir in wirs)
-                        //{
-                        //    logger.Debug(wir.Exception);
-                        //}
                         //add by xlg 2015-08-05 
                         //同一组中，如果一表维修或已坏，old不会保存已采集的数据。
                         //修正：线程池为false，保存已采集到的数据。
@@ -271,7 +259,8 @@ namespace EPMCS.Service.Job
 
                         logger.DebugFormat("########################执行采集任务!!!!!!共 [{0}]数据存储到本地数据库,UseTime(h:M:S.ms):{1}", alldata.Count,elapsedTime);
                     }
-                    context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, alldata.Select(m => m.ValueLevel).Max());
+                    var maxlvl = alldata.Where(m => metersgroup.MMeter.Contains(m.DeviceId)).Max(m => m.ValueLevel);//
+                    context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, maxlvl);
                 }
 
                 //add xlg remove bak
@@ -293,7 +282,7 @@ namespace EPMCS.Service.Job
                 //超过5分钟未上传，全报警。
                 try
                 {
-                    if (alldata.Count() == meterCount)
+                    if (alldata.Count() == meterCount) //数量一致,2分钟之前且5分钟以内有未上传数据,报警灯全亮
                     {
                         using (MysqlDbContext dbcontext = new MysqlDbContext())
                         {
@@ -310,7 +299,7 @@ namespace EPMCS.Service.Job
 
                         }
                     }
-                    else
+                    else //数量不一致,报警灯全亮
                     {
                         context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, -1);
                     }
@@ -368,13 +357,8 @@ namespace EPMCS.Service.Job
             List<UploadData> alldata = new List<UploadData>();
             try
             {
-
-
                 try
                 {
-
-
-                    int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
                     foreach (MeterParam meter in state.Meters)
                     {
                         var tmpnow = state.Group;
@@ -423,7 +407,10 @@ namespace EPMCS.Service.Job
 
                             master = ModbusSerialMaster.CreateRtu(serialPort);
 
+                            logger.DebugFormat("***开始采集表{0},{1},{2},{3},{4},{5},{6}", meter.DeviceName, meter.DeviceAdd, serialPort.PortName, serialPort.BaudRate, serialPort.Parity, serialPort.StopBits, serialPort.ReadTimeout);
+
                             logger.DebugFormat("开始采集表[{0}],地址{1},一共有{2}个采集项目", meter.DeviceName, meter.DeviceAdd, meter.CmdInfos.Count());
+                           
                             UploadData data = new UploadData();
                             data.CustomerId = meter.CustomerId;
                             data.DeviceId = meter.DeviceId;
@@ -440,9 +427,6 @@ namespace EPMCS.Service.Job
                                 ushort npoints = Ints.Reg16Count(info.CsharpType);
 
                                 var tomethod = "To" + info.CsharpType.Split('.')[1];
-
-
-
 
                                 ushort[] dd;
                                 try
@@ -462,22 +446,6 @@ namespace EPMCS.Service.Job
 
                                 logger.InfoFormat("**收到数据:{0},value:{1},UnitFactor:{2}，Name:{3}", String.Join(",", cc), ddvalue, info.UnitFactor, info.Name);
 
-                                //if (info.Name.ToLower() == "yearmonth")
-                                //{
-                                //    year = 2000 + Convert.ToInt32(Ints.UshortHighByteToInt(dd[0]));
-
-                                //    month = Ints.UshortLowByteToInt(dd[0]);
-                                //}
-                                //if (info.Name.ToLower() == "dayhour")
-                                //{
-                                //    day = Ints.UshortHighByteToInt(dd[0]);
-                                //    hour = Ints.UshortLowByteToInt(dd[0]);
-                                //}
-                                //if (info.Name.ToLower() == "minutesecond")
-                                //{
-                                //    minute = Ints.UshortHighByteToInt(dd[0]);
-                                //    second = Ints.UshortLowByteToInt(dd[0]);
-                                //}
                                 if (info.Name.ToLower() == "zljyggl") //总累计有功功率
                                 {
                                     data.MeterValue = Convert.ToDouble(ddvalue) * info.UnitFactor;
@@ -485,8 +453,6 @@ namespace EPMCS.Service.Job
                                 if (info.Name.ToLower() == "zssyggl")
                                 {//总瞬时有功功率
                                     data.PowerValue = Convert.ToDouble(ddvalue) * info.UnitFactor;
-                                    //Random ran = new Random();
-                                    //data.PowerValue = ran.Next(10, 550);
                                 }
                                 if (info.Name.ToLower() == "a1")
                                 {
@@ -572,8 +538,6 @@ namespace EPMCS.Service.Job
                                     data.DiffMeterValuePre = 0;
                                     data.PrePowerDate = data.PowerDate;
                                 }
-
-
                             }
 
                             // add to bak data

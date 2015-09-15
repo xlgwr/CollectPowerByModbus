@@ -50,6 +50,10 @@ namespace EPMCS.Service.Job
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="level"> 1-4 : 亮对应报警灯, 0 : 全灭 ,-1 全亮</param>
         private void setAlarm(int level)
         {
             string alarmPort = ConfUtil.AlarmSerialPort();
@@ -60,9 +64,13 @@ namespace EPMCS.Service.Job
                 {
                     d[level - 1] = 1;
                 }
-                else if (level == 0)
+                else if (level == -1)//全亮
                 {
-                    d = new short[] { 0, 0, 0, 0 };
+                    d = new short[] { 1, 1, 1, 1 };
+                }
+                else
+                {
+                    //全灭
                 }
                 ModbusPoll mp = new ModbusPoll();
                 try

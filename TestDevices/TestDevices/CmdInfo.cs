@@ -19,7 +19,7 @@ namespace TestDevices
             get { return address; }
             set { address = value; }
         }
-
+       
         private string csharpType;
 
         public string CsharpType
@@ -34,6 +34,14 @@ namespace TestDevices
         {
             get { return unitFactor; }
             set { unitFactor = value; }
+        }
+
+        private bool daDuan;
+
+        public bool DaDuan
+        {
+            get { return daDuan; }
+            set { daDuan = value; }
         }
 
         public Object Clone()
