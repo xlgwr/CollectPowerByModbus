@@ -25,15 +25,16 @@ namespace EPMCS.Service.Util
             if (url.StartsWith("https"))
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
 
-            HttpClient httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Accept.Add(
-               new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = httpClient.GetAsync(url).Result;
-
-            if (response.IsSuccessStatusCode)
+            using (HttpClient httpClient = new HttpClient())
             {
-                string result = response.Content.ReadAsStringAsync().Result;
-                return result;
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = httpClient.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    return result;
+                }
             }
             return null;
         }
@@ -44,21 +45,23 @@ namespace EPMCS.Service.Util
             if (url.StartsWith("https"))
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
 
-            HttpClient httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Accept.Add(
-               new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = httpClient.GetAsync(url).Result;
-
-            T result = default(T);
-
-            if (response.IsSuccessStatusCode)
+            using (HttpClient httpClient = new HttpClient())
             {
-                Task<string> t = response.Content.ReadAsStringAsync();
-                string s = t.Result;
-                logger.DebugFormat("收到取表回复: {0}", s);
-                result = JsonConvert.DeserializeObject<T>(s);
+                httpClient.DefaultRequestHeaders.Accept.Add(
+                   new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = httpClient.GetAsync(url).Result;
+
+                T result = default(T);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Task<string> t = response.Content.ReadAsStringAsync();
+                    string s = t.Result;
+                    logger.DebugFormat("收到取表回复: {0}", s);
+                    result = JsonConvert.DeserializeObject<T>(s);
+                }
+                return result;
             }
-            return result;
         }
 
         /// <summary>
@@ -72,16 +75,19 @@ namespace EPMCS.Service.Util
             if (url.StartsWith("https"))
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
 
-            HttpContent httpContent = new StringContent(postData);
-            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpClient httpClient = new HttpClient();
-
-            HttpResponseMessage response = httpClient.PostAsync(url, httpContent).Result;
-
-            if (response.IsSuccessStatusCode)
+            using (HttpClient httpClient = new HttpClient())
             {
-                string result = response.Content.ReadAsStringAsync().Result;
-                return result;
+
+                HttpContent httpContent = new StringContent(postData);
+                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+                HttpResponseMessage response = httpClient.PostAsync(url, httpContent).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    return result;
+                }
             }
             return null;
         }
@@ -99,22 +105,25 @@ namespace EPMCS.Service.Util
             if (url.StartsWith("https"))
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
 
-            HttpContent httpContent = new StringContent(postData);
-            httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpClient httpClient = new HttpClient();
-
-            T result = default(T);
-
-            HttpResponseMessage response = httpClient.PostAsync(url, httpContent).Result;
-
-            if (response.IsSuccessStatusCode)
+            using (HttpClient httpClient = new HttpClient())
             {
-                Task<string> t = response.Content.ReadAsStringAsync();
-                string s = t.Result;
-                logger.DebugFormat("**********收到上传回复: {0}", s);
-                result = JsonConvert.DeserializeObject<T>(s);
+                HttpContent httpContent = new StringContent(postData);
+                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+
+                T result = default(T);
+
+                HttpResponseMessage response = httpClient.PostAsync(url, httpContent).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Task<string> t = response.Content.ReadAsStringAsync();
+                    string s = t.Result;
+                    logger.DebugFormat("**********收到上传回复: {0}", s);
+                    result = JsonConvert.DeserializeObject<T>(s);
+                }
+                return result;
             }
-            return result;
         }
 
         /// <summary>

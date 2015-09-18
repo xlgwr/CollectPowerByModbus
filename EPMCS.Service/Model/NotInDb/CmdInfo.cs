@@ -35,7 +35,12 @@ namespace EPMCS.Model.NotInDb
             get { return unitFactor; }
             set { unitFactor = value; }
         }
-
+        private bool daDuan;
+        public bool DaDuan
+        {
+            get { return daDuan; }
+            set { daDuan = value; }
+        }
         public Object Clone()
         {
             return this.MemberwiseClone();

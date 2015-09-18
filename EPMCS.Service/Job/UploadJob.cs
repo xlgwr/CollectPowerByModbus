@@ -31,7 +31,7 @@ namespace EPMCS.Service.Job
             {
                 using (MysqlDbContext dbcontext = new MysqlDbContext())
                 {
-                    //uploaded: 0->未使用/未上传，1->未使用/已上传，2->使用/未上传，3->使用/上传，
+                    //uploaded: 0(00)->未使用/未上传，1(01)->未使用/已上传，2(10)->使用/未上传，3(11)->使用/上传，
                     var takeNum = ConfUtil.UploadedTake();
                     var fetchData = dbcontext.Datas.Where(m => (m.Uploaded & 1) == 0).OrderByDescending(m => m.PowerDate).Take(takeNum);
                     var tmpcount = 0;

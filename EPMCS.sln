@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPMCS.Service", "EPMCS.Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPMCS.Config", "EPMCS.Config\EPMCS.Config.csproj", "{13676567-E6E9-42E4-8C59-601CB32F68D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cmdKey", "MACKey\cmdKey\cmdKey.csproj", "{D426EDDA-BD10-4A73-9524-72D11B2F8379}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug_App|Any CPU = Debug_App|Any CPU
@@ -50,6 +52,21 @@ Global
 		{13676567-E6E9-42E4-8C59-601CB32F68D6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{13676567-E6E9-42E4-8C59-601CB32F68D6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{13676567-E6E9-42E4-8C59-601CB32F68D6}.Release|x86.ActiveCfg = Release|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug_App|Any CPU.ActiveCfg = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug_App|Any CPU.Build.0 = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug_App|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug_App|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug_App|x86.ActiveCfg = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D426EDDA-BD10-4A73-9524-72D11B2F8379}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

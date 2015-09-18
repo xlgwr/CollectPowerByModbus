@@ -216,48 +216,48 @@ namespace TestDevices
                     //}
                     if (info.Name.ToLower() == "zljyggl") //总累计有功功率
                     {
-                        var MeterValue = EndValue;
+                        var MeterValue =  EndValue * info.UnitFactor;
                         getInfoPower("总累计有功功率:" + MeterValue.ToString());
                     }
                     if (info.Name.ToLower() == "zssyggl")
                     {//总瞬时有功功率
-                        var PowerValue = EndValue;
+                        var PowerValue =  EndValue * info.UnitFactor;
                         getInfoPower("总瞬时有功功率:" + PowerValue.ToString());
                     }
                     if (info.Name.ToLower() == "a1")
                     {
-                        var A1 = EndValue;
+                        var A1 =  EndValue * info.UnitFactor;
                         getInfoPower("A1:" + A1.ToString());
                     }
                     if (info.Name.ToLower() == "a2")
                     {
-                        var A2 = EndValue;
+                        var A2 =  EndValue * info.UnitFactor;
                         getInfoPower("A2:" + A2.ToString());
 
                     }
                     if (info.Name.ToLower() == "a3")
                     {
-                        var A3 = EndValue;
+                        var A3 =  EndValue * info.UnitFactor;
                         getInfoPower("A3:" + A3.ToString());
                     }
                     if (info.Name.ToLower() == "v1")
                     {
-                        var V1 = EndValue;
+                        var V1 =  EndValue * info.UnitFactor;
                         getInfoPower("V1:" + V1.ToString());
                     }
                     if (info.Name.ToLower() == "v2")
                     {
-                        var V2 = EndValue;
+                        var V2 =  EndValue * info.UnitFactor;
                         getInfoPower("V2:" + V2.ToString());
                     }
                     if (info.Name.ToLower() == "v3")
                     {
-                        var V3 = EndValue;
+                        var V3 =  EndValue * info.UnitFactor;
                         getInfoPower("V3:" + V3.ToString());
                     }
                     if (info.Name.ToLower() == "pf")
                     {
-                        var Pf = EndValue;
+                        var Pf =  EndValue * info.UnitFactor;
                         getInfoPower("PF:" + Pf.ToString());
                     }
 

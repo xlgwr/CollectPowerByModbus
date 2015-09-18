@@ -54,6 +54,26 @@ namespace EPMCS.Service.Util
 
             return BitConverter.ToInt32(x, 0);
         }
+        /// <summary>
+        /// 大端和小端
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <param name="methodName"></param>
+        /// <param name="isDaDuanOrXiaoDuan">true:大端,false:小端</param>
+        /// <returns></returns>
+        public static object ToValue(ushort[] arr, string methodName, bool isDaDuanOrXiaoDuan)
+        {
+            var bb = UshortArrayToByteArray(arr, isDaDuanOrXiaoDuan);
+
+            MethodInfo method = typeof(BitConverter).GetMethod(methodName, new Type[] {
+				typeof(byte[]),
+				typeof(int)
+			});
+            return method != null ? method.Invoke(null, new object[] {
+				bb,
+				0
+			}) : 0;
+        }
         public static object ToValue(ushort[] arr, string methodName)
         {
             var bb = UshortArrayToByteArray(arr);
@@ -65,6 +85,20 @@ namespace EPMCS.Service.Util
 				bb,
 				0
 			}) : 0;
+        }
+        public static byte[] UshortArrayToByteArray(ushort[] arr, bool isDaDuanOrXiaoDuan)
+        {
+            var x = new byte[arr.Length * 2];
+            if (!isDaDuanOrXiaoDuan)
+            {
+                Array.Reverse(arr);
+            }
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                var t = BitConverter.GetBytes(arr[i]);
+                t.CopyTo(x, i * 2);
+            }
+            return x;
         }
 
         public static byte[] UshortArrayToByteArray(ushort[] arr)
@@ -94,6 +128,10 @@ namespace EPMCS.Service.Util
                 return 1;
             }
             if (typeof(System.UInt32).ToString() == intType)
+            {
+                return 2;
+            }
+            if (typeof(System.Single).ToString() == intType)
             {
                 return 2;
             }

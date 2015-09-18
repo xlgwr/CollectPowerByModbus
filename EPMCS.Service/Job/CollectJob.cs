@@ -257,7 +257,7 @@ namespace EPMCS.Service.Job
                         TimeSpan ts = stopWatch.Elapsed;
                         string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}", ts.Hours, ts.Minutes, ts.Seconds, ts.Milliseconds / 10);
 
-                        logger.DebugFormat("########################执行采集任务!!!!!!共 [{0}]数据存储到本地数据库,UseTime(h:M:S.ms):{1}", alldata.Count,elapsedTime);
+                        logger.DebugFormat("########################执行采集任务!!!!!!共 [{0}]数据存储到本地数据库,UseTime(h:M:S.ms):{1}", alldata.Count, elapsedTime);
                     }
                     var maxlvl = alldata.Where(m => metersgroup.MMeter.Contains(m.DeviceId)).Max(m => m.ValueLevel);//
                     context.JobDetail.JobDataMap.Put(Consts.AlarmLevelKey, maxlvl);
@@ -410,7 +410,7 @@ namespace EPMCS.Service.Job
                             logger.DebugFormat("***开始采集表{0},{1},{2},{3},{4},{5},{6}", meter.DeviceName, meter.DeviceAdd, serialPort.PortName, serialPort.BaudRate, serialPort.Parity, serialPort.StopBits, serialPort.ReadTimeout);
 
                             logger.DebugFormat("开始采集表[{0}],地址{1},一共有{2}个采集项目", meter.DeviceName, meter.DeviceAdd, meter.CmdInfos.Count());
-                           
+
                             UploadData data = new UploadData();
                             data.CustomerId = meter.CustomerId;
                             data.DeviceId = meter.DeviceId;
@@ -428,6 +428,12 @@ namespace EPMCS.Service.Job
 
                                 var tomethod = "To" + info.CsharpType.Split('.')[1];
 
+                                var rountLen = 2;
+                                if (info.UnitFactor < 1)
+                                {
+                                    rountLen = info.UnitFactor.ToString().Length - 1;
+                                }
+
                                 ushort[] dd;
                                 try
                                 {
@@ -442,45 +448,48 @@ namespace EPMCS.Service.Job
                                 }
 
                                 string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
-                                var ddvalue = Ints.ToValue(dd, tomethod);
+
+                                var ddvalue = Ints.ToValue(dd, tomethod, info.DaDuan);
+
+                                var EndValue = Math.Round(Convert.ToDouble(ddvalue), rountLen);
 
                                 logger.InfoFormat("**收到数据:{0},value:{1},UnitFactor:{2}，Name:{3}", String.Join(",", cc), ddvalue, info.UnitFactor, info.Name);
 
                                 if (info.Name.ToLower() == "zljyggl") //总累计有功功率
                                 {
-                                    data.MeterValue = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.MeterValue = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "zssyggl")
                                 {//总瞬时有功功率
-                                    data.PowerValue = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.PowerValue = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "a1")
                                 {
-                                    data.A1 = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.A1 = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "a2")
                                 {
-                                    data.A2 = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.A2 = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "a3")
                                 {
-                                    data.A3 = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.A3 = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v1")
                                 {
-                                    data.V1 = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.V1 = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v2")
                                 {
-                                    data.V2 = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.V2 = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "v3")
                                 {
-                                    data.V3 = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.V3 = EndValue * info.UnitFactor;
                                 }
                                 if (info.Name.ToLower() == "pf")
                                 {
-                                    data.Pf = Convert.ToDouble(ddvalue) * info.UnitFactor;
+                                    data.Pf = EndValue * info.UnitFactor;
                                 }
                                 //判断本表有否超过阈值
                                 data.ValueLevel = AlarmLevel(data.PowerValue, meter);
