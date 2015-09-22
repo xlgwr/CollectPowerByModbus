@@ -33,11 +33,10 @@ namespace EPMCS.Service.Conf
                 PhysicalAddress address = adapter.GetPhysicalAddress();       // mac address.
                 if (address.GetAddressBytes().Length > 0)
                 {
-                    if (adapter.OperationalStatus == OperationalStatus.Up)
-                    {
-
-                        nicList.Add(address.ToString());
-                    }
+                    //if (adapter.OperationalStatus == OperationalStatus.Up)
+                    //{
+                    nicList.Add(address.ToString());
+                    //}
                 }
             }
 
