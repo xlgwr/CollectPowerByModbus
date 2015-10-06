@@ -89,7 +89,9 @@ namespace EPMCS.Service.Util
         public static byte[] UshortArrayToByteArray(ushort[] arr, bool isDaDuanOrXiaoDuan)
         {
             var x = new byte[arr.Length * 2];
-            if (!isDaDuanOrXiaoDuan)
+
+            //true 大端
+            if (isDaDuanOrXiaoDuan)
             {
                 Array.Reverse(arr);
             }

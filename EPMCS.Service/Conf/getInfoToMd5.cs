@@ -35,7 +35,7 @@ namespace EPMCS.Service.Conf
                 {
                     //if (adapter.OperationalStatus == OperationalStatus.Up)
                     //{
-                    nicList.Add(address.ToString());
+                        nicList.Add(address.ToString());
                     //}
                 }
             }

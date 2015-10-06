@@ -5,63 +5,63 @@
       <address>0000</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>zssyggl</name>
       <address>0092</address>
       <csharpType>System.Int32</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a1</name>
       <address>00B4</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a2</name>
       <address>00B6</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a3</name>
       <address>00B8</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v1</name>
       <address>00A4</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v2</name>
       <address>00A6</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v3</name>
       <address>00A8</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>pf</name>
       <address>00C5</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0.001</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
   </cmdInfos>
 </Device>

@@ -31,14 +31,28 @@ namespace EPMCS.Model
         [Required]
         public DateTime PowerDate { get; set; }
 
+        /// <summary>
+        /// 总瞬时有功功率
+        /// </summary>
         [Required]
         public double PowerValue { get; set; }
 
         [Required]
         public int ValueLevel { get; set; }
 
+        /// <summary>
+        /// 总累计有功功率
+        /// </summary>
         [Required]
         public double MeterValue { get; set; }
+
+
+        /// <summary>
+        /// 总累计无功功率
+        /// </summary>
+        [Required]
+        public double MeterValueW { get; set; }
+
 
         //add by xlg 2015-07-05
         //[Required]

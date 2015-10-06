@@ -1,30 +1,36 @@
--- --------------------------------------------------------
--- 主机:                           127.0.0.1
--- 服务器版本:                        5.6.12-log - MySQL Community Server (GPL)
--- 服务器操作系统:                      Win64
--- HeidiSQL 版本:                  9.2.0.4947
--- --------------------------------------------------------
+/*
+Navicat MySQL Data Transfer
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+Source Server         : mysql
+Source Server Version : 50626
+Source Host           : 127.0.0.1:3306
+Source Database       : epmcs
 
--- 导出  表 epmcs.keyvalparams 结构
+Target Server Type    : MYSQL
+Target Server Version : 50626
+File Encoding         : 65001
+
+Date: 2015-09-28 10:32:14
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for keyvalparams
+-- ----------------------------
 DROP TABLE IF EXISTS `keyvalparams`;
-CREATE TABLE IF NOT EXISTS `keyvalparams` (
+CREATE TABLE `keyvalparams` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `K` varchar(32) NOT NULL,
   `V` varchar(400) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- 数据导出被取消选择。
-
-
--- 导出  表 epmcs.meterparams 结构
+-- ----------------------------
+-- Table structure for meterparams
+-- ----------------------------
 DROP TABLE IF EXISTS `meterparams`;
-CREATE TABLE IF NOT EXISTS `meterparams` (
+CREATE TABLE `meterparams` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `CustomerId` varchar(75) NOT NULL,
   `DeviceId` varchar(75) NOT NULL,
@@ -43,14 +49,13 @@ CREATE TABLE IF NOT EXISTS `meterparams` (
   `StartDate` datetime NOT NULL,
   `EndDate` datetime NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 
--- 数据导出被取消选择。
-
-
--- 导出  表 epmcs.uploaddatas 结构
+-- ----------------------------
+-- Table structure for uploaddatas
+-- ----------------------------
 DROP TABLE IF EXISTS `uploaddatas`;
-CREATE TABLE IF NOT EXISTS `uploaddatas` (
+CREATE TABLE `uploaddatas` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `CustomerId` varchar(75) NOT NULL,
   `DeviceId` varchar(75) NOT NULL,
@@ -59,6 +64,7 @@ CREATE TABLE IF NOT EXISTS `uploaddatas` (
   `PowerDate` datetime NOT NULL,
   `PowerValue` double NOT NULL,
   `ValueLevel` int(11) NOT NULL,
+  `MeterValueW` double NOT NULL,
   `MeterValue` double NOT NULL,
   `DiffMeterValuePre` double NOT NULL,
   `PrePowerDate` datetime NOT NULL,
@@ -71,22 +77,5 @@ CREATE TABLE IF NOT EXISTS `uploaddatas` (
   `Pf` double NOT NULL,
   `Uploaded` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8;
 
--- 数据导出被取消选择。
-
-
--- 导出  表 epmcs.__migrationhistory 结构
-DROP TABLE IF EXISTS `__migrationhistory`;
-CREATE TABLE IF NOT EXISTS `__migrationhistory` (
-  `MigrationId` varchar(150) NOT NULL,
-  `ContextKey` varchar(300) NOT NULL,
-  `Model` longblob NOT NULL,
-  `ProductVersion` varchar(32) NOT NULL,
-  PRIMARY KEY (`MigrationId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- 数据导出被取消选择。
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

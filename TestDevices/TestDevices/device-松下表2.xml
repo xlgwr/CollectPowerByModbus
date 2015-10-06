@@ -5,84 +5,84 @@
       <address>00A3</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>dayhour</name>
       <address>00A3</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>minutesecond</name>
       <address>00A3</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>zljyggl</name>
       <address>0064</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>zssyggl</name>
       <address>00B0</address>
       <csharpType>System.Int32</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a1</name>
       <address>006B</address>
       <csharpType>System.UInt16</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a2</name>
       <address>006C</address>
       <csharpType>System.UInt16</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a3</name>
       <address>006D</address>
       <csharpType>System.UInt16</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v1</name>
       <address>00AA</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v2</name>
       <address>00AC</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v3</name>
       <address>00AE</address>
       <csharpType>System.UInt32</csharpType>
       <unitFactor>0.1</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>pf</name>
       <address>006F</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0.01</unitFactor>
-      <daDuan>true</daDuan>
+      <daDuan>false</daDuan>
     </CmdInfo>
   </cmdInfos>
 </Device>

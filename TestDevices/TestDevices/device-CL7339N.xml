@@ -12,14 +12,14 @@
       <address>005A</address>
       <csharpType>System.Single</csharpType>
       <unitFactor>1</unitFactor>
-      <daDuan>false</daDuan>
+      <daDuan>true</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a1</name>
       <address>0010</address>
       <csharpType>System.Single</csharpType>
       <unitFactor>1</unitFactor>
-      <daDuan>false</daDuan>
+      <daDuan>true</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>a2</name>
@@ -32,35 +32,35 @@
       <address>0014</address>
       <csharpType>System.Single</csharpType>
       <unitFactor>1</unitFactor>
-      <daDuan>false</daDuan>
+      <daDuan>true</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v1</name>
       <address>0018</address>
       <csharpType>System.Single</csharpType>
       <unitFactor>1</unitFactor>
-      <daDuan>false</daDuan>
+      <daDuan>true</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v2</name>
       <address>001A</address>
       <csharpType>System.Single</csharpType>
       <unitFactor>1</unitFactor>
-      <daDuan>false</daDuan>
+      <daDuan>true</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>v3</name>
       <address>001C</address>
       <csharpType>System.Single</csharpType>
       <unitFactor>1</unitFactor>
-      <daDuan>false</daDuan>
+      <daDuan>true</daDuan>
     </CmdInfo>
     <CmdInfo>
       <name>pf</name>
       <address>0046</address>
       <csharpType>System.Single</csharpType>
       <unitFactor>1</unitFactor>
-      <daDuan>false</daDuan>
+      <daDuan>true</daDuan>
     </CmdInfo>
   </cmdInfos>
 </Device>

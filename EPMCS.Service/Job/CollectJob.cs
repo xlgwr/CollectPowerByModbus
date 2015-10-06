@@ -459,6 +459,12 @@ namespace EPMCS.Service.Job
                                 {
                                     data.MeterValue = EndValue * info.UnitFactor;
                                 }
+
+                                if (info.Name.ToLower() == "zljwggl") //总累计无功功率
+                                {
+                                    data.MeterValueW = EndValue * info.UnitFactor;
+                                }
+
                                 if (info.Name.ToLower() == "zssyggl")
                                 {//总瞬时有功功率
                                     data.PowerValue = EndValue * info.UnitFactor;

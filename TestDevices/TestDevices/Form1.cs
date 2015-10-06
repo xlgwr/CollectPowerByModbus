@@ -216,8 +216,13 @@ namespace TestDevices
                     //}
                     if (info.Name.ToLower() == "zljyggl") //总累计有功功率
                     {
-                        var MeterValue =  EndValue * info.UnitFactor;
+                        var MeterValue = EndValue * info.UnitFactor;
                         getInfoPower("总累计有功功率:" + MeterValue.ToString());
+                    }
+                    if (info.Name.ToLower() == "zljwggl") //总累计无功功率
+                    {
+                        var MeterValueW = EndValue * info.UnitFactor;
+                        getInfoPower("总累计无功功率:" + MeterValueW.ToString());
                     }
                     if (info.Name.ToLower() == "zssyggl")
                     {//总瞬时有功功率
@@ -272,6 +277,10 @@ namespace TestDevices
             }
             finally
             {
+                if (_sp.IsOpen)
+                {
+                    _sp.Close();
+                }
                 this.btn2Power.Enabled = true;
                 this.Cursor = Cursors.Default;
             }
