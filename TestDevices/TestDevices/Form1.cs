@@ -42,7 +42,7 @@ namespace TestDevices
             radioButton1.Checked = true;
             lbl0Msg.Visible = false;
             lbl0Msg.Text = "";
-            
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -164,6 +164,7 @@ namespace TestDevices
 
             object ddvalue = null;
 
+            Stopwatch timer = new Stopwatch();
             try
             {
                 txt1Rece.Text = "开始测试电表: " + cbox7ID.Text + " 设备.";
@@ -183,7 +184,6 @@ namespace TestDevices
                 initSP();
 
                 //记时
-                Stopwatch timer = new Stopwatch();//new一个stopwatch
                 timer.Start();
 
                 IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_sp);
@@ -241,7 +241,7 @@ namespace TestDevices
                             catch (Exception ex)
                             {
                                 getInfoPower("***********采集项目[" + info.Name + "],采集地址[" + info.Address + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
-                                break;
+                                throw ex;
                             }
                             #endregion
                         }
@@ -260,10 +260,16 @@ namespace TestDevices
                         logValue(tmpname, currValue.ToString());
                     }
                     getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
+                    timer.Stop();
+                    MessageBox.Show("Success：测试成功。使用毫秒[" + timer.ElapsedMilliseconds + "],时间[" + timer.Elapsed + "]");
                     #endregion
                 }
                 catch (Exception ex)
                 {
+                    if (timer.IsRunning)
+                    {
+                        timer.Stop();
+                    }
                     if (main != null)
                     {
                         getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
@@ -272,22 +278,25 @@ namespace TestDevices
                     else
                     {
                         getInfoPower(ex.Message);
+
                     }
-                }
-                finally
-                {
-                    timer.Stop();
-                    getInfoPower("####################使用时间[" + timer.Elapsed + "],毫秒[" + timer.ElapsedMilliseconds + "]");
+                    MessageBox.Show("Error：测试失败。" + ex.Message);
 
                 }
 
             }
             catch (Exception ex)
             {
+                if (timer.IsRunning)
+                {
+                    timer.Stop();
+                }
                 MessageBox.Show(ex.Message);
             }
             finally
             {
+                getInfoPower("####################使用毫秒[" + timer.ElapsedMilliseconds + "],时间[" + timer.Elapsed + "]");
+
                 if (_sp.IsOpen)
                 {
                     _sp.Close();
@@ -298,6 +307,7 @@ namespace TestDevices
         }
         private void btn2Power_Click(object sender, EventArgs e)
         {
+            Stopwatch timer = new Stopwatch();
             try
             {
                 txt1Rece.Text = "开始测试电表: " + cbox7ID.Text + " 设备.";
@@ -314,7 +324,6 @@ namespace TestDevices
 
                 initSP();
 
-                Stopwatch timer = new Stopwatch();
                 timer.Start();
 
                 IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_sp);
@@ -344,6 +353,8 @@ namespace TestDevices
                     catch (Exception ex)
                     {
                         getInfoPower("***********采集项目[" + info.Name + "],采集地址[" + info.Address + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
+
+                        throw ex;
                         break;
                     }
                     #endregion
@@ -379,24 +390,30 @@ namespace TestDevices
 
                 }
                 getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
-                this.btn2Power.Enabled = true;
-                this.Cursor = Cursors.Default;
-
                 timer.Stop();
-                getInfoPower("####################使用时间[" + timer.Elapsed + "],毫秒[" + timer.ElapsedMilliseconds + "]");
+                MessageBox.Show("Success：测试成功。使用毫秒[" + timer.ElapsedMilliseconds + "],时间[" + timer.Elapsed + "]");
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Error：测试失败。" + ex.Message);
             }
             finally
             {
+                if (timer.IsRunning)
+                {
+                    timer.Stop();
+                }
+                getInfoPower("####################使用毫秒[" + timer.ElapsedMilliseconds + "],时间[" + timer.Elapsed + "]");
                 if (_sp.IsOpen)
                 {
                     _sp.Close();
                 }
                 this.btn2Power.Enabled = true;
                 this.Cursor = Cursors.Default;
+
+
+
             }
 
         }
