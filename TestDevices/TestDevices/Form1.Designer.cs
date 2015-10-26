@@ -53,6 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txt6timeOff = new System.Windows.Forms.MaskedTextBox();
             this.btn2NewTest = new System.Windows.Forms.Button();
+            this.lbl0Msg = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 147);
+            this.label4.Location = new System.Drawing.Point(18, 139);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 12);
             this.label4.TabIndex = 27;
@@ -69,7 +70,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 176);
+            this.label6.Location = new System.Drawing.Point(18, 168);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 12);
             this.label6.TabIndex = 26;
@@ -78,7 +79,7 @@
             // cbox4StopBits
             // 
             this.cbox4StopBits.FormattingEnabled = true;
-            this.cbox4StopBits.Location = new System.Drawing.Point(89, 144);
+            this.cbox4StopBits.Location = new System.Drawing.Point(89, 136);
             this.cbox4StopBits.Name = "cbox4StopBits";
             this.cbox4StopBits.Size = new System.Drawing.Size(147, 20);
             this.cbox4StopBits.TabIndex = 5;
@@ -86,7 +87,7 @@
             // cbox3Parity
             // 
             this.cbox3Parity.FormattingEnabled = true;
-            this.cbox3Parity.Location = new System.Drawing.Point(89, 173);
+            this.cbox3Parity.Location = new System.Drawing.Point(89, 165);
             this.cbox3Parity.Name = "cbox3Parity";
             this.cbox3Parity.Size = new System.Drawing.Size(147, 20);
             this.cbox3Parity.TabIndex = 4;
@@ -94,7 +95,7 @@
             // cbox2DataBits
             // 
             this.cbox2DataBits.FormattingEnabled = true;
-            this.cbox2DataBits.Location = new System.Drawing.Point(89, 118);
+            this.cbox2DataBits.Location = new System.Drawing.Point(89, 110);
             this.cbox2DataBits.Name = "cbox2DataBits";
             this.cbox2DataBits.Size = new System.Drawing.Size(147, 20);
             this.cbox2DataBits.TabIndex = 3;
@@ -102,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 121);
+            this.label3.Location = new System.Drawing.Point(18, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 12);
             this.label3.TabIndex = 22;
@@ -112,7 +113,7 @@
             // cbox1BaudRate
             // 
             this.cbox1BaudRate.FormattingEnabled = true;
-            this.cbox1BaudRate.Location = new System.Drawing.Point(89, 92);
+            this.cbox1BaudRate.Location = new System.Drawing.Point(89, 84);
             this.cbox1BaudRate.Name = "cbox1BaudRate";
             this.cbox1BaudRate.Size = new System.Drawing.Size(147, 20);
             this.cbox1BaudRate.TabIndex = 2;
@@ -120,7 +121,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 95);
+            this.label2.Location = new System.Drawing.Point(18, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 12);
             this.label2.TabIndex = 20;
@@ -129,7 +130,7 @@
             // cbox0PortName
             // 
             this.cbox0PortName.FormattingEnabled = true;
-            this.cbox0PortName.Location = new System.Drawing.Point(89, 66);
+            this.cbox0PortName.Location = new System.Drawing.Point(89, 58);
             this.cbox0PortName.Name = "cbox0PortName";
             this.cbox0PortName.Size = new System.Drawing.Size(147, 20);
             this.cbox0PortName.TabIndex = 1;
@@ -138,7 +139,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 69);
+            this.label1.Location = new System.Drawing.Point(6, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 12);
             this.label1.TabIndex = 18;
@@ -147,9 +148,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txt1Rece);
-            this.groupBox1.Location = new System.Drawing.Point(12, 259);
+            this.groupBox1.Location = new System.Drawing.Point(12, 263);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(548, 220);
+            this.groupBox1.Size = new System.Drawing.Size(548, 216);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Message：";
@@ -160,7 +161,7 @@
             this.txt1Rece.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt1Rece.Location = new System.Drawing.Point(3, 17);
             this.txt1Rece.Name = "txt1Rece";
-            this.txt1Rece.Size = new System.Drawing.Size(542, 200);
+            this.txt1Rece.Size = new System.Drawing.Size(542, 196);
             this.txt1Rece.TabIndex = 0;
             this.txt1Rece.Text = "";
             // 
@@ -180,9 +181,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 7);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(254, 241);
+            this.groupBox2.Size = new System.Drawing.Size(254, 222);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "设置：";
@@ -190,7 +191,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 206);
+            this.label8.Location = new System.Drawing.Point(31, 198);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(41, 12);
             this.label8.TabIndex = 37;
@@ -204,12 +205,13 @@
             "device-CL7339N",
             "device-DTSF1352",
             "device-SPM33",
-            "deviceAll-温州YN194E-2SY",
-            "deviceAll-Old温州YN194E-2SY",
             "device-PD168",
+            "device-PD168-main",
             "device-松下表1",
-            "device-松下表2"});
-            this.comb0Devices.Location = new System.Drawing.Point(89, 201);
+            "device-松下表2",
+            "deviceAll-温州YN194E-2SY",
+            "deviceAll-Old温州YN194E-2SY"});
+            this.comb0Devices.Location = new System.Drawing.Point(89, 193);
             this.comb0Devices.Name = "comb0Devices";
             this.comb0Devices.Size = new System.Drawing.Size(147, 20);
             this.comb0Devices.TabIndex = 36;
@@ -219,7 +221,7 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton2.Location = new System.Drawing.Point(141, 29);
+            this.radioButton2.Location = new System.Drawing.Point(141, 21);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(62, 16);
             this.radioButton2.TabIndex = 35;
@@ -232,7 +234,7 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.radioButton1.Location = new System.Drawing.Point(33, 29);
+            this.radioButton1.Location = new System.Drawing.Point(33, 21);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(49, 16);
             this.radioButton1.TabIndex = 35;
@@ -325,11 +327,22 @@
             this.btn2NewTest.UseVisualStyleBackColor = true;
             this.btn2NewTest.Click += new System.EventHandler(this.btn2NewTest_Click);
             // 
+            // lbl0Msg
+            // 
+            this.lbl0Msg.AutoSize = true;
+            this.lbl0Msg.ForeColor = System.Drawing.Color.Red;
+            this.lbl0Msg.Location = new System.Drawing.Point(13, 234);
+            this.lbl0Msg.Name = "lbl0Msg";
+            this.lbl0Msg.Size = new System.Drawing.Size(47, 12);
+            this.lbl0Msg.TabIndex = 40;
+            this.lbl0Msg.Text = "lbl0Msg";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(561, 491);
+            this.Controls.Add(this.lbl0Msg);
             this.Controls.Add(this.txt6timeOff);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -377,6 +390,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comb0Devices;
         private System.Windows.Forms.Button btn2NewTest;
+        private System.Windows.Forms.Label lbl0Msg;
     }
 }
 

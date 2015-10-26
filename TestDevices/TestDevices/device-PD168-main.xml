@@ -1,4 +1,11 @@
 ﻿<Device>
+  <main>
+    <name>All</name>
+    <address>0046</address>
+    <csharpType>25</csharpType>
+    <unitFactor>1</unitFactor>
+    <daDuan>false</daDuan>
+  </main>
   <cmdInfos>
     <CmdInfo>
       <name>zljyggl</name>

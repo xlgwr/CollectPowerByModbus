@@ -40,6 +40,9 @@ namespace TestDevices
             api.commSetSerialPara<Parity>(cbox3Parity, 1, false);
             api.commSetSerialPara<StopBits>(cbox4StopBits, 1, false);
             radioButton1.Checked = true;
+            lbl0Msg.Visible = false;
+            lbl0Msg.Text = "";
+            
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -147,7 +150,151 @@ namespace TestDevices
             txt1Rece.Invoke(new MethodInvoker(delegate()
             {
                 txt1Rece.Text += "\n" + msg;
+                lbl0Msg.Visible = true;
+                lbl0Msg.Text = msg;
             }));
+        }
+
+        private void btn2NewTest_Click(object sender, EventArgs e)
+        {
+            ushort main_allLen = 0;
+            ushort main_startAddress = 0;
+            ushort main_npoints = 0;
+            ushort[] main_Alldd = new ushort[] { };
+
+            object ddvalue = null;
+
+            try
+            {
+                txt1Rece.Text = "开始测试电表: " + cbox7ID.Text + " 设备.";
+                this.btn2NewTest.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+                var devicefile = comb0Devices.Text;
+                if (string.IsNullOrEmpty(devicefile))
+                {
+                    devicefile = "device";
+                }
+                var tmpCmdInfoFile = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\" + devicefile + ".xml", System.Text.Encoding.UTF8);
+
+                var main = Ints.FromXML(tmpCmdInfoFile).Main;
+                var CmdInfo = Ints.FromXML(tmpCmdInfoFile).CmdInfos;
+
+                //初始化serial port 
+                initSP();
+
+                //记时
+                Stopwatch timer = new Stopwatch();//new一个stopwatch
+                timer.Start();
+
+                IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_sp);
+
+                byte slaveId = byte.Parse(cbox7ID.Text);
+                try
+                {
+                    if (main != null)
+                    {
+                        getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "]");
+                        main_allLen = Convert.ToUInt16(main.CsharpType);
+                        main_startAddress = Convert.ToUInt16(main.Address, 16);
+                        main_npoints = Convert.ToUInt16(main.CsharpType);
+                        //get All Data
+                        main_Alldd = master.ReadHoldingRegisters(slaveId, main_startAddress, main_npoints);
+                    }
+
+                    //get
+                    #region getValue
+                    foreach (CmdInfo info in CmdInfo)
+                    {
+
+                        var tomethod = "To" + info.CsharpType.Split('.')[1];
+                        var rountLen = 2;
+                        if (info.UnitFactor < 1)
+                        {
+                            rountLen = info.UnitFactor.ToString().Length - 1;
+                        }
+                        //取几个
+                        var startAddress = Convert.ToUInt16(info.Address, 16);
+                        var npoints = Ints.Reg16Count(info.CsharpType);
+
+                        ushort[] dd = new ushort[npoints];
+
+                        if (main != null)
+                        {
+                            #region main
+                            //从第几个开始取
+                            var currAddress = startAddress - main_startAddress;
+                            //log
+                            getInfoPower("newByAll采集项目[" + info.Name + "],采集地址[" + info.Address + "],长度：" + npoints + ",第：" + currAddress + "个");
+
+                            Array.Copy(main_Alldd, currAddress, dd, 0, npoints);
+                            #endregion
+                        }
+                        else
+                        {
+                            getInfoPower("OldByOne采集项目[" + info.Name + "],采集地址[" + info.Address + "]");
+                            //no main
+                            #region no main
+                            try
+                            {
+                                dd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
+                            }
+                            catch (Exception ex)
+                            {
+                                getInfoPower("***********采集项目[" + info.Name + "],采集地址[" + info.Address + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
+                                break;
+                            }
+                            #endregion
+                        }
+
+                        string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
+
+                        ddvalue = Ints.ToValue(dd, tomethod, info.DaDuan);
+
+                        var EndValue = Math.Round(Convert.ToDouble(ddvalue), rountLen);
+
+                        getInfoPower("收到数据," + String.Join(",", cc));
+
+                        var tmpname = info.Name.ToLower();
+                        var currValue = EndValue * info.UnitFactor;
+
+                        logValue(tmpname, currValue.ToString());
+                    }
+                    getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
+                    #endregion
+                }
+                catch (Exception ex)
+                {
+                    if (main != null)
+                    {
+                        getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
+
+                    }
+                    else
+                    {
+                        getInfoPower(ex.Message);
+                    }
+                }
+                finally
+                {
+                    timer.Stop();
+                    getInfoPower("####################使用时间[" + timer.Elapsed + "],毫秒[" + timer.ElapsedMilliseconds + "]");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (_sp.IsOpen)
+                {
+                    _sp.Close();
+                }
+                this.btn2NewTest.Enabled = true;
+                this.Cursor = Cursors.Default;
+            }
         }
         private void btn2Power_Click(object sender, EventArgs e)
         {
@@ -173,7 +320,6 @@ namespace TestDevices
                 IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_sp);
 
                 byte slaveId = byte.Parse(cbox7ID.Text);
-                bool isTimeOutOrError = false;
                 object ddvalue = null;
                 foreach (CmdInfo info in CmdInfo)
                 {
@@ -189,6 +335,8 @@ namespace TestDevices
                     }
 
                     ushort[] dd;
+                    //no main
+                    #region no main
                     try
                     {
                         dd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
@@ -196,10 +344,10 @@ namespace TestDevices
                     catch (Exception ex)
                     {
                         getInfoPower("***********采集项目[" + info.Name + "],采集地址[" + info.Address + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
-                        isTimeOutOrError = true;
-
                         break;
                     }
+                    #endregion
+
 
                     string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
 
@@ -310,120 +458,6 @@ namespace TestDevices
                     break;
             }
         }
-        private void btn2NewTest_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                txt1Rece.Text = "new开始测试电表: " + cbox7ID.Text + " 设备.";
-                this.btn2Power.Enabled = false;
-                this.Cursor = Cursors.WaitCursor;
-                var devicefile = comb0Devices.Text;
-                if (string.IsNullOrEmpty(devicefile))
-                {
-                    devicefile = "device";
-                }
-                var tmpCmdInfoFile = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\" + devicefile + ".xml", System.Text.Encoding.UTF8);
 
-                var main = Ints.FromXML(tmpCmdInfoFile).Main;
-                var CmdInfo = Ints.FromXML(tmpCmdInfoFile).CmdInfos;
-
-                //初始化serial port 
-                initSP();
-
-                //记时
-                Stopwatch timer = new Stopwatch();//new一个stopwatch
-                timer.Start();
-
-
-                IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_sp);
-
-                byte slaveId = byte.Parse(cbox7ID.Text);
-                object ddvalue = null;
-
-
-                ushort[] Alldd;
-                try
-                {
-                    getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "]");
-
-
-                    var allLen = Convert.ToInt32(main.CsharpType);
-                    ushort startAddress = Convert.ToUInt16(main.Address, 16);
-                    ushort npoints = Convert.ToUInt16(main.CsharpType);
-
-                    //Alldd = new ushort[allLen];
-                    //get Data
-
-                    Alldd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
-
-                    //get
-                    #region getValue
-                    foreach (CmdInfo info in CmdInfo)
-                    {
-
-
-                        var tomethod = "To" + info.CsharpType.Split('.')[1];
-                        var rountLen = 2;
-                        if (info.UnitFactor < 1)
-                        {
-                            rountLen = info.UnitFactor.ToString().Length - 1;
-                        }
-                        //从第几个开始取
-                        var currAddress = Convert.ToUInt16(info.Address, 16) - startAddress;
-                        //取几个
-                        var tmplen = Ints.Reg16Count(info.CsharpType);
-
-                        ushort[] dd = new ushort[tmplen];
-
-                        //log
-                        getInfoPower("采集项目[" + info.Name + "],采集地址[" + info.Address + "],长度：" + tmplen + ",第：" + currAddress + "个");
-
-                        Array.Copy(Alldd, currAddress, dd, 0, tmplen);
-
-                        string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
-
-                        ddvalue = Ints.ToValue(dd, tomethod, info.DaDuan);
-
-                        var EndValue = Math.Round(Convert.ToDouble(ddvalue), rountLen);
-
-                        getInfoPower("收到数据," + String.Join(",", cc));
-
-                        var tmpname = info.Name.ToLower();
-                        var currValue = EndValue * info.UnitFactor;
-
-                        logValue(tmpname, currValue.ToString());
-                    }
-                    getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
-                    this.btn2Power.Enabled = true;
-                    this.Cursor = Cursors.Default;
-                    #endregion
-                }
-                catch (Exception ex)
-                {
-                    getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
-
-                }
-                finally
-                {
-                    timer.Stop();
-                    getInfoPower("####################使用时间[" + timer.Elapsed + "],毫秒[" + timer.ElapsedMilliseconds + "]");
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                if (_sp.IsOpen)
-                {
-                    _sp.Close();
-                }
-                this.btn2Power.Enabled = true;
-                this.Cursor = Cursors.Default;
-            }
-        }
     }
 }
