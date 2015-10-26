@@ -165,10 +165,7 @@ namespace TestDevices
 
                 var CmdInfo = Ints.FromXML(tmpCmdInfoFile).CmdInfos;
 
-                int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
-
                 initSP();
-
 
                 Stopwatch timer = new Stopwatch();
                 timer.Start();
@@ -228,51 +225,41 @@ namespace TestDevices
                     //    second = Ints.UshortLowByteToInt(dd[0]);
                     //}
                     var tmpname = info.Name.ToLower();
+                    var currValue=EndValue * info.UnitFactor;
                     switch (tmpname)
                     {
                         case "zljyggl":
-                            var MeterValue = EndValue * info.UnitFactor;
-                            getInfoPower("总累计有功功率:" + MeterValue.ToString());
+                            getInfoPower("总累计有功功率MeterValue:" + currValue.ToString());
                             break;
                         case "zljwggl":
-                            var MeterValueW = EndValue * info.UnitFactor;
-                            getInfoPower("总累计无功功率:" + MeterValueW.ToString());
+                            getInfoPower("总累计无功功率MeterValueW:" + currValue.ToString());
                             break;
                         case "zssyggl":
-                            var PowerValue = EndValue * info.UnitFactor;
-                            getInfoPower("总瞬时有功功率:" + PowerValue.ToString());
+                            getInfoPower("总瞬时有功功率PowerValue:" + currValue.ToString());
                             break;
                         case "zsswggl":
-                            var PowerValueW = EndValue * info.UnitFactor;
-                            getInfoPower("总瞬时无功功率:" + PowerValueW.ToString());
+                            getInfoPower("总瞬时无功功率PowerValueW:" + currValue.ToString());
                             break;
                         case "a1":
-                            var A1 = EndValue * info.UnitFactor;
-                            getInfoPower("A1:" + A1.ToString());
+                            getInfoPower("A1:" + currValue.ToString());
                             break;
                         case "a2":
-                            var A2 = EndValue * info.UnitFactor;
-                            getInfoPower("A2:" + A2.ToString());
+                            getInfoPower("A2:" + currValue.ToString());
                             break;
                         case "a3":
-                            var A3 = EndValue * info.UnitFactor;
-                            getInfoPower("A3:" + A3.ToString());
+                            getInfoPower("A3:" + currValue.ToString());
                             break;
                         case "v1":
-                            var V1 = EndValue * info.UnitFactor;
-                            getInfoPower("V1:" + V1.ToString());
+                            getInfoPower("V1:" + currValue.ToString());
                             break;
                         case "v2":
-                            var V2 = EndValue * info.UnitFactor;
-                            getInfoPower("V2:" + V2.ToString());
+                            getInfoPower("V2:" + currValue.ToString());
                             break;
                         case "v3":
-                            var V3 = EndValue * info.UnitFactor;
-                            getInfoPower("V3:" + V3.ToString());
+                            getInfoPower("V3:" + currValue.ToString());
                             break;
                         case "pf":
-                            var Pf = EndValue * info.UnitFactor;
-                            getInfoPower("PF:" + Pf.ToString());
+                            getInfoPower("PF:" + currValue.ToString());
                             break;
                         default:
                             break;
@@ -354,12 +341,14 @@ namespace TestDevices
                 {
                     getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "]");
 
+
                     var allLen = Convert.ToInt32(main.CsharpType);
                     ushort startAddress = Convert.ToUInt16(main.Address, 16);
                     ushort npoints = Convert.ToUInt16(main.CsharpType);
 
                     //Alldd = new ushort[allLen];
                     //get Data
+
                     Alldd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
 
                     //get
@@ -395,51 +384,41 @@ namespace TestDevices
                         getInfoPower("收到数据," + String.Join(",", cc));
 
                         var tmpname = info.Name.ToLower();
+                        var currValue = EndValue * info.UnitFactor;
                         switch (tmpname)
                         {
                             case "zljyggl":
-                                var MeterValue = EndValue * info.UnitFactor;
-                                getInfoPower("总累计有功功率:" + MeterValue.ToString());
+                                getInfoPower("总累计有功功率MeterValue:" + currValue.ToString());
                                 break;
                             case "zljwggl":
-                                var MeterValueW = EndValue * info.UnitFactor;
-                                getInfoPower("总累计无功功率:" + MeterValueW.ToString());
+                                getInfoPower("总累计无功功率MeterValueW:" + currValue.ToString());
                                 break;
                             case "zssyggl":
-                                var PowerValue = EndValue * info.UnitFactor;
-                                getInfoPower("总瞬时有功功率:" + PowerValue.ToString());
+                                getInfoPower("总瞬时有功功率PowerValue:" + currValue.ToString());
                                 break;
                             case "zsswggl":
-                                var PowerValueW = EndValue * info.UnitFactor;
-                                getInfoPower("总瞬时无功功率:" + PowerValueW.ToString());
+                                getInfoPower("总瞬时无功功率PowerValueW:" + currValue.ToString());
                                 break;
                             case "a1":
-                                var A1 = EndValue * info.UnitFactor;
-                                getInfoPower("A1:" + A1.ToString());
+                                getInfoPower("A1:" + currValue.ToString());
                                 break;
                             case "a2":
-                                var A2 = EndValue * info.UnitFactor;
-                                getInfoPower("A2:" + A2.ToString());
+                                getInfoPower("A2:" + currValue.ToString());
                                 break;
                             case "a3":
-                                var A3 = EndValue * info.UnitFactor;
-                                getInfoPower("A3:" + A3.ToString());
+                                getInfoPower("A3:" + currValue.ToString());
                                 break;
                             case "v1":
-                                var V1 = EndValue * info.UnitFactor;
-                                getInfoPower("V1:" + V1.ToString());
+                                getInfoPower("V1:" + currValue.ToString());
                                 break;
                             case "v2":
-                                var V2 = EndValue * info.UnitFactor;
-                                getInfoPower("V2:" + V2.ToString());
+                                getInfoPower("V2:" + currValue.ToString());
                                 break;
                             case "v3":
-                                var V3 = EndValue * info.UnitFactor;
-                                getInfoPower("V3:" + V3.ToString());
+                                getInfoPower("V3:" + currValue.ToString());
                                 break;
                             case "pf":
-                                var Pf = EndValue * info.UnitFactor;
-                                getInfoPower("PF:" + Pf.ToString());
+                                getInfoPower("PF:" + currValue.ToString());
                                 break;
                             default:
                                 break;
