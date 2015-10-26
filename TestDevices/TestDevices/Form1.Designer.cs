@@ -323,7 +323,7 @@
             this.btn2NewTest.Name = "btn2NewTest";
             this.btn2NewTest.Size = new System.Drawing.Size(131, 52);
             this.btn2NewTest.TabIndex = 0;
-            this.btn2NewTest.Text = "电表测试New";
+            this.btn2NewTest.Text = "电表测试New_main";
             this.btn2NewTest.UseVisualStyleBackColor = true;
             this.btn2NewTest.Click += new System.EventHandler(this.btn2NewTest_Click);
             // 
