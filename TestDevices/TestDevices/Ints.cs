@@ -162,10 +162,12 @@ namespace TestDevices
             }
             return 0;
         }
-        public static CmdInfo[] FromXML(string xml)
+        public static Device FromXML(string xml)
         {
             XStream xstream = new XStream();
             xstream.Alias("Device", typeof(Device));
+
+            xstream.Alias("main", typeof(CmdInfo));
             xstream.Alias("CmdInfo", typeof(CmdInfo));
             xstream.Alias("CmdInfos", typeof(CmdInfo[]));
             try
@@ -176,16 +178,16 @@ namespace TestDevices
                     Device ddd = (Device)xstream.FromXml(xml);//"<Device><cmdInfos><CmdInfo><name>yearmonth</name> <address>002F</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>dayhour</name> <address>002E</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>minutesecond</name> <address>002D</address> <csharpType>System.Int16</csharpType> <unitFactor>0</unitFactor></CmdInfo> <CmdInfo><name>zljyggl</name> <address>006A</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>zssyggl</name> <address>0092</address> <csharpType>System.Int32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a1</name> <address>00B4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a2</name> <address>00B6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>a3</name> <address>00B8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.01</unitFactor></CmdInfo> <CmdInfo><name>v1</name> <address>00A4</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v2</name> <address>00A6</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>v3</name> <address>00A8</address> <csharpType>System.UInt32</csharpType> <unitFactor>0.1</unitFactor></CmdInfo> <CmdInfo><name>pf</name> <address>00C5</address> <csharpType>System.Int16</csharpType> <unitFactor>0.001</unitFactor></CmdInfo></cmdInfos></Device>");
                     if (ddd == null || ddd.CmdInfos == null)
                     {
-                        return new CmdInfo[] { };
+                        return new Device();
                     }
                     else
                     {
-                        return ddd.CmdInfos;
+                        return ddd;
                     }
                 }
                 else
                 {
-                    return new CmdInfo[] { };
+                    return new Device();
                 }
             }
             catch (Exception ex)
@@ -196,13 +198,19 @@ namespace TestDevices
     }
     public class Device
     {
-
+        private CmdInfo main;
         private CmdInfo[] cmdInfos;
 
         public CmdInfo[] CmdInfos
         {
             get { return cmdInfos; }
             set { cmdInfos = value; }
+        }
+
+        public CmdInfo Main
+        {
+            get { return main; }
+            set { main = value; }
         }
     }
 }

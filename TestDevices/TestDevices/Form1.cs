@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
 using Modbus.Device;
+using System.Diagnostics;
 
 namespace TestDevices
 {
@@ -34,7 +35,7 @@ namespace TestDevices
         {
 
             api.commSetSerialPara(cbox0PortName, SerialPort.GetPortNames(), 0);
-            api.commSetSerialPara<SerialPortBaudRates>(cbox1BaudRate, "19200", true);
+            api.commSetSerialPara<SerialPortBaudRates>(cbox1BaudRate, "9600", true);
             api.commSetSerialPara<SerialPortDatabits>(cbox2DataBits, "8", true);
             api.commSetSerialPara<Parity>(cbox3Parity, 1, false);
             api.commSetSerialPara<StopBits>(cbox4StopBits, 1, false);
@@ -45,7 +46,7 @@ namespace TestDevices
         {
             if (radioButton1.Checked)
             {
-                cbox1BaudRate.Text = "19200";
+                cbox1BaudRate.Text = "9600";
                 cbox2DataBits.Text = "8";
                 cbox3Parity.SelectedIndex = 1;
                 cbox4StopBits.SelectedIndex = 1;
@@ -116,12 +117,18 @@ namespace TestDevices
             {
                 timeoff = 100;
             }
+            _sp.ReadBufferSize = 10240;
+            _sp.WriteBufferSize = 10240;
+
             _sp.PortName = cbox0PortName.Text;
             _sp.BaudRate = (int)((SerialPortBaudRates)Enum.Parse(typeof(SerialPortBaudRates), cbox1BaudRate.Text));
             _sp.DataBits = (int)((SerialPortDatabits)Enum.Parse(typeof(SerialPortDatabits), cbox2DataBits.Text));
             _sp.Parity = (Parity)Enum.Parse(typeof(Parity), cbox3Parity.Text);
             _sp.StopBits = (StopBits)Enum.Parse(typeof(StopBits), cbox4StopBits.Text);
+            _sp.RtsEnable = true;
+            _sp.DtrEnable = true;
             //These timeouts are default and cannot be editted through the class at this point:
+
             _sp.ReadTimeout = timeoff;
             _sp.WriteTimeout = timeoff;
 
@@ -155,10 +162,16 @@ namespace TestDevices
                     devicefile = "device";
                 }
                 var tmpCmdInfoFile = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\" + devicefile + ".xml", System.Text.Encoding.UTF8);
-                var CmdInfo = Ints.FromXML(tmpCmdInfoFile);
+
+                var CmdInfo = Ints.FromXML(tmpCmdInfoFile).CmdInfos;
+
                 int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
 
                 initSP();
+
+
+                Stopwatch timer = new Stopwatch();
+                timer.Start();
 
                 IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_sp);
 
@@ -191,7 +204,7 @@ namespace TestDevices
                         break;
                     }
 
-                    string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();                  
+                    string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
 
                     ddvalue = Ints.ToValue(dd, tomethod, info.DaDuan);
 
@@ -214,62 +227,64 @@ namespace TestDevices
                     //    minute = Ints.UshortHighByteToInt(dd[0]);
                     //    second = Ints.UshortLowByteToInt(dd[0]);
                     //}
-                    if (info.Name.ToLower() == "zljyggl") //总累计有功功率
+                    var tmpname = info.Name.ToLower();
+                    switch (tmpname)
                     {
-                        var MeterValue = EndValue * info.UnitFactor;
-                        getInfoPower("总累计有功功率:" + MeterValue.ToString());
-                    }
-                    if (info.Name.ToLower() == "zljwggl") //总累计无功功率
-                    {
-                        var MeterValueW = EndValue * info.UnitFactor;
-                        getInfoPower("总累计无功功率:" + MeterValueW.ToString());
-                    }
-                    if (info.Name.ToLower() == "zssyggl")
-                    {//总瞬时有功功率
-                        var PowerValue =  EndValue * info.UnitFactor;
-                        getInfoPower("总瞬时有功功率:" + PowerValue.ToString());
-                    }
-                    if (info.Name.ToLower() == "a1")
-                    {
-                        var A1 =  EndValue * info.UnitFactor;
-                        getInfoPower("A1:" + A1.ToString());
-                    }
-                    if (info.Name.ToLower() == "a2")
-                    {
-                        var A2 =  EndValue * info.UnitFactor;
-                        getInfoPower("A2:" + A2.ToString());
-
-                    }
-                    if (info.Name.ToLower() == "a3")
-                    {
-                        var A3 =  EndValue * info.UnitFactor;
-                        getInfoPower("A3:" + A3.ToString());
-                    }
-                    if (info.Name.ToLower() == "v1")
-                    {
-                        var V1 =  EndValue * info.UnitFactor;
-                        getInfoPower("V1:" + V1.ToString());
-                    }
-                    if (info.Name.ToLower() == "v2")
-                    {
-                        var V2 =  EndValue * info.UnitFactor;
-                        getInfoPower("V2:" + V2.ToString());
-                    }
-                    if (info.Name.ToLower() == "v3")
-                    {
-                        var V3 =  EndValue * info.UnitFactor;
-                        getInfoPower("V3:" + V3.ToString());
-                    }
-                    if (info.Name.ToLower() == "pf")
-                    {
-                        var Pf =  EndValue * info.UnitFactor;
-                        getInfoPower("PF:" + Pf.ToString());
+                        case "zljyggl":
+                            var MeterValue = EndValue * info.UnitFactor;
+                            getInfoPower("总累计有功功率:" + MeterValue.ToString());
+                            break;
+                        case "zljwggl":
+                            var MeterValueW = EndValue * info.UnitFactor;
+                            getInfoPower("总累计无功功率:" + MeterValueW.ToString());
+                            break;
+                        case "zssyggl":
+                            var PowerValue = EndValue * info.UnitFactor;
+                            getInfoPower("总瞬时有功功率:" + PowerValue.ToString());
+                            break;
+                        case "zsswggl":
+                            var PowerValueW = EndValue * info.UnitFactor;
+                            getInfoPower("总瞬时无功功率:" + PowerValueW.ToString());
+                            break;
+                        case "a1":
+                            var A1 = EndValue * info.UnitFactor;
+                            getInfoPower("A1:" + A1.ToString());
+                            break;
+                        case "a2":
+                            var A2 = EndValue * info.UnitFactor;
+                            getInfoPower("A2:" + A2.ToString());
+                            break;
+                        case "a3":
+                            var A3 = EndValue * info.UnitFactor;
+                            getInfoPower("A3:" + A3.ToString());
+                            break;
+                        case "v1":
+                            var V1 = EndValue * info.UnitFactor;
+                            getInfoPower("V1:" + V1.ToString());
+                            break;
+                        case "v2":
+                            var V2 = EndValue * info.UnitFactor;
+                            getInfoPower("V2:" + V2.ToString());
+                            break;
+                        case "v3":
+                            var V3 = EndValue * info.UnitFactor;
+                            getInfoPower("V3:" + V3.ToString());
+                            break;
+                        case "pf":
+                            var Pf = EndValue * info.UnitFactor;
+                            getInfoPower("PF:" + Pf.ToString());
+                            break;
+                        default:
+                            break;
                     }
 
                 }
                 getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
                 this.btn2Power.Enabled = true;
                 this.Cursor = Cursors.Default;
+
+                timer.Stop();
+                getInfoPower("####################使用时间[" + timer.Elapsed + "],毫秒[" + timer.ElapsedMilliseconds + "]");
             }
             catch (Exception ex)
             {
@@ -301,6 +316,167 @@ namespace TestDevices
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void btn2NewTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                txt1Rece.Text = "new开始测试电表: " + cbox7ID.Text + " 设备.";
+                this.btn2Power.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+                var devicefile = comb0Devices.Text;
+                if (string.IsNullOrEmpty(devicefile))
+                {
+                    devicefile = "device";
+                }
+                var tmpCmdInfoFile = File.ReadAllText(AppDomain.CurrentDomain.BaseDirectory + "\\" + devicefile + ".xml", System.Text.Encoding.UTF8);
+
+                var main = Ints.FromXML(tmpCmdInfoFile).Main;
+                var CmdInfo = Ints.FromXML(tmpCmdInfoFile).CmdInfos;
+
+                //初始化serial port 
+                initSP();
+
+                //记时
+                Stopwatch timer = new Stopwatch();//new一个stopwatch
+                timer.Start();
+
+
+                IModbusSerialMaster master = ModbusSerialMaster.CreateRtu(_sp);
+
+                byte slaveId = byte.Parse(cbox7ID.Text);
+                object ddvalue = null;
+
+
+                ushort[] Alldd;
+                try
+                {
+                    getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "]");
+
+                    var allLen = Convert.ToInt32(main.CsharpType);
+                    ushort startAddress = Convert.ToUInt16(main.Address, 16);
+                    ushort npoints = Convert.ToUInt16(main.CsharpType);
+
+                    //Alldd = new ushort[allLen];
+                    //get Data
+                    Alldd = master.ReadHoldingRegisters(slaveId, startAddress, npoints);
+
+                    //get
+                    #region getValue
+                    foreach (CmdInfo info in CmdInfo)
+                    {
+
+
+                        var tomethod = "To" + info.CsharpType.Split('.')[1];
+                        var rountLen = 2;
+                        if (info.UnitFactor < 1)
+                        {
+                            rountLen = info.UnitFactor.ToString().Length - 1;
+                        }
+                        //从第几个开始取
+                        var currAddress = Convert.ToUInt16(info.Address, 16) - startAddress;
+                        //取几个
+                        var tmplen = Ints.Reg16Count(info.CsharpType);
+
+                        ushort[] dd = new ushort[tmplen];
+
+                        //log
+                        getInfoPower("采集项目[" + info.Name + "],采集地址[" + info.Address + "],长度：" + tmplen + ",第：" + currAddress + "个");
+
+                        Array.Copy(Alldd, currAddress, dd, 0, tmplen);
+
+                        string[] cc = dd.ToList().Select(m => m.ToString("X")).ToArray();
+
+                        ddvalue = Ints.ToValue(dd, tomethod, info.DaDuan);
+
+                        var EndValue = Math.Round(Convert.ToDouble(ddvalue), rountLen);
+
+                        getInfoPower("收到数据," + String.Join(",", cc));
+
+                        var tmpname = info.Name.ToLower();
+                        switch (tmpname)
+                        {
+                            case "zljyggl":
+                                var MeterValue = EndValue * info.UnitFactor;
+                                getInfoPower("总累计有功功率:" + MeterValue.ToString());
+                                break;
+                            case "zljwggl":
+                                var MeterValueW = EndValue * info.UnitFactor;
+                                getInfoPower("总累计无功功率:" + MeterValueW.ToString());
+                                break;
+                            case "zssyggl":
+                                var PowerValue = EndValue * info.UnitFactor;
+                                getInfoPower("总瞬时有功功率:" + PowerValue.ToString());
+                                break;
+                            case "zsswggl":
+                                var PowerValueW = EndValue * info.UnitFactor;
+                                getInfoPower("总瞬时无功功率:" + PowerValueW.ToString());
+                                break;
+                            case "a1":
+                                var A1 = EndValue * info.UnitFactor;
+                                getInfoPower("A1:" + A1.ToString());
+                                break;
+                            case "a2":
+                                var A2 = EndValue * info.UnitFactor;
+                                getInfoPower("A2:" + A2.ToString());
+                                break;
+                            case "a3":
+                                var A3 = EndValue * info.UnitFactor;
+                                getInfoPower("A3:" + A3.ToString());
+                                break;
+                            case "v1":
+                                var V1 = EndValue * info.UnitFactor;
+                                getInfoPower("V1:" + V1.ToString());
+                                break;
+                            case "v2":
+                                var V2 = EndValue * info.UnitFactor;
+                                getInfoPower("V2:" + V2.ToString());
+                                break;
+                            case "v3":
+                                var V3 = EndValue * info.UnitFactor;
+                                getInfoPower("V3:" + V3.ToString());
+                                break;
+                            case "pf":
+                                var Pf = EndValue * info.UnitFactor;
+                                getInfoPower("PF:" + Pf.ToString());
+                                break;
+                            default:
+                                break;
+                        }
+
+                    }
+                    getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
+                    this.btn2Power.Enabled = true;
+                    this.Cursor = Cursors.Default;
+                    #endregion
+                }
+                catch (Exception ex)
+                {
+                    getInfoPower("***********采集项目[" + main.Name + "],采集地址[" + main.Address + ",连续数量：" + main.CsharpType + "],设备地址：[" + slaveId + "],Error:[" + ex.Message + "]");
+
+                }
+                finally
+                {
+                    timer.Stop();
+                    getInfoPower("####################使用时间[" + timer.Elapsed + "],毫秒[" + timer.ElapsedMilliseconds + "]");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (_sp.IsOpen)
+                {
+                    _sp.Close();
+                }
+                this.btn2Power.Enabled = true;
+                this.Cursor = Cursors.Default;
+            }
         }
     }
 }

@@ -42,6 +42,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt1Rece = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comb0Devices = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.btn2Power = new System.Windows.Forms.Button();
@@ -50,9 +52,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txt6timeOff = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comb0Devices = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.btn2NewTest = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -149,7 +149,7 @@
             this.groupBox1.Controls.Add(this.txt1Rece);
             this.groupBox1.Location = new System.Drawing.Point(12, 259);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 220);
+            this.groupBox1.Size = new System.Drawing.Size(548, 220);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Message：";
@@ -160,7 +160,7 @@
             this.txt1Rece.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt1Rece.Location = new System.Drawing.Point(3, 17);
             this.txt1Rece.Name = "txt1Rece";
-            this.txt1Rece.Size = new System.Drawing.Size(443, 200);
+            this.txt1Rece.Size = new System.Drawing.Size(542, 200);
             this.txt1Rece.TabIndex = 0;
             this.txt1Rece.Text = "";
             // 
@@ -186,6 +186,34 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "设置：";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(31, 206);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 12);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "电表：";
+            // 
+            // comb0Devices
+            // 
+            this.comb0Devices.FormattingEnabled = true;
+            this.comb0Devices.Items.AddRange(new object[] {
+            "device-默认",
+            "device-CL7339N",
+            "device-DTSF1352",
+            "device-SPM33",
+            "deviceAll-温州YN194E-2SY",
+            "deviceAll-Old温州YN194E-2SY",
+            "device-PD168",
+            "device-松下表1",
+            "device-松下表2"});
+            this.comb0Devices.Location = new System.Drawing.Point(89, 201);
+            this.comb0Devices.Name = "comb0Devices";
+            this.comb0Devices.Size = new System.Drawing.Size(147, 20);
+            this.comb0Devices.TabIndex = 36;
+            this.comb0Devices.Text = "device-松下表1";
             // 
             // radioButton2
             // 
@@ -216,7 +244,7 @@
             // btn2Power
             // 
             this.btn2Power.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn2Power.Location = new System.Drawing.Point(304, 113);
+            this.btn2Power.Location = new System.Drawing.Point(280, 113);
             this.btn2Power.Name = "btn2Power";
             this.btn2Power.Size = new System.Drawing.Size(131, 52);
             this.btn2Power.TabIndex = 0;
@@ -227,7 +255,7 @@
             // btn1Alert
             // 
             this.btn1Alert.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn1Alert.Location = new System.Drawing.Point(304, 41);
+            this.btn1Alert.Location = new System.Drawing.Point(280, 41);
             this.btn1Alert.Name = "btn1Alert";
             this.btn1Alert.Size = new System.Drawing.Size(131, 52);
             this.btn1Alert.TabIndex = 0;
@@ -286,53 +314,29 @@
             this.txt6timeOff.TabIndex = 39;
             this.txt6timeOff.Text = "100";
             // 
-            // button1
+            // btn2NewTest
             // 
-            this.button1.Location = new System.Drawing.Point(304, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "关闭Com口";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // comb0Devices
-            // 
-            this.comb0Devices.FormattingEnabled = true;
-            this.comb0Devices.Items.AddRange(new object[] {
-            "device-默认",
-            "device-CL7339N",
-            "device-DTSF1352",
-            "device-SPM33",
-            "device-松下表1",
-            "device-松下表2"});
-            this.comb0Devices.Location = new System.Drawing.Point(89, 201);
-            this.comb0Devices.Name = "comb0Devices";
-            this.comb0Devices.Size = new System.Drawing.Size(147, 20);
-            this.comb0Devices.TabIndex = 36;
-            this.comb0Devices.Text = "device-松下表1";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 206);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 12);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "电表：";
+            this.btn2NewTest.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btn2NewTest.Location = new System.Drawing.Point(417, 113);
+            this.btn2NewTest.Name = "btn2NewTest";
+            this.btn2NewTest.Size = new System.Drawing.Size(131, 52);
+            this.btn2NewTest.TabIndex = 0;
+            this.btn2NewTest.Text = "电表测试New";
+            this.btn2NewTest.UseVisualStyleBackColor = true;
+            this.btn2NewTest.Click += new System.EventHandler(this.btn2NewTest_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 491);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(561, 491);
             this.Controls.Add(this.txt6timeOff);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbox7ID);
             this.Controls.Add(this.btn1Alert);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btn2NewTest);
             this.Controls.Add(this.btn2Power);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -370,9 +374,9 @@
         private System.Windows.Forms.RichTextBox txt1Rece;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox txt6timeOff;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comb0Devices;
+        private System.Windows.Forms.Button btn2NewTest;
     }
 }
 

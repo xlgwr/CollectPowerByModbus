@@ -33,6 +33,8 @@ namespace EPMCS.Service.Job
 
         public void Execute(IJobExecutionContext context)
         {
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
             logger.Debug("执行采集任务!!!!!!!!!!!!!!!");
             try
             {
@@ -310,7 +312,8 @@ namespace EPMCS.Service.Job
                 }
 
             }
-
+            timer.Stop();
+            logger.DebugFormat("********一次采集任务全程耗费时间:{0} 毫秒.", timer.ElapsedMilliseconds);
         }
 
         /// <summary>
@@ -407,9 +410,7 @@ namespace EPMCS.Service.Job
 
                             master = ModbusSerialMaster.CreateRtu(serialPort);
 
-                            logger.DebugFormat("***开始采集表{0},{1},{2},{3},{4},{5},{6}", meter.DeviceName, meter.DeviceAdd, serialPort.PortName, serialPort.BaudRate, serialPort.Parity, serialPort.StopBits, serialPort.ReadTimeout);
-
-                            logger.DebugFormat("开始采集表[{0}],地址{1},一共有{2}个采集项目", meter.DeviceName, meter.DeviceAdd, meter.CmdInfos.Count());
+                            logger.DebugFormat("***开始采集表{0},地址{1},{2},{3},{4},{5},{6},一共有{7}个采集项目", meter.DeviceName, meter.DeviceAdd, serialPort.PortName, serialPort.BaudRate, serialPort.Parity, serialPort.StopBits, serialPort.ReadTimeout, meter.CmdInfos.Count());
 
                             UploadData data = new UploadData();
                             data.CustomerId = meter.CustomerId;
@@ -442,7 +443,6 @@ namespace EPMCS.Service.Job
                                 catch (Exception ex)
                                 {
                                     logger.ErrorFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address, slaveId, ex.Message);
-                                    logger.DebugFormat("***********采集项目[{0}],采集地址[{1}],设备地址：[{2}],Error:[{3}]", info.Name, info.Address, slaveId, ex.Message);
                                     isTimeOutOrError = true;
                                     break;
                                 }
@@ -519,7 +519,7 @@ namespace EPMCS.Service.Job
                             //change to yyyyMMddmm
                             var mssec = state.Group.Millisecond;
                             var sec = state.Group.Second;
-                            data.PowerDate = state.Group.AddSeconds(-sec).AddMilliseconds(-mssec);// new DateTime(year, month, day, hour, minute, second);
+                            data.PowerDate = new DateTime(state.Group.Year, state.Group.Month, state.Group.Day, state.Group.Hour, state.Group.Minute, 0);
                             data.Uploaded = 0;
                             //add by xlg 2015-07-05
 
