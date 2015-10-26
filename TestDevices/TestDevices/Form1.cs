@@ -225,45 +225,9 @@ namespace TestDevices
                     //    second = Ints.UshortLowByteToInt(dd[0]);
                     //}
                     var tmpname = info.Name.ToLower();
-                    var currValue=EndValue * info.UnitFactor;
-                    switch (tmpname)
-                    {
-                        case "zljyggl":
-                            getInfoPower("总累计有功功率MeterValue:" + currValue.ToString());
-                            break;
-                        case "zljwggl":
-                            getInfoPower("总累计无功功率MeterValueW:" + currValue.ToString());
-                            break;
-                        case "zssyggl":
-                            getInfoPower("总瞬时有功功率PowerValue:" + currValue.ToString());
-                            break;
-                        case "zsswggl":
-                            getInfoPower("总瞬时无功功率PowerValueW:" + currValue.ToString());
-                            break;
-                        case "a1":
-                            getInfoPower("A1:" + currValue.ToString());
-                            break;
-                        case "a2":
-                            getInfoPower("A2:" + currValue.ToString());
-                            break;
-                        case "a3":
-                            getInfoPower("A3:" + currValue.ToString());
-                            break;
-                        case "v1":
-                            getInfoPower("V1:" + currValue.ToString());
-                            break;
-                        case "v2":
-                            getInfoPower("V2:" + currValue.ToString());
-                            break;
-                        case "v3":
-                            getInfoPower("V3:" + currValue.ToString());
-                            break;
-                        case "pf":
-                            getInfoPower("PF:" + currValue.ToString());
-                            break;
-                        default:
-                            break;
-                    }
+                    var currValue = EndValue * info.UnitFactor;
+
+                    logValue(tmpname, currValue.ToString());
 
                 }
                 getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
@@ -305,6 +269,47 @@ namespace TestDevices
 
         }
 
+        void logValue(string tmpname, string currValue)
+        {
+            switch (tmpname)
+            {
+                case "zljyggl":
+                    getInfoPower("总累计有功功率MeterValue:" + currValue.ToString());
+                    break;
+                case "zljwggl":
+                    getInfoPower("总累计无功功率MeterValueW:" + currValue.ToString());
+                    break;
+                case "zssyggl":
+                    getInfoPower("总瞬时有功功率PowerValue:" + currValue.ToString());
+                    break;
+                case "zsswggl":
+                    getInfoPower("总瞬时无功功率PowerValueW:" + currValue.ToString());
+                    break;
+                case "a1":
+                    getInfoPower("A1:" + currValue.ToString());
+                    break;
+                case "a2":
+                    getInfoPower("A2:" + currValue.ToString());
+                    break;
+                case "a3":
+                    getInfoPower("A3:" + currValue.ToString());
+                    break;
+                case "v1":
+                    getInfoPower("V1:" + currValue.ToString());
+                    break;
+                case "v2":
+                    getInfoPower("V2:" + currValue.ToString());
+                    break;
+                case "v3":
+                    getInfoPower("V3:" + currValue.ToString());
+                    break;
+                case "pf":
+                    getInfoPower("PF:" + currValue.ToString());
+                    break;
+                default:
+                    break;
+            }
+        }
         private void btn2NewTest_Click(object sender, EventArgs e)
         {
             try
@@ -385,45 +390,8 @@ namespace TestDevices
 
                         var tmpname = info.Name.ToLower();
                         var currValue = EndValue * info.UnitFactor;
-                        switch (tmpname)
-                        {
-                            case "zljyggl":
-                                getInfoPower("总累计有功功率MeterValue:" + currValue.ToString());
-                                break;
-                            case "zljwggl":
-                                getInfoPower("总累计无功功率MeterValueW:" + currValue.ToString());
-                                break;
-                            case "zssyggl":
-                                getInfoPower("总瞬时有功功率PowerValue:" + currValue.ToString());
-                                break;
-                            case "zsswggl":
-                                getInfoPower("总瞬时无功功率PowerValueW:" + currValue.ToString());
-                                break;
-                            case "a1":
-                                getInfoPower("A1:" + currValue.ToString());
-                                break;
-                            case "a2":
-                                getInfoPower("A2:" + currValue.ToString());
-                                break;
-                            case "a3":
-                                getInfoPower("A3:" + currValue.ToString());
-                                break;
-                            case "v1":
-                                getInfoPower("V1:" + currValue.ToString());
-                                break;
-                            case "v2":
-                                getInfoPower("V2:" + currValue.ToString());
-                                break;
-                            case "v3":
-                                getInfoPower("V3:" + currValue.ToString());
-                                break;
-                            case "pf":
-                                getInfoPower("PF:" + currValue.ToString());
-                                break;
-                            default:
-                                break;
-                        }
 
+                        logValue(tmpname, currValue.ToString());
                     }
                     getInfoPower("测试电表：[ " + cbox7ID.Text + " ]完成。");
                     this.btn2Power.Enabled = true;
