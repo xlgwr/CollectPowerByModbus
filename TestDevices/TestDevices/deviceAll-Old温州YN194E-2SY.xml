@@ -65,7 +65,7 @@
     </CmdInfo>
     <CmdInfo>
       <name>pf</name>
-      <address>005C</address>
+      <address>005B</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0.001</unitFactor>
       <daDuan>false</daDuan>

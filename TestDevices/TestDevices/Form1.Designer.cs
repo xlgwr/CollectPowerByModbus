@@ -314,7 +314,7 @@
             this.txt6timeOff.Name = "txt6timeOff";
             this.txt6timeOff.Size = new System.Drawing.Size(69, 21);
             this.txt6timeOff.TabIndex = 39;
-            this.txt6timeOff.Text = "100";
+            this.txt6timeOff.Text = "120";
             // 
             // btn2NewTest
             // 
