@@ -8,8 +8,22 @@
       <daDuan>false</daDuan>
     </CmdInfo>
     <CmdInfo>
+      <name>zljwggl</name>
+      <address>0061</address>
+      <csharpType>System.UInt32</csharpType>
+      <unitFactor>0.001</unitFactor>
+      <daDuan>false</daDuan>
+    </CmdInfo>
+    <CmdInfo>
       <name>zssyggl</name>
-      <address>0052</address>
+      <address>0067</address>
+      <csharpType>System.Int16</csharpType>
+      <unitFactor>0.001</unitFactor>
+      <daDuan>false</daDuan>
+    </CmdInfo>
+    <CmdInfo>
+      <name>zsswggl</name>
+      <address>0068</address>
       <csharpType>System.Int16</csharpType>
       <unitFactor>0.001</unitFactor>
       <daDuan>false</daDuan>
